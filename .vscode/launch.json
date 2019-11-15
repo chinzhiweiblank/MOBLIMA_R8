@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MainMenu",
+            "request": "launch",
+            "mainClass": "view.MainMenu",
+            "projectName": "MOBLIMA"
+        }
+    ]
+}

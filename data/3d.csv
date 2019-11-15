@@ -1,0 +1,12 @@
+﻿Regular,Weekday,Weekend,Holiday
+Child,11,13,14
+Adult,14,16,17
+Senior,12,14,15
+Platinum,Weekday,Weekend,Holiday
+Child,14,16,17
+Adult,17,19,20
+Senior,15,17,18
+Goldclass,Weekday,Weekend,Holiday
+Child,27,31,33
+Adult,33,37,39
+Senior,29,33,35
