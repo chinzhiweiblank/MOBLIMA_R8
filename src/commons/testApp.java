@@ -17,28 +17,28 @@ public class testApp {
 		// Serialize some cineplex data
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 		Cinema hall1 = new Cinema(10, 8, 1700, "001", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("GV tampines", "WALL-E", hall1, MovieType.Blockbuster);
+		cineplexStateManager.insertCineplexShowtime("GV tampines", "WALL-E", hall1, MovieType.Blockbuster,CinemaType.Regular);
 
 		Cinema hall2 = new Cinema(10, 8, 1500, "002", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("GV tampines", "WALL-E", hall2, MovieType.Blockbuster);
+		cineplexStateManager.insertCineplexShowtime("GV tampines", "WALL-E", hall2, MovieType.Blockbuster,CinemaType.Goldclass);
 
 		Cinema hall3 = new Cinema(10, 8, 1700, "001", CinemaType.Platinum, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall3, MovieType.IMAX);
+		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall3, MovieType.IMAX,CinemaType.Platinum);
 
 		Cinema hall4 = new Cinema(10, 8, 1500, "002", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall4, MovieType.ThreeD);
+		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall4, MovieType.ThreeD,CinemaType.Platinum);
 
 		Cinema hall5 = new Cinema(10, 8, 1900, "001", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall5, MovieType.Blockbuster);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall5, MovieType.Blockbuster,CinemaType.Platinum);
 
 		Cinema hall6 = new Cinema(10, 8, 2100, "002", CinemaType.Platinum, MovieRating.PG);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall6, MovieType.ThreeD);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall6, MovieType.ThreeD,CinemaType.Regular);
 
 		Cinema hall7 = new Cinema(10, 8, 2300, "001", CinemaType.Platinum, MovieRating.PG);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall7, MovieType.IMAX);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall7, MovieType.IMAX,CinemaType.Regular);
 
 		Cinema hall8 = new Cinema(10, 8, 0000, "002", CinemaType.Regular, MovieRating.PG);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall8, MovieType.IMAX);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall8, MovieType.IMAX,CinemaType.Regular);
 		cineplexStateManager.serialize();
 
 		// serialize some movielisting state data
@@ -94,13 +94,13 @@ public class testApp {
 		AccountStateManager accountStateManager = AccountStateManager.getInstance();
 
 		Booking newBooking1 = new Booking("WALL-E", "1", "GV tampines", 1, 3, 1234, "anthony@ntu.sg", "anthony",
-				"98209339", 12, MovieType.Blockbuster);
+				"98209339", 12, MovieType.Blockbuster,CinemaType.Platinum);
 		Booking newBooking2 = new Booking("Spiderman", "1", "Shaw bedok", 1, 3, 1234, "anthony@ntu.sg", "anthony",
-				"98209339", 15, MovieType.Blockbuster);
+				"98209339", 15, MovieType.Blockbuster,CinemaType.Platinum);
 		Booking newBooking3 = new Booking("WALL-E", "2", "GV tampines", 2, 4, 1330, "zhiwei@ntu.sg", "Zhiwei",
-				"99999999", 10, MovieType.Blockbuster);
+				"99999999", 10, MovieType.Blockbuster,CinemaType.Goldclass);
 		Booking newBooking4 = new Booking("Spiderman", "2", "Shaw bedok", 1, 3, 1234, "zhiwei@ntu.sg", "Zhiwei",
-				"99999999", 13, MovieType.Blockbuster);
+				"99999999", 13, MovieType.Blockbuster,CinemaType.Regular);
 		ArrayList<Booking> anthonyBooking = new ArrayList<Booking>();
 		anthonyBooking.add(newBooking1);
 		anthonyBooking.add(newBooking2);

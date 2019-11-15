@@ -72,7 +72,7 @@ public class Cinema implements java.io.Serializable {
 	}
 
 	public int checkAvailable(int row, int col) {
-		if((row < this.numberOfRows) && (col < this.numberOfCols)){
+		if((row > this.numberOfRows) || (col > this.numberOfCols) || (row < 1) || (col<1)){
 			System.out.println("Seat is not in the available range. Please try again.");
 			return 0;
 		}

@@ -61,12 +61,28 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		this.holiday.remove(holidayDate);
 	}
 
-	public int getTodayDateType() {
+//	public int getTodayDateType() {
+//		// return either weekday, weekend or holiday (1,2,3)
+//		Calendar calendar = Calendar.getInstance();
+//		DateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
+//		String dateToday = dateFormat.format(calendar.getTime());
+//		if (holiday.contains(dateToday)) {
+//			// holiday
+//			return 3;
+//		} else {
+//			if (getWeekend()) {
+//				// weekend
+//				return 2;
+//			} else {
+//				// weekday
+//				return 1;
+//			}
+//		}
+//	}
+
+	public int getTodayDateType(String date) {
 		// return either weekday, weekend or holiday (1,2,3)
-		Calendar calendar = Calendar.getInstance();
-		DateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
-		String dateToday = dateFormat.format(calendar.getTime());
-		if (holiday.contains(dateToday)) {
+		if (holiday.contains(date)) {
 			// holiday
 			return 3;
 		} else {
@@ -80,6 +96,7 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		}
 	}
 
+
 	public int getAgeType(int age) {
 		// return 1,2,3 for child,adult,senior
 		if (age < maxChildAge) {
@@ -89,6 +106,14 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		} else {
 			return 3;
 		}
+	}
+
+
+	public boolean verifyDate(String date){
+		if (date.matches("[0-9]+") && date.length() == 8) {
+			return true;
+		}
+		return false;
 	}
 
 	// getter setter

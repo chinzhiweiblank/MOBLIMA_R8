@@ -1,10 +1,13 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Scanner;
 
+import commons.Cinema;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
+import movie.ShowingStatus;
 
 public class MovieBookingMenu extends View {
 
@@ -24,16 +27,17 @@ public class MovieBookingMenu extends View {
 
 		String movieName = inputMovie(cineplexStateManager);
 		MovieType movieType = inputMovieType();
+		Cinema.CinemaType cinemaType = inputCinemaType();
 		if(movieType==null){
 			getPrevView(); return ;
 		}
-		if(cineplexStateManager.displayShowTime(movieName, movieType)){
+		if(cineplexStateManager.displayShowTime(movieName, movieType, cinemaType)){
 			int choice = 0;
 			while (choice != 2) {
 				choice = getInput(options());
 				switch (choice) {
 					case 1:
-						display(this, new SeatsMenu(movieName, movieType));
+						display(this, new SeatsMenu(movieName, movieType, cinemaType));
 						break;
 					case 2:
 						getPrevView();
@@ -62,17 +66,27 @@ public class MovieBookingMenu extends View {
 	}
 
 	private String inputMovie(CineplexStateManager cineplexStateManager) {
+		boolean Showing = true;
 		while (true) {
 			System.out.println("Please input a movie: ");
 			String movieInput = sc.nextLine();
-			ArrayList<String> movieNames = cineplexStateManager.listMoviesShowing();
+			Hashtable<ShowingStatus,ArrayList<String>> movieNames = cineplexStateManager.listMoviesShowing();
 
-			for (String movieName : movieNames) {
-				if (removeMovieType(movieName).equals(movieInput)) {
-					return movieInput;
+			for (ShowingStatus showingStatus: movieNames.keySet()){
+				ArrayList<String> movieNamesStringArr = movieNames.get(showingStatus);
+				for (String movieNamesCheck :movieNamesStringArr ){
+					if (removeMovieType(movieNamesCheck).equals(movieInput) && (showingStatus == ShowingStatus.Now_showing || showingStatus == ShowingStatus.Preview)) {
+						return movieInput;
+					} else if (showingStatus != ShowingStatus.Now_showing && showingStatus != ShowingStatus.Preview){
+						Showing = false;
+					}
 				}
 			}
-			System.out.println("Movie does not exist!");
+			if (!Showing){
+				System.out.println("Movie is not showing!");
+			} else {
+				System.out.println("Movie does not exist!");
+			}
 		}
 	}
 
@@ -88,5 +102,12 @@ public class MovieBookingMenu extends View {
 				return null;
 			}
 		}
+	}
+
+
+	private Cinema.CinemaType inputCinemaType(){
+		System.out.println("Enter cinema type: ");
+		String cinemaType = sc.nextLine();
+		return Cinema.CinemaType.valueOf(cinemaType);
 	}
 }

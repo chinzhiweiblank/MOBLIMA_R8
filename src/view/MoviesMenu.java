@@ -1,11 +1,13 @@
 package view;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 import commons.CineplexStateManager;
 import movie.Movie;
 import movie.MovieListingStateManager;
+import movie.ShowingStatus;
 
 public class MoviesMenu extends View {
 	private CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
@@ -24,7 +26,7 @@ public class MoviesMenu extends View {
 	protected void runMenu() {
 		// get the state manager for cineplex and movies
 
-		ArrayList<String> movieList = cineplexStateManager.listMoviesShowing();
+		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
 		printMovieList(movieList);
 
 		loop: while (true) {
@@ -66,14 +68,19 @@ public class MoviesMenu extends View {
 		}
 	}
 
-	private void printMovieList(ArrayList<String> movieList) {
+	private void printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
 		System.out.println("Movies currently showing:");
-		if (movieList.size() == 0) {
+		System.out.println("");
+		if (movieHash.isEmpty()){
 			System.out.println("None");
+			return;
 		}
-		for (int i = 0; i < movieList.size(); i++) {
-			System.out.printf("%d)\t%s\n", i, movieList.get(i));
-		}
+		movieHash.forEach(((showingStatus, strings) -> {
+			System.out.println("Movies with showing status:" + showingStatus);
+			for (int i = 0; i < strings.size(); i++) {
+				System.out.printf("%d)\t%s\n", i, strings.get(i));
+			}
+			System.out.println("");
+		}));
 	}
-
 }
