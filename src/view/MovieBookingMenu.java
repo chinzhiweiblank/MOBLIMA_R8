@@ -27,23 +27,27 @@ public class MovieBookingMenu extends View {
 		if(movieType==null){
 			getPrevView(); return ;
 		}
-		cineplexStateManager.displayShowTime(movieName, movieType);
-		int choice = 0;
-		while (choice != 2) {
-			choice = getInput(options());
-			switch (choice) {
-			case 1:
-				display(this, new SeatsMenu(movieName, movieType));
-				break;
-			case 2:
-				getPrevView();
-				break;
-			case -1:
-				break;
-			default:
-				System.out.println("Unknown error occurred");
+		if(cineplexStateManager.displayShowTime(movieName, movieType)){
+			int choice = 0;
+			while (choice != 2) {
+				choice = getInput(options());
+				switch (choice) {
+					case 1:
+						display(this, new SeatsMenu(movieName, movieType));
+						break;
+					case 2:
+						getPrevView();
+						break;
+					case -1:
+						break;
+					default:
+						System.out.println("Unknown error occurred");
+				}
 			}
+		} else {
+			getPrevView();
 		}
+
 
 	}
 
@@ -74,7 +78,7 @@ public class MovieBookingMenu extends View {
 
 	private MovieType inputMovieType() {
 		while (true) {
-			System.out.println("Enter movie type: ");
+			System.out.println("Enter movie type(IMAX, ThreeD, Blockbuster): ");
 			String movieTypeString = sc.nextLine();
 			try {
 				MovieType movieType = MovieType.valueOf(movieTypeString);

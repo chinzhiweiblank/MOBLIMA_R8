@@ -12,7 +12,7 @@ public class AdminMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("----------------------=------");
 		System.out.println("1) CRUD movie listing");
 		System.out.println("2) CRUD cinema showtimes and movies showing");
 		System.out.println("3) Configure system settings");

@@ -58,13 +58,14 @@ public class CineplexStateManager implements java.io.Serializable {
 		return cineplexNames;
 	}
 
-	public void displayShowTime(String movieName, MovieType movieType) {
+	public boolean displayShowTime(String movieName, MovieType movieType) {
 		Set<String> cineplexNames = this.cineplexStateMulti.keySet();
 
 		System.out.printf("Movie Selected: %s\n", movieName);
 
 		System.out.println("Location | cinema showtime");
 		System.out.println("--------------------------");
+		boolean haveShowTime = false;
 
 		for (String cineplexName : cineplexNames) {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexName);
@@ -73,11 +74,16 @@ public class CineplexStateManager implements java.io.Serializable {
 				continue;
 			}
 			System.out.printf("%s:", cineplexName);
+			haveShowTime = true;
 			for (Cinema cinema : showtimeArr) {
 				System.out.printf("%d    ", cinema.getshowTime());
 			}
 			System.out.println("");
 		}
+		if (!haveShowTime){
+			System.out.println("No showtimes available for this movie type!");
+		}
+		return haveShowTime;
 	}
 
 	public void printSeatAvailability(String cineplexLocation, String movieName, MovieType movieType,

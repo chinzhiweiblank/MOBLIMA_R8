@@ -86,7 +86,7 @@ public class Cinema implements java.io.Serializable {
 	}
 
 	public void printSeating() {
-		System.out.println('='*(this.cinemaSeating.length/2-4)+"Screen"+'='*(this.cinemaSeating.length/2-4));
+		System.out.println("====Screen====");
 		for (int i = 0; i < this.cinemaSeating.length; i++) {
 			for (int j = 0; j < this.cinemaSeating[i].length; j++) {
 				if (j == this.cinemaSeating[i].length / 2) {
