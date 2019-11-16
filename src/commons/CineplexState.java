@@ -23,7 +23,7 @@ public class CineplexState implements java.io.Serializable {
 
 	// helper function to find the cinema from cinema hashtable
 	private Cinema findCinema(Booking booking) {
-		String movieNameAndType = booking.getMovie() + "_" + booking.getMovieType();
+		String movieNameAndType = booking.getMovie() + "_" + booking.getMovieType() + "_" + booking.getCinemaType() ;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 		for (Cinema cinema : cinemaList) {
 			if (booking.getCinemaId().equals(cinema.getUniqueId())) {
@@ -34,16 +34,15 @@ public class CineplexState implements java.io.Serializable {
 		return null;
 	}
 
-	public ArrayList<Cinema> findCinema(String movieName, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public ArrayList<Cinema> findCinema(String movieName, MovieType movieType,CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType.toString();
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 		return cinemaList;
-
 	}
 
 	// functions used to assist in booking
-	public ArrayList<Cinema> findCinemaUsingTime(String movieName, Integer showTime, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public ArrayList<Cinema> findCinemaUsingTime(String movieName, Integer showTime, MovieType movieType,CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" +cinemaType;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 		ArrayList<Cinema> cinemaListReturn = new ArrayList<Cinema>();
 		for (Cinema cinemaIter : cinemaList) {
@@ -58,11 +57,11 @@ public class CineplexState implements java.io.Serializable {
 		return cinemaListReturn;
 	}
 
-	public Cinema findCinemaUsingId(String movieName, String cinemaId, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public Cinema findCinemaUsingId(String movieName, String cinemaId, MovieType movieType,CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 		for (Cinema cinemaIter : cinemaList) {
-			if (cinemaIter.getUniqueId().equals(cinemaId)) {
+			if (cinemaIter.getUniqueId().equals(cinemaId) && cinemaIter.getCinemaType() == cinemaType) {
 				return cinemaIter;
 			}
 		}
@@ -92,16 +91,16 @@ public class CineplexState implements java.io.Serializable {
 		cinema.printSeating();
 	}
 
-	public void printSeatAvailability(String movieName, Integer showTime, MovieType movieType) {
-		ArrayList<Cinema> cinema = findCinemaUsingTime(movieName, showTime, movieType);
+	public void printSeatAvailability(String movieName, Integer showTime, MovieType movieType,CinemaType cinemaType) {
+		ArrayList<Cinema> cinema = findCinemaUsingTime(movieName, showTime, movieType,cinemaType);
 		for (Cinema cinemaIter : cinema) {
 			System.out.printf("Cinema | %s\n", cinemaIter.getUniqueId());
 			cinemaIter.printSeating();
 		}
 	}
 
-	public void printSeatAvailability(String movieName, Integer showTime, String CinemaId, MovieType movieType) {
-		ArrayList<Cinema> cinema = findCinemaUsingTime(movieName, showTime, movieType);
+	public void printSeatAvailability(String movieName, Integer showTime, String CinemaId, MovieType movieType,CinemaType cinemaType) {
+		ArrayList<Cinema> cinema = findCinemaUsingTime(movieName, showTime, movieType,cinemaType);
 		for (Cinema cinemaIter : cinema) {
 			if (cinemaIter.getUniqueId() == CinemaId) {
 				System.out.printf("Cinema | %s\n", cinemaIter.getUniqueId());
@@ -110,8 +109,8 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
-	public ArrayList<Cinema> findShowTime(String movieName, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public ArrayList<Cinema> findShowTime(String movieName, MovieType movieType, CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType;
 		if (this.cineplexState.containsKey(movieNameAndType)) {
 			ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 			return cinemaList;
@@ -120,27 +119,61 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
-	public ArrayList<String> listMoviesShowing() {
+//	public ArrayList<String> listMoviesShowing() {
+//		this.movieListingManager = MovieListingStateManager.getInstance();
+//		ArrayList<String> movieList = new ArrayList<String>();
+//		Set<String> movieNames = this.cineplexState.keySet();
+//		for (String movieName : movieNames) {
+//			String movieNameOnly = removeMovieType(movieName);
+//			Movie movie = this.movieListingManager.readListing(movieNameOnly);
+//			if(movie==null){continue;}
+//			ShowingStatus movieStatus = movie.getShowingStatus();
+//			// only list movie if showing status is now showing or preview
+//			if (!movieList.contains(movieName)
+//					&& (movieStatus == ShowingStatus.Now_showing || movieStatus == ShowingStatus.Preview)) {
+//				movieList.add(movieName);
+//			}
+//		}
+//		return movieList;
+//	}
+
+	public Hashtable<ShowingStatus,ArrayList<String>> listMoviesShowing() {
 		this.movieListingManager = MovieListingStateManager.getInstance();
-		ArrayList<String> movieList = new ArrayList<String>();
+		Hashtable<ShowingStatus,ArrayList<String>> movieHash = new Hashtable<ShowingStatus,ArrayList<String>>();
 		Set<String> movieNames = this.cineplexState.keySet();
+
+		// loop through all movieNames
 		for (String movieName : movieNames) {
 			String movieNameOnly = removeMovieType(movieName);
 			Movie movie = this.movieListingManager.readListing(movieNameOnly);
-			if(movie==null){continue;}
+			if (movie == null) {
+				continue;
+			}
 			ShowingStatus movieStatus = movie.getShowingStatus();
-			// only list movie if showing status is now showing or preview
-			if (!movieList.contains(movieName)
-					&& (movieStatus == ShowingStatus.Now_showing || movieStatus == ShowingStatus.Preview)) {
-				movieList.add(movieName);
+
+			//check if key in hashtable
+			if (!movieHash.containsKey(movieStatus)) {
+				ArrayList<String> movieStringArr = new ArrayList<String>();
+				movieStringArr.add(movieName);
+				movieHash.put(movieStatus, movieStringArr);
+			} else {
+				ArrayList<String> movieStringArr = movieHash.get(movieStatus);
+				// if the movie name is not in the array
+				if (!movieStringArr.contains(movieName)) {
+					movieStringArr.add(movieName);
+					movieHash.put(movieStatus, movieStringArr);
+				}
 			}
 		}
-		return movieList;
+		return movieHash;
 	}
 
+
+
+
 	// CRUD operations for cinema showtimes
-	public void insertCinemaShowtime(String movieName, Cinema cinema, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public void insertCinemaShowtime(String movieName, Cinema cinema, MovieType movieType, CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString()+ "_" + cinemaType.toString();
 		if (this.cineplexState.containsKey(movieNameAndType)) {
 			ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 			for (Cinema cinemaIter : cinemaList) {
@@ -157,8 +190,8 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
-	public void updateCinemaShowtime(String movieName, String cinemaId, String key, String value, MovieType movieType) {
-		Cinema cinemaEdit = findCinemaUsingId(movieName, cinemaId, movieType);
+	public void updateCinemaShowtime(String movieName, String cinemaId, String key, String value, MovieType movieType, CinemaType cinemaType) {
+		Cinema cinemaEdit = findCinemaUsingId(movieName, cinemaId, movieType,cinemaType);
 		if (cinemaEdit == null) {
 			System.out.println("Cinema cannot be found, skipping...");
 		}
@@ -175,15 +208,15 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
-	public void deleteCinemaShowtime(String movieName, String cinemaId, MovieType movieType) {
-		String movieNameAndType = movieName + "_" + movieType.toString();
+	public void deleteCinemaShowtime(String movieName, String cinemaId, MovieType movieType, CinemaType cinemaType) {
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType.toString();
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
-		Cinema cinemaRemove = findCinemaUsingId(movieName, cinemaId, movieType);
+		Cinema cinemaRemove = findCinemaUsingId(movieName, cinemaId, movieType,cinemaType);
 		if (cinemaRemove == null) {
 			System.out.println("Cinema cannot be found, skipping...");
 			return;
 		}
-		cinemaList.remove(findCinemaUsingId(movieName, cinemaId, movieType));
+		cinemaList.remove(findCinemaUsingId(movieName, cinemaId, movieType,cinemaType));
 	}
 
 	// other helper functions

@@ -20,9 +20,10 @@ public class Booking implements java.io.Serializable {
 	private String email;
 	private String name;
 	private MovieType movieType;
+	private Cinema.CinemaType cinemaType;
 
 	public Booking(String Movie, String CinemaId, String Cineplex, int Row, int Col, int showTime, String email,
-			String name, String mobileNumber, double price, MovieType movieType) {
+				   String name, String mobileNumber, double price, MovieType movieType, Cinema.CinemaType cinemaType) {
 		this.Movie = Movie;
 		this.Row = Row;
 		this.Col = Col;
@@ -35,6 +36,7 @@ public class Booking implements java.io.Serializable {
 		this.mobileNumber = mobileNumber;
 		this.price = price;
 		this.movieType = movieType;
+		this.cinemaType = cinemaType;
 		this.initTID();
 	}
 
@@ -87,6 +89,8 @@ public class Booking implements java.io.Serializable {
 		return this.movieType;
 	}
 
+	public Cinema.CinemaType getCinemaType(){return this.cinemaType;}
+
 	// setter methods
 	public void setMovie(String movie) {
 		this.Movie = movie;
@@ -114,13 +118,15 @@ public class Booking implements java.io.Serializable {
 	// other useful functions
 	public void dumpInfo() {
 		System.out.println("--------------------Booking Info--------------------");
-		System.out.println("Name:" + this.getName());
-		System.out.println("Email:" + this.getEmail());
-		System.out.println("Movie:" + this.getMovie());
-		System.out.println("Cineplex:" + this.getCineplex());
-		System.out.println("showTime:" + this.getShowTime());
-		System.out.printf("Booking seat:%d row %d col\n", this.getRow(), this.getCol());
-		System.out.printf("Booking price:%f\n", this.getPrice());
+		System.out.println("Name: " + this.getName());
+		System.out.println("Email: " + this.getEmail());
+		System.out.println("Movie: " + this.getMovie());
+		System.out.println("Cineplex: " + this.getCineplex());
+		System.out.println("Showtime: " + this.getShowTime());
+		System.out.printf("Booking seat: row %d col %d\n", this.getRow(), this.getCol());
+		System.out.printf("Movie Type: %s\n", this.getMovieType().toString());
+		System.out.printf("Cinema Type: %s\n", this.getCinemaType().toString());
+		System.out.printf("Booking price: %f\n", this.getPrice());
 	}
 
 }

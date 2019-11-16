@@ -241,7 +241,17 @@ public class MovieListingStateManager implements java.io.Serializable {
 		return sortedMovie;
 	}
 
-	public void serialize() {
+	public ArrayList<String> listMovies() {
+		ArrayList<String> moviesList = new ArrayList<String>();
+		Set<String> keys = this.movieListingDict.keySet();
+		for (String movieName : keys) {
+			moviesList.add(movieName);
+		}
+		return moviesList;
+	}
+
+
+		public void serialize() {
 
 		try {
 			String filename = "data/MovieListingState.ser";

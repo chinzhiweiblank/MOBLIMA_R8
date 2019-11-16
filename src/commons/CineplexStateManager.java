@@ -10,6 +10,7 @@ import java.util.Hashtable;
 import java.util.Set;
 
 import movie.Movie.MovieType;
+import movie.ShowingStatus;
 
 public class CineplexStateManager implements java.io.Serializable {
 
@@ -34,20 +35,46 @@ public class CineplexStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
+//	// functions used for booking
+//	public ArrayList<String> listMoviesShowing() {
+//		ArrayList<String> movieList = new ArrayList<String>();
+//		// loop through every cineplex and aggregrate the results
+//		this.cineplexStateMulti.forEach((k, v) -> {
+//			ArrayList<String> tempList = v.listMoviesShowing();
+//			for (String movieName : tempList) {
+//				if (!movieList.contains(movieName)) {
+//					movieList.add(movieName);
+//				}
+//			}
+//		});
+//		return movieList;
+//	}
+
 	// functions used for booking
-	public ArrayList<String> listMoviesShowing() {
-		ArrayList<String> movieList = new ArrayList<String>();
+	public Hashtable<ShowingStatus,ArrayList<String>> listMoviesShowing() {
+		Hashtable<ShowingStatus,ArrayList<String>> movieHash = new Hashtable<ShowingStatus,ArrayList<String>>();
 		// loop through every cineplex and aggregrate the results
-		this.cineplexStateMulti.forEach((k, v) -> {
-			ArrayList<String> tempList = v.listMoviesShowing();
-			for (String movieName : tempList) {
-				if (!movieList.contains(movieName)) {
-					movieList.add(movieName);
+		this.cineplexStateMulti.forEach((cineplexName, cineplexState) -> {
+			Hashtable<ShowingStatus,ArrayList<String>> tempHash = cineplexState.listMoviesShowing();
+			tempHash.forEach((showingStatus,tempHashStringArr)->{
+				for (String movieName : tempHashStringArr){
+					// if there is no showing status we create an empty string list
+					if (!movieHash.containsKey(showingStatus)){
+						ArrayList<String> movieHashStringArr = new ArrayList<String>();
+						movieHashStringArr.add(movieName);
+						movieHash.put(showingStatus,movieHashStringArr);
+					}  else {
+						ArrayList<String> movieHashStringArr = movieHash.get(showingStatus);
+						movieHashStringArr.add(movieName);
+						movieHash.put(showingStatus,movieHashStringArr);
+					}
 				}
-			}
+			});
 		});
-		return movieList;
+		return movieHash;
 	}
+
+
 
 	public ArrayList<String> listCineplex() {
 		ArrayList<String> cineplexNames = new ArrayList<String>();
@@ -58,47 +85,53 @@ public class CineplexStateManager implements java.io.Serializable {
 		return cineplexNames;
 	}
 
-	public void displayShowTime(String movieName, MovieType movieType) {
+	public boolean displayShowTime(String movieName, MovieType movieType, Cinema.CinemaType cinemaType) {
 		Set<String> cineplexNames = this.cineplexStateMulti.keySet();
 
 		System.out.printf("Movie Selected: %s\n", movieName);
 
 		System.out.println("Location | cinema showtime");
 		System.out.println("--------------------------");
+		boolean haveShowTime = false;
 
 		for (String cineplexName : cineplexNames) {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexName);
-			ArrayList<Cinema> showtimeArr = cineplexState.findShowTime(movieName, movieType);
+			ArrayList<Cinema> showtimeArr = cineplexState.findShowTime(movieName, movieType,cinemaType);
 			if (showtimeArr == null) {
 				continue;
 			}
 			System.out.printf("%s:", cineplexName);
+			haveShowTime = true;
 			for (Cinema cinema : showtimeArr) {
-				System.out.printf("%d    ", cinema.getshowTime());
+				System.out.printf("%d, %s", cinema.getshowTime(),cinema.getCinemaType().toString());
 			}
 			System.out.println("");
 		}
+		if (!haveShowTime){
+			System.out.println("No showtimes available for this movie type!");
+		}
+		return haveShowTime;
 	}
 
 	public void printSeatAvailability(String cineplexLocation, String movieName, MovieType movieType,
-			Integer showTime) {
+									  Integer showTime, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
 			System.out.println("There isnt such a cineplex");
 			return;
 		} else {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
-			cineplexState.printSeatAvailability(movieName, showTime, movieType);
+			cineplexState.printSeatAvailability(movieName, showTime, movieType, cinemaType);
 		}
 	}
 
 	public void printSeatAvailability(String cineplexLocation, String movieName, Integer showTime, String cinemaId,
-			MovieType movieType) {
+									  MovieType movieType, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
 			System.out.println("There isnt such a cineplex");
 			return;
 		} else {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
-			cineplexState.printSeatAvailability(movieName, showTime, cinemaId, movieType);
+			cineplexState.printSeatAvailability(movieName, showTime, cinemaId, movieType, cinemaType);
 		}
 	}
 
@@ -115,34 +148,38 @@ public class CineplexStateManager implements java.io.Serializable {
 	}
 
 	// CRUD operations given cineplexlocation, cinemaobject and moviename
-	public void insertCineplexShowtime(String cineplexLocation, String movieName, Cinema cinema, MovieType movieType) {
+	// EDIT to include Cinematype
+	public void insertCineplexShowtime(String cineplexLocation, String movieName, Cinema cinema,
+									   MovieType movieType, Cinema.CinemaType cinemaType) {
 		// create the key if not present
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
 			CineplexState cineplexState = new CineplexState();
 			this.cineplexStateMulti.put(cineplexLocation, cineplexState);
 		}
 		CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
-		cineplexState.insertCinemaShowtime(movieName, cinema, movieType);
+		cineplexState.insertCinemaShowtime(movieName, cinema, movieType,cinemaType);
 	}
 
+	// EDIT to include Cinematype
 	public void updateCineplexShowtime(String cineplexLocation, String movieName, String cinemaId, String key,
-			String value, MovieType movieType) {
+									   String value, MovieType movieType, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
 			System.out.println("There isnt such a cineplex");
 			return;
 		}
 		CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
-		cineplexState.updateCinemaShowtime(movieName, cinemaId, key, value, movieType);
+		cineplexState.updateCinemaShowtime(movieName, cinemaId, key, value, movieType,cinemaType);
 	}
 
+	// EDIT to include Cinematype
 	public void deleteCineplexShowtime(String cineplexLocation, String movieName, String cinemaId,
-			MovieType movieType) {
+									   MovieType movieType, Cinema.CinemaType cinemaType ) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
 			System.out.println("There isnt such a cineplex");
 			return;
 		}
 		CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
-		cineplexState.deleteCinemaShowtime(movieName, cinemaId, movieType);
+		cineplexState.deleteCinemaShowtime(movieName, cinemaId, movieType,cinemaType);
 	}
 
 	public void serialize() {
