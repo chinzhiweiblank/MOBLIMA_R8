@@ -43,7 +43,7 @@ public class SeatsMenu extends View {
 	protected int options() {
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Book!");
-		System.out.println("2) previous menu");
+		System.out.println("2) Previous menu");
 		return 2;
 	}
 
@@ -72,7 +72,7 @@ public class SeatsMenu extends View {
 				getPrevView();
 				break;
 			default:
-				System.out.println("Unknown error occurred");
+				System.out.println("Please input a valid integer choice");
 			}
 		}
 

@@ -20,7 +20,7 @@ public class AdminMovieListing extends View {
 		System.out.println("1) Create movie listing");
 		System.out.println("2) Update movie Listing");
 		System.out.println("3) Delete movie Listing");
-		System.out.println("4) previous menu");
+		System.out.println("4) Previous menu");
 		return 4;
 	}
 
@@ -45,7 +45,7 @@ public class AdminMovieListing extends View {
 				getPrevView();
 				break loop;
 			default:
-				System.out.println("Unknown error occurred");
+				System.out.println("Please input a valid integer choice");
 			}
 		}
 	}

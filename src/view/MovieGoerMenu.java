@@ -52,7 +52,7 @@ public class MovieGoerMenu extends View {
 				getPrevView();
 				break;
 			default:
-				System.out.println("Unknown error occurred");
+				System.out.println("Please input a valid integer choice");
 			}
 		}
 	}

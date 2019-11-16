@@ -1,5 +1,7 @@
 package view;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import commons.ConfigurationStateManager;
@@ -11,8 +13,9 @@ public class AdminSystemSettings extends View {
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Add holiday date");
 		System.out.println("2) Remove holiday date");
-		System.out.println("3) previous menu");
-		return 3;
+		System.out.println("3) View holiday date");
+		System.out.println("4) Previous menu");
+		return 4;
 	}
 
 	@Override
@@ -22,17 +25,24 @@ public class AdminSystemSettings extends View {
 		switch (choice) {
 		case 1:
 			addHolidayDates(configurationStateManager);
-			System.out.println("holiday date added");
+			System.out.println("Holiday date added");
 			break;
 		case 2:
-			removeHolidayDates(configurationStateManager);
-			System.out.println("holiday date removed");
+			int success = removeHolidayDates(configurationStateManager);
+			if (success == 1){
+				System.out.println("Holiday date removed");
+			} else {
+				System.out.println("Holiday date not in stored dates");
+			}
 			break;
 		case 3:
+			viewHolidaDates(configurationStateManager);
+			break;
+		case 4:
 			getPrevView();
 			break;
 		default:
-			System.out.println("Unknown error occured");
+			System.out.println("Please input a valid integer choice");
 		}
 
 	}
@@ -52,7 +62,7 @@ public class AdminSystemSettings extends View {
 		configurationStateManager.insertHoliday(holidayDate);
 	}
 
-	private void removeHolidayDates(ConfigurationStateManager configurationStateManager) {
+	private int removeHolidayDates(ConfigurationStateManager configurationStateManager) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Holiday Year: ");
 		String year = sc.nextLine();
@@ -64,6 +74,21 @@ public class AdminSystemSettings extends View {
 		String day = sc.nextLine();
 
 		String holidayDate = configurationStateManager.formatDate(year, month, day);
-		configurationStateManager.removeHoliday(holidayDate);
+		int result = configurationStateManager.removeHoliday(holidayDate);
+		return result;
+	}
+
+
+	private void viewHolidaDates(ConfigurationStateManager configurationStateManager){
+		ArrayList<String> holidayDates = configurationStateManager.getHolidayDate();
+		System.out.println("Holiday dates: ");
+
+		if (holidayDates.size() == 0){
+			System.out.println("No holiday dates inputted");
+			return;
+		}
+		for (String holidayDate : holidayDates){
+			System.out.println(holidayDate);
+		}
 	}
 }

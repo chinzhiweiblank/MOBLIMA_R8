@@ -44,7 +44,7 @@ public class MainMenu extends View {
 				case 4:
 					System.out.println("Please Try Again");
 				default:
-					System.out.println("Unknown error occurred");
+					System.out.println("Please input a valid integer choice");
 			}
 		}
 		//System.out.println("Exiting program");

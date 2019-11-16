@@ -57,8 +57,12 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		this.holiday.add(holidayDate);
 	}
 
-	public void removeHoliday(String holidayDate) {
-		this.holiday.remove(holidayDate);
+	public int removeHoliday(String holidayDate) {
+		if (this.holiday.contains(holidayDate)){
+			this.holiday.remove(holidayDate);
+			return 1;
+		}
+		return 0;
 	}
 
 //	public int getTodayDateType() {
@@ -131,6 +135,11 @@ public class ConfigurationStateManager implements java.io.Serializable {
 
 	public void setMaxAdultAge(int age) {
 		this.maxAdultAge = age;
+	}
+
+
+	public ArrayList<String> getHolidayDate(){
+		return this.holiday;
 	}
 
 	// serializing and loading
