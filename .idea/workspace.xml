@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81b31c77-c568-4ad4-9ee5-fd9b46ab005a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/AccountStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AccountStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/AccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AccountType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AdminUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/BookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/BookingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Cineplex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Cineplex.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/CineplexState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/CineplexState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commons/MovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/MovieGoer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -77,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573904813496</updated>
-      <workItem from="1573904815025" duration="5806000" />
+      <workItem from="1573904815025" duration="6285000" />
     </task>
     <servers />
   </component>
