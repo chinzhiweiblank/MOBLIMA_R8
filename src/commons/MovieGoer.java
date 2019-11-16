@@ -4,15 +4,46 @@ import java.util.ArrayList;
 
 import movie.Review;
 
+/**
+ * Model class representing a moviegover
+ */
 public class MovieGoer extends Person {
+	/**
+	 * List of bookings made by the moviegoer
+	 */
 	private ArrayList<Booking> Bookings;
+	/**
+	 * List of reviews made by the moviegoer
+	 */
 	private ArrayList<Review> reviews;
+	/**
+	 * Mobile number of the moviegoer
+	 */
 	private String mobile;
+	/**
+	 * Email Address of the moviegoer
+	 */
 	private String email;
+	/**
+	 * Password of the moviegoer
+	 */
 	private String password;
+	/**
+	 * Age of the moviegoer
+	 */
 	private int age;
 
-	// constructors
+	/**
+	 * Constructor for the MovieGoer class
+	 * @param firstName
+	 * @param lastName
+	 * @param Bookings
+	 * @param mobile
+	 * @param email
+	 * @param password
+	 * @param reviews
+	 * @param age
+	 */
 	public MovieGoer(String firstName, String lastName, ArrayList<Booking> Bookings, String mobile, String email,
 			String password, ArrayList<Review> reviews, int age) {
 		super(firstName, lastName);

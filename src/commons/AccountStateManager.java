@@ -6,19 +6,37 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Hashtable;
-
+/**
+ * Represents the Controller Class for Managing the Accounts for Admin and Movie Goers
+ */
 public class AccountStateManager implements java.io.Serializable {
+	/**
+	 * To make this class a Singleton
+	 */
 	private static AccountStateManager singleton_instance = null;
-
+	/**
+	 * A set of usernames and the Moviegoer instances
+	 */
 	private Hashtable<String, MovieGoer> movieGoerStateManager; // key is username,
+	/**
+	 * A set of usernames and the Administrator instances
+	 */
 	private Hashtable<String, AdminUser> adminUserStateManager; // key is username,
 
 	// singleton initialisation
+
+	/**
+	 * Initialization of Singleton
+	 */
 	private AccountStateManager() {
 		this.movieGoerStateManager = new Hashtable<String, MovieGoer>();
 		this.adminUserStateManager = new Hashtable<String, AdminUser>();
 	}
 
+	/**
+	 * Only allows one thread to create the singleton
+	 * @return an instance of the AccountStateManager
+	 */
 	public static AccountStateManager getInstance() {
 		if (singleton_instance == null) {
 
@@ -31,7 +49,12 @@ public class AccountStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
-	// CRUD operations
+	/**
+	 * Returns the account details based on the username
+	 * @param userName name of user
+	 * @param accountType type of account (admin/moviegoer)
+	 * @return Person, the user of the account
+	 */
 	public Person readAccount(String userName, AccountType accountType) {
 		if (accountType == AccountType.ADMIN) {
 			return this.adminUserStateManager.get(userName);
@@ -43,14 +66,25 @@ public class AccountStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Creates account for a moviegoer
+	 * @param movieGoer person going to the movies
+	 */
 	public void createAccount(MovieGoer movieGoer) {
 		this.movieGoerStateManager.put(movieGoer.getEmail(), movieGoer);
 	}
 
+	/**
+	 * Creates account for an administrator
+	 * @param adminUser administrator
+	 */
 	public void createAccount(AdminUser adminUser) {
 		this.adminUserStateManager.put(adminUser.getUsername(), adminUser);
 	}
 
+	/**
+	 * Converts the state of an object into a byte stream of data
+	 */
 	public void serialize() {
 
 		try {
@@ -72,6 +106,9 @@ public class AccountStateManager implements java.io.Serializable {
 		}
 	};
 
+	/**
+	 * Converts a byte stream of data into an object for storage
+	 */
 	public void deserialize() {
 		// Deserialization
 		try {
@@ -98,6 +135,13 @@ public class AccountStateManager implements java.io.Serializable {
 
 	};
 
+	/**
+	 * Verifies whether the set of username and password exist in the database
+	 * @param Username name of user
+	 * @param password password of user
+	 * @param accountType type of account (admin/moviegoer)
+	 * @return True if the username and password matches the accounts in the database and false otherwise
+	 */
 	public boolean verifyAccount(String Username, String password, AccountType accountType) {
 
 		if (accountType == AccountType.ADMIN) {

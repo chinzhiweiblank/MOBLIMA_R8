@@ -1,23 +1,62 @@
 package commons;
 
+/**
+ * Model Class representing a cinema
+ */
 public class Cinema implements java.io.Serializable {
 
+	/**
+	 * Number of rows of seats in the cinema
+	 */
 	private int numberOfRows;
+	/**
+	 * Number of columns of seats in the cinema
+	 */
 	private int numberOfCols;
+	/**
+	 * Time of the movie shown
+	 */
 	private int showTime;
+	/**
+	 * ID of the cinema
+	 */
 	private String uniqueId;
+	/**
+	 * The array of the seats in the cinema
+	 */
 	private int[][] cinemaSeating;
+	/**
+	 * The type of the cinema
+	 */
 	private CinemaType cinemaType;
+	/**
+	 * Rating of the movie shown at the cinema
+	 */
 	private MovieRating movieRating;
 
+	/**
+	 * The types of cinemas available
+	 */
 	public enum CinemaType {
 		Regular, Platinum, Goldclass
 	}
 
+	/**
+	 * The type of ratings available
+	 */
 	public enum MovieRating {
 		PG, NC, Mature, Rated
 	}
 
+	/**
+	 * Constructor for the Cinema Class
+	 * @param numberOfRows number of rows of seats
+	 * @param numberOfCols number of columns of seats
+	 * @param showTime the time of the movie shown
+	 * @param uniqueId the id of the cinema
+	 * @param cinemaType the type of the cinema
+	 * @param movieRating the rating of the movie shown at the cinema
+	 */
 	public Cinema(int numberOfRows, int numberOfCols, int showTime, String uniqueId, CinemaType cinemaType,
 			MovieRating movieRating) {
 		this.numberOfRows = numberOfRows;
@@ -29,48 +68,92 @@ public class Cinema implements java.io.Serializable {
 		this.movieRating = movieRating;
 	}
 
-	// getter methods
+	/**
+	 * Obtains the time of the movie shown at the cinema
+	 * @return the time of the movie shown at the cinema
+	 */
 	public int getshowTime() {
 		return this.showTime;
 	}
 
+	/**
+	 * Obtains the number of rows of the seats in the cinema
+	 * @return the number of rows of the seats in the cinema
+	 */
 	public int getRow() {
 		return this.numberOfRows;
 	}
 
+	/**
+	 * Obtains the number of columns of the seats in the cinema
+	 * @return the number of columns of the seats in the cinema
+	 */
 	public int getCol() {
 		return this.numberOfCols;
 	}
 
+	/**
+	 * Obtains the id of the cinema
+	 * @return the id of the cinema
+	 */
 	public String getUniqueId() {
 		return this.uniqueId;
 	}
 
+	/**
+	 * Obtains the rating of the movie shown at the cinema
+	 * @return the rating of the movie shown at the cinema
+	 */
 	public MovieRating getMovieRating() {
 		return this.movieRating;
 	}
 
+	/**
+	 * Obtains the type of the cinema
+	 * @return the type of the cinema
+	 */
 	public CinemaType getCinemaType() {
 		return this.cinemaType;
 	}
 
-	// setter methods
+	/**
+	 * Sets the time of the movie at the cinema
+	 * @param showTime the time of the movie at the cinema
+	 */
 	public void setshowTime(int showTime) {
 		this.showTime = showTime;
 	}
 
+	/**
+	 * Sets the ID of the cinema
+	 * @param ID the ID of the cinema
+	 */
 	public void setUniqueId(String ID) {
 		this.uniqueId = ID;
 	}
 
+	/**
+	 * Sets the rating of the movie shown at the cinema
+	 * @param movieRating the rating of the movie shown at the cinema
+	 */
 	public void setMovieRating(MovieRating movieRating) {
 		this.movieRating = movieRating;
 	}
 
+	/**
+	 * Sets the type of the cinema
+	 * @param cinemaType the type of the cinema
+	 */
 	public void setCinemaType(CinemaType cinemaType) {
 		this.cinemaType = cinemaType;
 	}
 
+	/**
+	 * Checks whether a seat in a specified row and column is available in the cinema
+	 * @param row row of the desired seat
+	 * @param col column of the desired seat
+	 * @return 1 if the seat is available and 0 otherwise or if the seat is out of range
+	 */
 	public int checkAvailable(int row, int col) {
 		if((row > this.numberOfRows) || (col > this.numberOfCols) || (row < 1) || (col<1)){
 			System.out.println("Seat is not in the available range. Please try again.");
@@ -85,6 +168,9 @@ public class Cinema implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Prints a representation of the seating arrangement in the cinema
+	 */
 	public void printSeating() {
 		System.out.println("===Screen===");
 		for (int i = 0; i < this.cinemaSeating.length; i++) {
@@ -110,6 +196,12 @@ public class Cinema implements java.io.Serializable {
 		System.out.println();
 	}
 
+	/**
+	 * Updates the status of the status in a specified row and column in the cinema
+	 * @param row the row of the desired seat
+	 * @param col the column of the desired seat
+	 * @return 1 if the seat is available and 0 otherwise
+	 */
 	public int updateSeating(int row, int col) {
 		if (checkAvailable(row, col) == 0) {
 			// seat not available, did not update seating
@@ -120,6 +212,11 @@ public class Cinema implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Compares an object with another object to see if they are the same using their references
+	 * @param obj the object to be compared
+	 * @return true if the object is the same and false otherwise
+	 */
 	@Override
 	public boolean equals(Object obj) {
 

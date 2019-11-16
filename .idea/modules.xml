@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MOBLIMA.iml" filepath="$PROJECT_DIR$/MOBLIMA.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MOBLIMA_R8.iml" filepath="$PROJECT_DIR$/MOBLIMA_R8.iml" />
     </modules>
   </component>
 </project>

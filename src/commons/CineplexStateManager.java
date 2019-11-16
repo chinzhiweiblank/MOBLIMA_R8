@@ -12,17 +12,32 @@ import java.util.Set;
 import movie.Movie.MovieType;
 import movie.ShowingStatus;
 
+/**
+ * Controller class managing the cineplex and its state
+ */
 public class CineplexStateManager implements java.io.Serializable {
 
+	/**
+	 * Changes the cineplex state manager into a singleton
+	 */
 	private static CineplexStateManager singleton_instance = null;
 
+	/**
+	 * The states of the cineplex
+	 */
 	private Hashtable<String, CineplexState> cineplexStateMulti; // key is movie, value is cinema etc
 
-	// singleton initialisation
+	/**
+	 * Constructor of the CineplexStateManager singleton
+	 */
 	private CineplexStateManager() {
 		this.cineplexStateMulti = new Hashtable<String, CineplexState>();
 	}
 
+	/**
+	 * Obtains an instance of the CineplexStateManager
+	 * @return an instance of the CineplexStateManager and ensures only one thread is able to create the singleton
+	 */
 	public static CineplexStateManager getInstance() {
 		if (singleton_instance == null) {
 
@@ -50,7 +65,10 @@ public class CineplexStateManager implements java.io.Serializable {
 //		return movieList;
 //	}
 
-	// functions used for booking
+	/**
+	 * Iterates through each state of the cineplexes and updates the status of the movies shown at the cineplexes
+	 * @return a HashTable representing the status of the movies shown at the cineplexes
+	 */
 	public Hashtable<ShowingStatus,ArrayList<String>> listMoviesShowing() {
 		Hashtable<ShowingStatus,ArrayList<String>> movieHash = new Hashtable<ShowingStatus,ArrayList<String>>();
 		// loop through every cineplex and aggregrate the results
@@ -74,8 +92,10 @@ public class CineplexStateManager implements java.io.Serializable {
 		return movieHash;
 	}
 
-
-
+	/**
+	 * Obtains a list of name of the cineplexes
+	 * @return a list of names of the cineplexes
+	 */
 	public ArrayList<String> listCineplex() {
 		ArrayList<String> cineplexNames = new ArrayList<String>();
 		Set<String> cineplexNamesSet = this.cineplexStateMulti.keySet();
@@ -85,6 +105,13 @@ public class CineplexStateManager implements java.io.Serializable {
 		return cineplexNames;
 	}
 
+	/**
+	 * Displays the showtime of movie, its type at a certain cinema type
+	 * @param movieName the name of the movie
+	 * @param movieType the type of the movie
+	 * @param cinemaType the type of the cinema
+	 * @return true if there is a showtime and false otherwise
+	 */
 	public boolean displayShowTime(String movieName, MovieType movieType, Cinema.CinemaType cinemaType) {
 		Set<String> cineplexNames = this.cineplexStateMulti.keySet();
 
@@ -113,10 +140,19 @@ public class CineplexStateManager implements java.io.Serializable {
 		return haveShowTime;
 	}
 
+	/**
+	 * Prints the seat availability of a movie of specified name, type, time at a specified cinema type at a specified
+	 * cineplex location
+	 * @param cineplexLocation the location of a cineplex
+	 * @param movieName the name of a movie
+	 * @param movieType the type of a movie
+	 * @param showTime the time a movie is shown
+	 * @param cinemaType the type of cinema
+	 */
 	public void printSeatAvailability(String cineplexLocation, String movieName, MovieType movieType,
 									  Integer showTime, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
-			System.out.println("There isnt such a cineplex");
+			System.out.println("There isn't such a cineplex");
 			return;
 		} else {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
@@ -124,6 +160,16 @@ public class CineplexStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Prints the seat availability of a movie of specified name, type, time at a specified cinema ID and type
+	 * at a specified cineplex location
+	 * @param cineplexLocation the location of a cineplex
+	 * @param movieName the name of a movie
+	 * @param showTime the time of the movie is shown
+	 * @param cinemaId the ID of the cinema
+	 * @param movieType the type of the movie
+	 * @param cinemaType the type of the cinema
+	 */
 	public void printSeatAvailability(String cineplexLocation, String movieName, Integer showTime, String cinemaId,
 									  MovieType movieType, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
@@ -135,10 +181,20 @@ public class CineplexStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Obtains the state of a cineplex by name
+	 * @param CineplexName the name of the cineplex
+	 * @return the state of the cineplex
+	 */
 	public CineplexState readCineplexState(String CineplexName) {
 		return this.cineplexStateMulti.get(CineplexName);
 	}
 
+	/**
+	 * Verifies whether a cineplex exists by name
+	 * @param Cineplex the name of the cineplex
+	 * @return True if the cineplex by the specified name exists and False otherwise
+	 */
 	public boolean verifyCineplex(String Cineplex) {
 		if (this.cineplexStateMulti.containsKey(Cineplex)) {
 			return true;
@@ -147,8 +203,15 @@ public class CineplexStateManager implements java.io.Serializable {
 		}
 	}
 
-	// CRUD operations given cineplexlocation, cinemaobject and moviename
-	// EDIT to include Cinematype
+
+	/**
+	 * Inserts showtimes into the state of the cineplex
+	 * @param cineplexLocation the location of the cineplex
+	 * @param movieName the title of the movie
+	 * @param cinema the name of the cinema
+	 * @param movieType the type of the movie shown
+	 * @param cinemaType the type of cinema
+	 */
 	public void insertCineplexShowtime(String cineplexLocation, String movieName, Cinema cinema,
 									   MovieType movieType, Cinema.CinemaType cinemaType) {
 		// create the key if not present
@@ -160,18 +223,34 @@ public class CineplexStateManager implements java.io.Serializable {
 		cineplexState.insertCinemaShowtime(movieName, cinema, movieType,cinemaType);
 	}
 
-	// EDIT to include Cinematype
+	/**
+	 * Updates the showtime in the state of the cineplex
+	 * @param cineplexLocation the location of the cineplex
+	 * @param movieName the title of the movie
+	 * @param cinemaId the ID of the cinema
+	 * @param key the key of the cineplex location desired
+	 * @param value the value of the cineplex location desired
+	 * @param movieType
+	 * @param cinemaType
+	 */
 	public void updateCineplexShowtime(String cineplexLocation, String movieName, String cinemaId, String key,
 									   String value, MovieType movieType, Cinema.CinemaType cinemaType) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
-			System.out.println("There isnt such a cineplex");
+			System.out.println("There isn't such a cineplex");
 			return;
 		}
 		CineplexState cineplexState = this.cineplexStateMulti.get(cineplexLocation);
 		cineplexState.updateCinemaShowtime(movieName, cinemaId, key, value, movieType,cinemaType);
 	}
 
-	// EDIT to include Cinematype
+	/**
+	 * Delete cinema showtime from a specified cineplex and cinema movietype and cinema id
+	 * @param cineplexLocation location of the cineplex
+	 * @param movieName title of the movie
+	 * @param cinemaId ID of the cinema
+	 * @param movieType the type of the movie
+	 * @param cinemaType the type of the cinema
+	 */
 	public void deleteCineplexShowtime(String cineplexLocation, String movieName, String cinemaId,
 									   MovieType movieType, Cinema.CinemaType cinemaType ) {
 		if (!this.cineplexStateMulti.containsKey(cineplexLocation)) {
@@ -182,6 +261,9 @@ public class CineplexStateManager implements java.io.Serializable {
 		cineplexState.deleteCinemaShowtime(movieName, cinemaId, movieType,cinemaType);
 	}
 
+	/**
+	 * Converts the state of an object into a byte stream of data
+	 */
 	public void serialize() {
 
 		try {
@@ -202,6 +284,9 @@ public class CineplexStateManager implements java.io.Serializable {
 		}
 	};
 
+	/**
+	 * Converts a byte stream of data into an object for storage
+	 */
 	public void deserialize() {
 		// Deserialization
 		try {
