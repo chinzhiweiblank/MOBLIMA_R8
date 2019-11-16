@@ -15,10 +15,11 @@ public class MovieGoerMenu extends View {
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	@Override
+	/**
+	 * print the various options for moviegoer to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for moviegoer to select
-		 */
+
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Search/List movie");
 		System.out.println("2) View booking history");
@@ -28,10 +29,11 @@ public class MovieGoerMenu extends View {
 	}
 
 	@Override
+	/**
+	 * choices for moviegoer to select
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for moviegoer to select
-		 */
+
 		int choice = 0;
 		while (choice != 4) {
 			choice = getInput(options());

@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="81b31c77-c568-4ad4-9ee5-fd9b46ab005a" name="Default Changelist" comment="">
+    <list default="true" id="45157b3d-a579-4743-b04f-6b8f27c55297" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/MovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/MovieGoer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieListing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MoviesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MoviesMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SeatsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SeatsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/TopFiveMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TopFiveMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/loginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/loginMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,6 +30,8 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
@@ -78,7 +92,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

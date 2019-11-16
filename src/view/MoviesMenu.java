@@ -17,10 +17,11 @@ public class MoviesMenu extends View {
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
 	@Override
+	/**
+	 * print the various options for moviegoer to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for moviegoer to select
-		 */
+
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) View movie details");
 		System.out.println("2) Book and purchase ticket");
@@ -29,10 +30,11 @@ public class MoviesMenu extends View {
 	}
 
 	@Override
+	/**
+	 * choices for moviegoer to select
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for moviegoer to select
-		 */
+
 		// get the state manager for cineplex and movies
 		ArrayList<String> movieList = movieListingStateManager.listMovies();
 
@@ -61,13 +63,14 @@ public class MoviesMenu extends View {
 	}
 
 	// helper functions
+	/**
+	 * input movie listings
+	 * @param movieListingStateManager
+	 * @param movieList
+	 * @return Movie movieSearched if successful, null if unsuccessful
+	 */
 	private Movie inputMovie(MovieListingStateManager movieListingStateManager,ArrayList<String> movieList) {
-		/**
-		 * input movie listings
-		 * @param MovieListingStateManager movieListingStateManager movieListingStateManager
-		 * @param ArrayList<String> movieList
-		 * @return Movie movieSearched if successful, null if unsuccessful
-		 */
+
 
 		printMovieList(movieList);
 
@@ -88,11 +91,12 @@ public class MoviesMenu extends View {
 
 
 
+	/**
+	 * print the movie listings
+	 * @param movieList
+	 */
 	private void printMovieList(ArrayList<String> movieList){
-		/**
-		 * print the movie listings
-		 * @param ArrayList<String> movieList
-		 */
+
 		System.out.println("Movies currently showing:");
 		System.out.println("");
 		if (movieList.isEmpty()){

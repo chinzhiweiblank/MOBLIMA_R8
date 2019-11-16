@@ -11,10 +11,11 @@ import commons.ConfigurationStateManager;
 public class AdminSystemSettings extends View {
 
 	@Override
+	/**
+	 * print the various options for admin to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for admin to select
-		 */
+
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Add holiday date");
 		System.out.println("2) Remove holiday date");
@@ -24,10 +25,11 @@ public class AdminSystemSettings extends View {
 	}
 
 	@Override
+	/**
+	 * choices for admin to edit holiday dates
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for admin to edit holiday dates
-		 */
+
 		boolean end = true;
 		ConfigurationStateManager configurationStateManager = ConfigurationStateManager.getInstance();
 		while(end){
@@ -58,11 +60,12 @@ public class AdminSystemSettings extends View {
 		}
 	}
 
+	/**
+	 * add holiday dates to the system
+	 * @param configurationStateManager
+	 */
 	private void addHolidayDates(ConfigurationStateManager configurationStateManager) {
-		/**
-		 * add holiday dates to the system
-		 * @param ConfigurationStateManager configurationStateManager
-		 */
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Holiday Year: ");
 		String year = sc.nextLine();
@@ -77,12 +80,13 @@ public class AdminSystemSettings extends View {
 		configurationStateManager.insertHoliday(holidayDate);
 	}
 
+	/**
+	 * remove holiday dates to the system
+	 * @param configurationStateManager
+	 * @return 1 if successfully removed holiday, 0 if unsuccessful
+	 */
 	private int removeHolidayDates(ConfigurationStateManager configurationStateManager) {
-		/**
-		 * remove holiday dates to the system
-		 * @param ConfigurationStateManager configurationStateManager
-		 * @return 1 if successfully removed holiday, 0 if unsuccessful
-		 */
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Holiday Year: ");
 		String year = sc.nextLine();
@@ -99,11 +103,12 @@ public class AdminSystemSettings extends View {
 	}
 
 
+	/**
+	 * view holiday dates
+	 * @param configurationStateManager
+	 */
 	private void viewHolidayDates(ConfigurationStateManager configurationStateManager){
-		/**
-		 * view holiday dates
-		 * @param ConfigurationStateManager configurationStateManager
-		 */
+
 		ArrayList<String> holidayDates = configurationStateManager.getHolidayDate();
 		System.out.println("Holiday dates: ");
 

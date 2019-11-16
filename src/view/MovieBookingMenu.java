@@ -20,10 +20,11 @@ public class MovieBookingMenu extends View {
 	Scanner sc = new Scanner(System.in);
 
 	@Override
+	/**
+	 * print the various options for moviegoer to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for moviegoer to select
-		 */
+
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Select Timing and Movietype");
 		System.out.println("2) Previous menu");
@@ -31,10 +32,11 @@ public class MovieBookingMenu extends View {
 	}
 
 	@Override
+	/**
+	 * choices for moviegoer to select
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for moviegoer to select
-		 */
+
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 
 		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
@@ -83,12 +85,13 @@ public class MovieBookingMenu extends View {
 	}
 
 	// other helper functions
+	/**
+	 * remove the movie listing type attribute
+	 * @param movieNameAndType
+	 * @return String movieName
+	 */
 	public String removeMovieType(String movieNameAndType) {
-		/**
-		 * remove the movie listing type attribute
-		 * @param String movieNameAndType
-		 * @return String movieName
-		 */
+
 		int spaceIndex = movieNameAndType.indexOf("_");
 		if (spaceIndex != -1) {
 			String movieName = movieNameAndType.substring(0, spaceIndex);
@@ -97,12 +100,13 @@ public class MovieBookingMenu extends View {
 		return movieNameAndType;
 	}
 
+	/**
+	 * user to enter movie listing
+	 * @param cineplexStateManager
+	 * @return String movieInput if successful, null if unsuccessful
+	 */
 	private String inputMovie(CineplexStateManager cineplexStateManager) {
-		/**
-		 * user to enter movie listing
-		 * @param CineplexStateManager cineplexStateManager
-		 * @return String movieInput if successful, null if unsuccessful
-		 */
+
 		boolean Showing = true;
 		while (true) {
 			System.out.println("Please input a movie: ");
@@ -130,11 +134,12 @@ public class MovieBookingMenu extends View {
 		}
 	}
 
+	/**
+	 * user to enter movie listing type
+	 * @return MovieType movieType
+	 */
 	private MovieType inputMovieType() {
-		/**
-		 * user to enter movie listing type
-		 * @return MovieType movieType
-		 */
+
 		while (true) {
 			System.out.println("Enter movie type(IMAX, ThreeD, Blockbuster): ");
 			String movieTypeString = sc.nextLine();
@@ -149,11 +154,12 @@ public class MovieBookingMenu extends View {
 	}
 
 
+	/**
+	 * user to input cinema type
+	 * @return Cinema.CinemaType cinemaType
+	 */
 	private Cinema.CinemaType inputCinemaType(){
-		/**
-		 * user to input cinema type
-		 * @return Cinema.CinemaType cinemaType
-		 */
+
 		System.out.println("Enter cinema type: ");
 		String cinemaType = sc.nextLine();
 		return Cinema.CinemaType.valueOf(cinemaType);
@@ -161,12 +167,13 @@ public class MovieBookingMenu extends View {
 
 
 
+	/**
+	 * print out the list of movie listings
+	 * @param movieHash
+	 * @return Hashtable<Integer, String> userInputMapping if there are movie listings, null if none
+	 */
 	private Hashtable<Integer,String> printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
-		/**
-		 * print out the list of movie listings
-		 * @param Hashtable<ShowingStatus, ArrayList<String>> movieHash
-		 * @return Hashtable<Integer, String> userInputMapping if there are movie listings, null if none
-		 */
+
 
 		Hashtable<Integer,String> userInputMapping = new Hashtable<Integer,String>();
 
