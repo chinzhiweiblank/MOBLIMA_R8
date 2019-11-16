@@ -4,13 +4,18 @@ import java.util.ArrayList;
 
 import movie.Movie;
 import movie.MovieListingStateManager;
-
+/**
+ * menu for moviegoer to see top 5 movies by sales and rating
+ */
 public class TopFiveMenu extends View {
 
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for moviegoer to select
+		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Top 5 movies by ticket sales");
 		System.out.println("2) Top 5 movies by overall rating");
@@ -20,6 +25,9 @@ public class TopFiveMenu extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * choices for moviegoer to select
+		 */
 		int choice = getInput(options());
 		switch (choice) {
 		case 1:

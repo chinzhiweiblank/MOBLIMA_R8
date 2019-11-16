@@ -11,11 +11,16 @@ import movie.Review;
 import movie.ShowingStatus;
 
 public class AdminMovieListing extends View {
-
+	/**
+	 * menu for admin, CRUD selections for movies
+	 */
 	private MovieListingStateManager movieListingStateManager;
 
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for admin to select
+		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie listing");
 		System.out.println("2) Update movie Listing");
@@ -26,6 +31,9 @@ public class AdminMovieListing extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * choices for admin to select create, read or delete
+		 */
 		loop: while (true) {
 			int choice = getInput(options());
 			movieListingStateManager = MovieListingStateManager.getInstance();
@@ -51,6 +59,9 @@ public class AdminMovieListing extends View {
 	}
 
 	private void deleteMovieListing() {
+		/**
+		 * delete a particular movie listing
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();
@@ -58,9 +69,15 @@ public class AdminMovieListing extends View {
 	}
 
 	private void showMovieListing() {
+		/**
+		 * show the various movie listings currently available
+		 */
 
 	}
 	private void updateMovieListing() {
+		/**
+		 * update the movie listing
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();
@@ -81,6 +98,10 @@ public class AdminMovieListing extends View {
 	}
 
 	private Movie createMovieListing() {
+		/**
+		 * create a new movie listing
+		 * @return Movie
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();

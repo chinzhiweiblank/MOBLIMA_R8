@@ -8,12 +8,16 @@ import commons.Cinema.CinemaType;
 import commons.Cinema.MovieRating;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
-
+/**
+ * menu for admin, CRUD selections for movie showtime
+ */
 public class AdminMovieShowtime extends View {
-
 	Scanner sc = new Scanner(System.in);
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for admin to select
+		 */
         System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie Showtime");
 		System.out.println("2) Update movie Showtime");
@@ -24,6 +28,9 @@ public class AdminMovieShowtime extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * choices for admin to select create, read or delete
+		 */
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 		int choice = getInput(options());
 		switch (choice) {
@@ -46,6 +53,9 @@ public class AdminMovieShowtime extends View {
 	}
 
 	private void createMovieShowtime(CineplexStateManager cineplexStateManager) {
+		/**
+		 * create a showtime for the movie listing
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cineplex location: ");
 		String cineplexLocation = sc.nextLine();
@@ -81,6 +91,10 @@ public class AdminMovieShowtime extends View {
 	}
 
 	private MovieType inputMovieType() {
+		/**
+		 * enter the movie listing type
+		 * @return MovieType
+		 */
 		while (true) {
 			System.out.println("Enter movie type(IMAX, ThreeD, Blockbuster): ");
 			String movieTypeString = sc.nextLine();
@@ -95,6 +109,10 @@ public class AdminMovieShowtime extends View {
 	}
 
 	private void updateMovieShowtime(CineplexStateManager cineplexStateManager) {
+		/**
+		 * update the movie listing showtime
+		 * @param CineplexStateManager cineplexStageManager
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cinplex location: ");
 		ArrayList<String> cineplexNames = cineplexStateManager.listCineplex();
@@ -141,6 +159,10 @@ public class AdminMovieShowtime extends View {
 	}
 
 	private void deleteMovieShowtime(CineplexStateManager cineplexStateManager) {
+		/**
+		 * delete movie listing show time
+		 * @param CineplexStateManager cineplexStateManager
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cinplex location: ");
 

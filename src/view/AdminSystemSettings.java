@@ -5,11 +5,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import commons.ConfigurationStateManager;
-
+/**
+ * menu for admin to edit holiday dates
+ */
 public class AdminSystemSettings extends View {
 
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for admin to select
+		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Add holiday date");
 		System.out.println("2) Remove holiday date");
@@ -20,6 +25,9 @@ public class AdminSystemSettings extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * choices for admin to edit holiday dates
+		 */
 		ConfigurationStateManager configurationStateManager = ConfigurationStateManager.getInstance();
 		int choice = getInput(options());
 		switch (choice) {
@@ -48,6 +56,10 @@ public class AdminSystemSettings extends View {
 	}
 
 	private void addHolidayDates(ConfigurationStateManager configurationStateManager) {
+		/**
+		 * add holiday dates to the system
+		 * @param ConfigurationStateManager configurationStateManager
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Holiday Year: ");
 		String year = sc.nextLine();
@@ -63,6 +75,11 @@ public class AdminSystemSettings extends View {
 	}
 
 	private int removeHolidayDates(ConfigurationStateManager configurationStateManager) {
+		/**
+		 * remove holiday dates to the system
+		 * @param ConfigurationStateManager configurationStateManager
+		 * @return 1 if successfully removed holiday, 0 if unsuccessful
+		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Holiday Year: ");
 		String year = sc.nextLine();
@@ -80,6 +97,10 @@ public class AdminSystemSettings extends View {
 
 
 	private void viewHolidaDates(ConfigurationStateManager configurationStateManager){
+		/**
+		 * view holiday dates
+		 * @param ConfigurationStateManager configurationStateManager
+		 */
 		ArrayList<String> holidayDates = configurationStateManager.getHolidayDate();
 		System.out.println("Holiday dates: ");
 
