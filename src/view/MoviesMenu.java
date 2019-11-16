@@ -26,8 +26,9 @@ public class MoviesMenu extends View {
 	protected void runMenu() {
 		// get the state manager for cineplex and movies
 
-		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
+		ArrayList<String> movieList = movieListingStateManager.listMovies();
 		printMovieList(movieList);
+
 
 		loop: while (true) {
 			int choice = getInput(options());
@@ -68,19 +69,17 @@ public class MoviesMenu extends View {
 		}
 	}
 
-	private void printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
+	private void printMovieList(ArrayList<String> movieList){
 		System.out.println("Movies currently showing:");
 		System.out.println("");
-		if (movieHash.isEmpty()){
+		if (movieList.isEmpty()){
 			System.out.println("None");
 			return;
 		}
-		movieHash.forEach(((showingStatus, strings) -> {
-			System.out.println("Movies with showing status:" + showingStatus);
-			for (int i = 0; i < strings.size(); i++) {
-				System.out.printf("%d)\t%s\n", i, strings.get(i));
-			}
-			System.out.println("");
-		}));
+		for(int i = 0 ;i<movieList.size() ;i++){
+			System.out.printf("%d)\t%s\n", i, movieList.get(i));
+		}
+		System.out.println("");
 	}
+
 }

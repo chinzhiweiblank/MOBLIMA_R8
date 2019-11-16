@@ -25,6 +25,9 @@ public class MovieBookingMenu extends View {
 	protected void runMenu() {
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 
+		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
+		printMovieList(movieList);
+
 		String movieName = inputMovie(cineplexStateManager);
 		MovieType movieType = inputMovieType();
 		Cinema.CinemaType cinemaType = inputCinemaType();
@@ -109,5 +112,21 @@ public class MovieBookingMenu extends View {
 		System.out.println("Enter cinema type: ");
 		String cinemaType = sc.nextLine();
 		return Cinema.CinemaType.valueOf(cinemaType);
+	}
+
+	private void printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
+		System.out.println("Movies currently showing:");
+		System.out.println("");
+		if (movieHash.isEmpty()){
+			System.out.println("None");
+			return;
+		}
+		movieHash.forEach(((showingStatus, strings) -> {
+			System.out.println("Movies with showing status:" + showingStatus);
+			for (int i = 0; i < strings.size(); i++) {
+				System.out.printf("%d)\t%s\n", i, strings.get(i));
+			}
+			System.out.println("");
+		}));
 	}
 }

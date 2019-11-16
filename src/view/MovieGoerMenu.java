@@ -23,7 +23,6 @@ public class MovieGoerMenu extends View {
 
 	@Override
 	protected void runMenu() {
-		// MovieGoer moviegoer = new MovieGoer("", "");
 		int choice = 0;
 		while (choice != 4) {
 			choice = getInput(options());
