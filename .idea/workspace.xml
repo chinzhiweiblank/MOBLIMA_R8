@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="81b31c77-c568-4ad4-9ee5-fd9b46ab005a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/BlockbusterTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/BlockbusterTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/Movie3DTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/Movie3DTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/TicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
