@@ -4,7 +4,7 @@ import commons.AccountStateManager;
 import commons.AccountType;
 import commons.OverallStateManager;
 /**
- * main menu for admin
+ * View class for admin
  */
 public class AdminMenu extends View {
 	boolean authorised;
@@ -12,8 +12,8 @@ public class AdminMenu extends View {
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	/**
-	 * Options
-	 * @return Options
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -27,7 +27,7 @@ public class AdminMenu extends View {
 	}
 
 	/**
-	 * run the function which the admin selects
+	 * Runs the function which the admin selects
 	 */
 	@Override
 	protected void runMenu() {
@@ -57,7 +57,7 @@ public class AdminMenu extends View {
 	}
 
 	/**
-	 * function to authenticate admin user
+	 * Function to authenticate admin user
 	 */
 	private void login() {
 		display(this, new loginMenu(AccountType.ADMIN));

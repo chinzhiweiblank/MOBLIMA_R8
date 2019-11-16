@@ -5,14 +5,18 @@ import java.util.ArrayList;
 import movie.Movie;
 import movie.MovieListingStateManager;
 /**
- * menu for moviegoer to see top 5 movies by sales and rating
+ * Menu for moviegoer to see top 5 movies by sales and rating
  */
 public class TopFiveMenu extends View {
 
+	/**
+	 * MovieListingStateManager to manage the Movie Listing
+	 */
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
 	/**
-	 * print the various options for moviegoer to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -25,7 +29,7 @@ public class TopFiveMenu extends View {
 	}
 
 	/**
-	 * choices for moviegoer to select
+	 * Prints out choices for moviegoer to select
 	 */
 	@Override
 	protected void runMenu() {

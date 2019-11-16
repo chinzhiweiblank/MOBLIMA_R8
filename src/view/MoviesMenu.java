@@ -10,14 +10,15 @@ import movie.MovieListingStateManager;
 import movie.ShowingStatus;
 
 /**
- * menu for moviegoer to view movie details or to book and purchase tickets
+ * View Class for moviegoer to view movie details or to book and purchase tickets
  */
 public class MoviesMenu extends View {
 	private CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
 	/**
-	 * print the various options for moviegoer to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -30,7 +31,7 @@ public class MoviesMenu extends View {
 	}
 
 	/**
-	 * choices for moviegoer to select
+	 * Prints out choices for moviegoer to select
 	 */
 	@Override
 	protected void runMenu() {
@@ -62,9 +63,8 @@ public class MoviesMenu extends View {
 		}
 	}
 
-	// helper functions
 	/**
-	 * input movie listings
+	 * Input movie listings
 	 * @param movieListingStateManager movie listing state manager
 	 * @param movieList list of the movies
 	 * @return Movie movieSearched if successful, null if unsuccessful
@@ -92,7 +92,7 @@ public class MoviesMenu extends View {
 
 
 	/**
-	 * print the movie listings
+	 * Prints out the movie listings
 	 * @param movieList list of the movies
 	 */
 	private void printMovieList(ArrayList<String> movieList){

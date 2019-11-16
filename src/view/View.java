@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- * abstract menu which contains general methods
+ * Abstract menu which contains general methods
  */
 public abstract class View {
 
@@ -39,7 +39,7 @@ public abstract class View {
 	}
 
 	/**
-	 * display the view
+	 * Displays the view
 	 * @param  v view v
 	 * @param  u view u
 	 */
@@ -51,7 +51,7 @@ public abstract class View {
 	}
 
 	/**
-	 * get previous view
+	 * Gets previous view
 	 */
 	protected View getPrevView() {
 		System.out.println("Returning to previous menu...");

@@ -7,7 +7,7 @@ import commons.AccountType;
 import commons.OverallStateManager;
 import commons.Person;
 /**
- * menu for admin to select login
+ * View Class for admin to select login
  */
 public class loginMenu extends View {
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
@@ -15,7 +15,7 @@ public class loginMenu extends View {
 	private AccountType accountType;
 
 	/**
-	 * constructor to create login menu
+	 * Constructor to create login menu
 	 * @param accountType
 	 */
 	public loginMenu(AccountType accountType) {
@@ -24,7 +24,8 @@ public class loginMenu extends View {
 	}
 
 	/**
-	 * print the various options for admin to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -36,7 +37,7 @@ public class loginMenu extends View {
 	}
 
 	/**
-	 * choices for admin to login
+	 * Prints out choices for admin to login
 	 */
 	@Override
 	protected void runMenu() {
@@ -69,7 +70,7 @@ public class loginMenu extends View {
 	}
 
 	/**
-	 * login to authenticate admin
+	 * Login to authenticate admin
 	 * @param sc scanner to scan for input
 	 * @return true if successful, false if unsuccessful
 	 */

@@ -3,15 +3,22 @@ package view;
 import commons.OverallStateManager;
 
 /**
- * main menu for both admin and moviegoer
+ * Overall View Object
+ * Main menu for both admin and moviegoer
  */
 public class MainMenu extends View {
 
+	/**
+	 * Condition for Exiting the Main Menu
+	 */
 	boolean exit;
+	/**
+	 * OverallStateManager to access the other Controller Classes
+	 */
 	private static OverallStateManager overallStateManager;
 
 	/**
-	 * main function to run menu
+	 * Main function to run Main Menu
 	 */
 	public static void main(String[] args) {
 
@@ -24,7 +31,8 @@ public class MainMenu extends View {
 	}
 
 	/**
-	 * print the various options for admin/moviegoer to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -36,7 +44,7 @@ public class MainMenu extends View {
 	}
 
 	/**
-	 * choices for admin or moviegoer to select
+	 * Print choices for admin or moviegoer to select
 	 */
 	@Override
 	protected void runMenu() {
@@ -66,7 +74,7 @@ public class MainMenu extends View {
 	}
 
 	/**
-	 * prints frontend header for moblima
+	 * Prints frontend header for MOBLIMA
 	 */
 	private void printHeader() {
 

@@ -10,14 +10,18 @@ import movie.MovieListingStateManager;
 import movie.Review;
 import movie.ShowingStatus;
 /**
- * class for admin menu movie listing
+ * Controller class to manage admin menu movie listing
  */
 public class AdminMovieListing extends View {
 
+	/**
+	 * MovieListingStateManager to manage Movie Listings
+	 */
 	private MovieListingStateManager movieListingStateManager;
 
 	/**
-	 * print the various options for admin to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -32,7 +36,7 @@ public class AdminMovieListing extends View {
 	}
 
 	/**
-	 * choices for admin to select create, read or delete
+	 * Prints out choices for admin to select create, read or delete
 	 */
 	@Override
 	protected void runMenu() {
@@ -65,7 +69,7 @@ public class AdminMovieListing extends View {
 	}
 
 	/**
-	 * read movie listing
+	 * Reads movie listing
 	 */
 	private void readMovieListing() {
 		Scanner sc = new Scanner(System.in);
@@ -80,7 +84,7 @@ public class AdminMovieListing extends View {
 	}
 
 	/**
-	 * delete a particular movie listing
+	 * Delets a particular movie listing
 	 */
 	private void deleteMovieListing() {
 
@@ -91,13 +95,13 @@ public class AdminMovieListing extends View {
 	}
 
 	/**
-	 * show the various movie listings currently available
+	 * Shows the various movie listings currently available
 	 */
 	private void showMovieListing() {
 
 	}
 	/**
-	 * update the movie listing
+	 * Updates the movie listing
 	 */
 	private void updateMovieListing() {
 
@@ -121,7 +125,7 @@ public class AdminMovieListing extends View {
 	}
 
 	/**
-	 * create a new movie listing
+	 * Create a new movie listing
 	 * @return Movie
 	 */
 	private Movie createMovieListing() {

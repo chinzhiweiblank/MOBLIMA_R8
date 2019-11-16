@@ -10,12 +10,17 @@ import commons.CineplexState;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
 /**
- * menu for admin, CRUD selections for movie showtime
+ * View Class for admin, CRUD selections for movie showtime
  */
 public class AdminMovieShowtime extends View {
-	Scanner sc = new Scanner(System.in);
 	/**
-	 * print the various options for admin to select
+	 * Scanner to process inputs
+	 */
+	Scanner sc = new Scanner(System.in);
+
+	/**
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -60,7 +65,7 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * read movie listing show time
+	 * Reads movie listing show time
 	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void readMovieShowtime(CineplexStateManager cineplexStateManager) {
@@ -127,7 +132,7 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * enter the movie listing type
+	 * Enters the movie listing type
 	 * @return MovieType
 	 */
 	private MovieType inputMovieType() {
@@ -206,7 +211,7 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * delete movie listing show time
+	 * Delete movie listing show time
 	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void deleteMovieShowtime(CineplexStateManager cineplexStateManager) {

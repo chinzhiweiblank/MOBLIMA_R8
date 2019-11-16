@@ -20,7 +20,7 @@ import commons.OverallStateManager;
 import movie.Movie.MovieType;
 import movie.MovieListingStateManager;
 /**
- * menu for moviegoer to book their seat for the movie
+ * View Class for moviegoer to book their seat for the movie
  */
 public class SeatsMenu extends View {
 
@@ -29,7 +29,7 @@ public class SeatsMenu extends View {
 	private CinemaType cinemaType;
 
 	/**
-	 * constructor to create SeatsMenu
+	 * Constructor to create SeatsMenu
 	 * @param movieName name of the movie
 	 * @param movieType type of the movie
 	 * @param cinemaType type of the cinema
@@ -41,15 +41,35 @@ public class SeatsMenu extends View {
 		this.cinemaType = cinemaType;
 	}
 
+	/**
+	 * Scanner to process inputs
+	 */
 	Scanner sc = new Scanner(System.in);
+
+	/**
+	 * CineplexStateManager to manage cineplexes
+	 */
 	private CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
+	/**
+	 * OverallStateManager to manage the other state managers
+	 */
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
+	/**
+	 * MovieListingStateManager to manage Movie Listings
+	 */
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
+	/**
+	 * ConfigurationStateManager to manage system configuration settings
+	 */
 	private ConfigurationStateManager configurationStateManager = ConfigurationStateManager.getInstance();
+	/**
+	 * TicketManager to manage the tickets
+	 */
 	private TicketManager ticketManager;
 
 	/**
-	 * print the various options for moviegoer to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
 	@Override
 	protected int options() {
@@ -61,7 +81,7 @@ public class SeatsMenu extends View {
 	}
 
 	/**
-	 * choices for moviegoer to select
+	 * Prints out choices for moviegoer to select
 	 */
 	@Override
 	protected void runMenu() {
@@ -96,7 +116,7 @@ public class SeatsMenu extends View {
 	}
 
 	/**
-	 * allows user to input seat selection
+	 * Allows user to input seat selection
 	 * @param movieName name of the movie
 	 * @param showTime show time of the movie
 	 * @param cinemaId cinemaId of the movie
@@ -181,7 +201,7 @@ public class SeatsMenu extends View {
 	}
 
 	/**
-	 * allows user to input cineplex
+	 * Allows user to input cineplex
 	 * @return String cineplexName
 	 */
 	private String inputCineplex() {
@@ -198,7 +218,7 @@ public class SeatsMenu extends View {
 	}
 
 	/**
-	 * allows user to input timing of movie
+	 * Allows user to input timing of movie
 	 * @param cineplexName name of the cineplex
 	 * @return int timing if successful
 	 */
@@ -223,7 +243,7 @@ public class SeatsMenu extends View {
 	}
 
 	/**
-	 * allows user to input cinema
+	 * Allows user to input cinema
 	 * @param Cineplex name of the cineplex
 	 * @param movieName name of the movie
 	 * @param timing timing of the cinema
