@@ -19,7 +19,7 @@ public class loginMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Login!");
 		System.out.println("2) Previous menu");
 		return 2;

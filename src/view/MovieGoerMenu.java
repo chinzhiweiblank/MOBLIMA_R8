@@ -13,7 +13,7 @@ public class MovieGoerMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Search/List movie");
 		System.out.println("2) View booking history");
 		System.out.println("3) List top 5 movies");
@@ -43,7 +43,6 @@ public class MovieGoerMenu extends View {
 				}
 				break;
 			case 3:
-				System.out.println("Execute Search/ List Movie");
 				display(this, new TopFiveMenu());
 				break;
 			case 4:
