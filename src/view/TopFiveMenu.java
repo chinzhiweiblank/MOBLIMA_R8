@@ -14,7 +14,7 @@ public class TopFiveMenu extends View {
 		System.out.println("----------------------------");
 		System.out.println("1) Top 5 movies by ticket sales");
 		System.out.println("2) Top 5 movies by overall rating");
-		System.out.println("3) previous menu");
+		System.out.println("3) Previous menu");
 		return 3;
 	}
 
@@ -45,7 +45,7 @@ public class TopFiveMenu extends View {
 			getPrevView();
 			break;
 		default:
-			System.out.println("Unknown error occured");
+			System.out.println("Please input a valid integer choice");
 		}
 	}
 }

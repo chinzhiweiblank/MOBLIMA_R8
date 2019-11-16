@@ -20,7 +20,7 @@ public class MovieBookingMenu extends View {
 	protected int options() {
 		System.out.println("----------------------------");
 		System.out.println("1) Select Timing and Movietype");
-		System.out.println("2) previous menu");
+		System.out.println("2) Previous menu");
 		return 2;
 	}
 
@@ -63,7 +63,7 @@ public class MovieBookingMenu extends View {
 					case -1:
 						break;
 					default:
-						System.out.println("Unknown error occurred");
+						System.out.println("Please input a valid integer choice");
 				}
 			}
 		} else {

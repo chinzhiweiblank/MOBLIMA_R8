@@ -18,19 +18,16 @@ public class MoviesMenu extends View {
 		System.out.println("----------------------------");
 		System.out.println("1) View movie details");
 		System.out.println("2) Book and purchase ticket");
-		System.out.println("3) previous menu");
+		System.out.println("3) Previous menu");
 		return 3;
 	}
 
 	@Override
 	protected void runMenu() {
 		// get the state manager for cineplex and movies
-
-		//ArrayList<String> movieList = cineplexStateManager.listMoviesShowing();
 		ArrayList<String> movieList = movieListingStateManager.listMovies();
 
 		printMovieList(movieList);
-
 		Scanner sc = new Scanner(System.in);
 
 		loop: while (true) {
@@ -49,7 +46,7 @@ public class MoviesMenu extends View {
 				getPrevView();
 				break loop;
 			default:
-				System.out.println("Unknown error occurred");
+				System.out.println("Please input a valid integer choice");
 			}
 		}
 	}
