@@ -11,6 +11,9 @@ import movie.MovieListingStateManager;
 import movie.ShowingStatus;
 import movie.Movie;
 
+/**
+ * C
+ */
 public class CineplexState implements java.io.Serializable {
 
 	private Hashtable<String, ArrayList<Cinema>> cineplexState; // key is movie, value is cinema etc
