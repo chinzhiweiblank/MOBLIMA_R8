@@ -6,6 +6,7 @@ import java.util.Scanner;
 import commons.Cinema;
 import commons.Cinema.CinemaType;
 import commons.Cinema.MovieRating;
+import commons.CineplexState;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
 /**
@@ -20,10 +21,11 @@ public class AdminMovieShowtime extends View {
 		 */
         System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie Showtime");
-		System.out.println("2) Update movie Showtime");
-		System.out.println("3) Delete movie Showtime");
-		System.out.println("4) Previous menu");
-		return 4;
+		System.out.println("2) Read movie Showtime");
+		System.out.println("3) Update movie Showtime");
+		System.out.println("4) Delete movie Showtime");
+		System.out.println("5) Previous menu");
+		return 5;
 	}
 
 	@Override
@@ -38,18 +40,40 @@ public class AdminMovieShowtime extends View {
 			createMovieShowtime(cineplexStateManager);
 			break;
 		case 2:
-			updateMovieShowtime(cineplexStateManager);
+			readMovieShowtime(cineplexStateManager);
 			break;
 		case 3:
-			deleteMovieShowtime(cineplexStateManager);
+			updateMovieShowtime(cineplexStateManager);
 			break;
 		case 4:
+			deleteMovieShowtime(cineplexStateManager);
+			break;
+		case 5:
 			getPrevView();
 			break;
 		default:
 			System.out.println("Please input a valid integer choice");
 		}
 
+	}
+
+	private void readMovieShowtime(CineplexStateManager cineplexStateManager) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter which Cineplex: ");
+		String cineplexName = sc.nextLine();
+		CineplexState cineplexState = cineplexStateManager.readCineplexState(cineplexName);
+		for(String movieName: cineplexState.listMovies()){
+			System.out.println(movieName);
+		}
+		System.out.println("Please enter movie name: ");
+		String movieName = sc.nextLine();
+		System.out.println("Please enter movie type (IMAX, ThreeD, Blockbuster): ");
+		String movieType = sc.nextLine();
+		System.out.println("Please enter cinema type (Regular, Platinum, Goldclass): ");
+		String cinemaType = sc.nextLine();
+		for(Cinema cinema : cineplexState.findShowTime(movieName, MovieType.valueOf(movieType), CinemaType.valueOf(cinemaType))){
+			cinema.dumpDetails();
+		}
 	}
 
 	private void createMovieShowtime(CineplexStateManager cineplexStateManager) {
@@ -65,11 +89,12 @@ public class AdminMovieShowtime extends View {
 
 		MovieType movieType = inputMovieType();
 
-		System.out.println("Enter Cinema number cols: ");
+		System.out.println("Enter Showtime: ");
 		int showTime = sc.nextInt();
 
 		// cinema details
 		System.out.println("Enter Cinema uniqueID: ");
+		sc.nextLine();
 		String cinemaId = sc.nextLine();
 
 		System.out.println("Enter Cinema number rows: ");
@@ -79,15 +104,18 @@ public class AdminMovieShowtime extends View {
 		int numCols = sc.nextInt();
 
 		System.out.println("Enter Cinema type: ");
-		System.out.println("options include : Regular, Platinum, Goldclass");
+		System.out.println("Options include : Regular, Platinum, Goldclass");
+		sc.nextLine();
 		CinemaType cinemaType = CinemaType.valueOf(sc.nextLine());
 
 		System.out.println("Enter movie rating type: ");
-		System.out.println("options include : PG, NC, Mature, Rated");
+		System.out.println("Options include : PG, NC, Mature, Rated");
 		MovieRating movieRating = MovieRating.valueOf(sc.nextLine());
 
 		Cinema cinemaInsert = new Cinema(numRows, numCols, showTime, cinemaId, cinemaType, movieRating);
 		cineplexStateManager.insertCineplexShowtime(cineplexLocation, movieName, cinemaInsert, movieType,cinemaType);
+
+		System.out.println("Movie showtime added!");
 	}
 
 	private MovieType inputMovieType() {
@@ -114,33 +142,34 @@ public class AdminMovieShowtime extends View {
 		 * @param CineplexStateManager cineplexStageManager
 		 */
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Cinplex location: ");
+		System.out.println("Enter Cineplex location: ");
 		ArrayList<String> cineplexNames = cineplexStateManager.listCineplex();
-		System.out.printf("options include:");
-
+		System.out.printf("Options include: \n");
 		for (String cineplexName : cineplexNames) {
-			System.out.printf("%s", cineplexName);
+			System.out.printf("%s\n", cineplexName);
 		}
 		System.out.printf("\n");
 
 		String cineplexLocation = sc.nextLine();
-
+		CineplexState cineplexState = cineplexStateManager.readCineplexState(cineplexLocation);
+		for(String movieName: cineplexState.listMovies()){
+			System.out.println(movieName);
+		}
 		System.out.println("Enter movie name: ");
 		String movieName = sc.nextLine();
 
 		System.out.println("Enter Movie type: ");
-		System.out.println("options include : IMAX, ThreeD, Blockbuster");
+		System.out.println("Options include : IMAX, ThreeD, Blockbuster");
 		MovieType movieType = MovieType.valueOf(sc.nextLine());
 
 		System.out.println("Enter Cinema type: ");
-		System.out.println("options include : Regular, Platinum, Goldclass");
+		System.out.println("Options include : Regular, Platinum, Goldclass");
 		CinemaType cinemaType = CinemaType.valueOf(sc.nextLine());
 
 		System.out.println("Enter cinema Id: ");
 		ArrayList<Cinema> cinemaList = cineplexStateManager.readCineplexState(cineplexLocation).findCinema(movieName,
 				movieType,cinemaType);
-		System.out.printf("options include:");
-
+		System.out.printf("Options include: ");
 		for (Cinema cinema : cinemaList) {
 			System.out.printf("%s", cinema.getUniqueId());
 		}
@@ -149,13 +178,21 @@ public class AdminMovieShowtime extends View {
 		String cinemaId = sc.nextLine();
 
 		System.out.println("Enter field to edit: ");
-		System.out.println("options include : showTime, movieRating, cinemaType");
+		System.out.println("Options include : showTime, movieRating, cinemaType");
 		String key = sc.nextLine();
 
 		System.out.println("Enter value to edit: ");
 		String value = sc.nextLine();
 
 		cineplexStateManager.updateCineplexShowtime(cineplexLocation, movieName, cinemaId, key, value, movieType,cinemaType);
+		System.out.println(key + " updated!");
+		for (Cinema cinema : cinemaList){
+			if (cinema.getUniqueId().equals(cinemaId)){
+				cinema.dumpDetails();
+			}
+		}
+		System.out.println("+--------------------------------------------------------+");
+
 	}
 
 	private void deleteMovieShowtime(CineplexStateManager cineplexStateManager) {
@@ -164,34 +201,36 @@ public class AdminMovieShowtime extends View {
 		 * @param CineplexStateManager cineplexStateManager
 		 */
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter Cinplex location: ");
+		System.out.println("Enter Cineplex location: ");
 
 		ArrayList<String> cineplexNames = cineplexStateManager.listCineplex();
-		System.out.printf("options include:");
+		System.out.printf("Options include:\n");
 
 		for (String cineplexName : cineplexNames) {
-			System.out.printf("%s", cineplexName);
+			System.out.printf("%s\n", cineplexName);
 		}
 		System.out.printf("\n");
 
 		String cineplexLocation = sc.nextLine();
-
+		CineplexState cineplexState = cineplexStateManager.readCineplexState(cineplexLocation);
+		for(String movieName: cineplexState.listMovies()){
+			System.out.println(movieName);
+		}
 		System.out.println("Enter movie name: ");
 		String movieName = sc.nextLine();
 
 		System.out.println("Enter Movie type: ");
-		System.out.println("options include : IMAX, ThreeD, Blockbuster");
+		System.out.println("Options include : IMAX, ThreeD, Blockbuster");
 		MovieType movieType = MovieType.valueOf(sc.nextLine());
 
-
 		System.out.println("Enter Cinema type: ");
-		System.out.println("options include : Regular, Platinum, Goldclass");
+		System.out.println("Options include : Regular, Platinum, Goldclass");
 		CinemaType cinemaType = CinemaType.valueOf(sc.nextLine());
 
 		System.out.println("Enter cinema Id: ");
 		ArrayList<Cinema> cinemaList = cineplexStateManager.readCineplexState(cineplexLocation).findCinema(movieName,
 				movieType,cinemaType);
-		System.out.printf("options include:");
+		System.out.printf("Options include:");
 
 		for (Cinema cinema : cinemaList) {
 			System.out.printf("%s", cinema.getUniqueId());
@@ -201,6 +240,8 @@ public class AdminMovieShowtime extends View {
 		String cinemaId = sc.nextLine();
 
 		cineplexStateManager.deleteCineplexShowtime(cineplexLocation, movieName, cinemaId, movieType,cinemaType);
+		System.out.println("CinemaID removed!");
+		System.out.println("+--------------------------------------------------------+");
 	}
 
 }

@@ -21,9 +21,10 @@ public class Booking implements java.io.Serializable {
 	private String name;
 	private MovieType movieType;
 	private Cinema.CinemaType cinemaType;
+	private String date;
 
 	public Booking(String Movie, String CinemaId, String Cineplex, int Row, int Col, int showTime, String email,
-				   String name, String mobileNumber, double price, MovieType movieType, Cinema.CinemaType cinemaType) {
+				   String name, String mobileNumber, double price, MovieType movieType, Cinema.CinemaType cinemaType, String date) {
 		this.Movie = Movie;
 		this.Row = Row;
 		this.Col = Col;
@@ -38,6 +39,7 @@ public class Booking implements java.io.Serializable {
 		this.movieType = movieType;
 		this.cinemaType = cinemaType;
 		this.initTID();
+		this.date = date;
 	}
 
 	// getter methods
@@ -115,6 +117,8 @@ public class Booking implements java.io.Serializable {
 		this.showTime = showTime;
 	}
 
+	public String getDate() {return this.date;}
+
 	// other useful functions
 	public void dumpInfo() {
 		System.out.println("--------------------Booking Info--------------------");
@@ -122,11 +126,12 @@ public class Booking implements java.io.Serializable {
 		System.out.println("Email: " + this.getEmail());
 		System.out.println("Movie: " + this.getMovie());
 		System.out.println("Cineplex: " + this.getCineplex());
+		System.out.println("Show date: " + this.getDate());
 		System.out.println("Showtime: " + this.getShowTime());
 		System.out.printf("Booking seat: row %d col %d\n", this.getRow(), this.getCol());
 		System.out.printf("Movie Type: %s\n", this.getMovieType().toString());
 		System.out.printf("Cinema Type: %s\n", this.getCinemaType().toString());
-		System.out.printf("Booking price: %f\n", this.getPrice());
+		System.out.printf("Booking price: %.2f\n", this.getPrice());
 	}
 
 }

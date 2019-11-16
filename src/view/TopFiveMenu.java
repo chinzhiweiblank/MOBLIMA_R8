@@ -36,7 +36,7 @@ public class TopFiveMenu extends View {
 			ArrayList<Movie> topFiveSales = movieListingStateManager.listTopFiveSales();
 			for (int i = 0; i < topFiveSales.size(); i++) {
 				Movie movieDisplay = topFiveSales.get(i);
-				System.out.printf("%d) %s %f\n", i + 1, movieDisplay.getMovieTitle(),
+				System.out.printf("%d) %s %.2f\n", i + 1, movieDisplay.getMovieTitle(),
 						movieListingStateManager.readSalesDictionary(movieDisplay.getMovieTitle()));
 			}
 			break;
@@ -46,7 +46,7 @@ public class TopFiveMenu extends View {
 			ArrayList<Movie> topFiveRating = movieListingStateManager.listTopFiveRatings();
 			for (int i = 0; i < topFiveRating.size(); i++) {
 				Movie movieDisplay = topFiveRating.get(i);
-				System.out.printf("%d) %s %f\n", i + 1, movieDisplay.getMovieTitle(), movieDisplay.getOverallRating());
+				System.out.printf("%d) %s %.2f\n", i + 1, movieDisplay.getMovieTitle(), movieDisplay.getOverallRating());
 			}
 			break;
 		case 3:

@@ -28,31 +28,34 @@ public class AdminSystemSettings extends View {
 		/**
 		 * choices for admin to edit holiday dates
 		 */
+		boolean end = true;
 		ConfigurationStateManager configurationStateManager = ConfigurationStateManager.getInstance();
-		int choice = getInput(options());
-		switch (choice) {
-		case 1:
-			addHolidayDates(configurationStateManager);
-			System.out.println("Holiday date added");
-			break;
-		case 2:
-			int success = removeHolidayDates(configurationStateManager);
-			if (success == 1){
-				System.out.println("Holiday date removed");
-			} else {
-				System.out.println("Holiday date not in stored dates");
+		while(end){
+			int choice = getInput(options());
+			switch (choice) {
+				case 1:
+					addHolidayDates(configurationStateManager);
+					System.out.println("Holiday date added");
+					break;
+				case 2:
+					int success = removeHolidayDates(configurationStateManager);
+					if (success == 1){
+						System.out.println("Holiday date removed");
+					} else {
+						System.out.println("Holiday date not in stored dates");
+					}
+					break;
+				case 3:
+					viewHolidayDates(configurationStateManager);
+					break;
+				case 4:
+					getPrevView();
+					end = false;
+					break;
+				default:
+					System.out.println("Please input a valid integer choice");
 			}
-			break;
-		case 3:
-			viewHolidaDates(configurationStateManager);
-			break;
-		case 4:
-			getPrevView();
-			break;
-		default:
-			System.out.println("Please input a valid integer choice");
 		}
-
 	}
 
 	private void addHolidayDates(ConfigurationStateManager configurationStateManager) {
@@ -96,7 +99,7 @@ public class AdminSystemSettings extends View {
 	}
 
 
-	private void viewHolidaDates(ConfigurationStateManager configurationStateManager){
+	private void viewHolidayDates(ConfigurationStateManager configurationStateManager){
 		/**
 		 * view holiday dates
 		 * @param ConfigurationStateManager configurationStateManager

@@ -151,6 +151,5 @@ public class Movie implements java.io.Serializable {
 		for (Review review : this.getReview()) {
 			System.out.printf("%s\n", review.getReview());
 		}
-		System.out.println("----------------------------");
 	}
 }

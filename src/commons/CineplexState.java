@@ -22,6 +22,11 @@ public class CineplexState implements java.io.Serializable {
 	}
 
 	// helper function to find the cinema from cinema hashtable
+
+	public ArrayList<String> listMovies(){
+		return new ArrayList<>(this.cineplexState.keySet());
+	}
+
 	private Cinema findCinema(Booking booking) {
 		String movieNameAndType = booking.getMovie() + "_" + booking.getMovieType() + "_" + booking.getCinemaType() ;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
@@ -118,6 +123,7 @@ public class CineplexState implements java.io.Serializable {
 			return null;
 		}
 	}
+
 
 //	public ArrayList<String> listMoviesShowing() {
 //		this.movieListingManager = MovieListingStateManager.getInstance();
@@ -216,7 +222,12 @@ public class CineplexState implements java.io.Serializable {
 			System.out.println("Cinema cannot be found, skipping...");
 			return;
 		}
-		cinemaList.remove(findCinemaUsingId(movieName, cinemaId, movieType,cinemaType));
+		if (cinemaList.size() == 1){
+			this.cineplexState.remove(movieNameAndType);
+		} else {
+			cinemaList.remove(findCinemaUsingId(movieName, cinemaId, movieType,cinemaType));
+		}
+
 	}
 
 	// other helper functions

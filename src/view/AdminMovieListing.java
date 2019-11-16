@@ -23,10 +23,11 @@ public class AdminMovieListing extends View {
 		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie listing");
-		System.out.println("2) Update movie Listing");
-		System.out.println("3) Delete movie Listing");
-		System.out.println("4) Previous menu");
-		return 4;
+		System.out.println("2) Read movie listing");
+		System.out.println("3) Update movie Listing");
+		System.out.println("4) Delete movie Listing");
+		System.out.println("5) Previous menu");
+		return 5;
 	}
 
 	@Override
@@ -44,16 +45,31 @@ public class AdminMovieListing extends View {
 				System.out.println("Movie listing created!");
 				break;
 			case 2:
-				updateMovieListing();
+				readMovieListing();
 				break;
 			case 3:
-				deleteMovieListing();
+				updateMovieListing();
 				break;
 			case 4:
+				deleteMovieListing();
+				break;
+			case 5:
 				getPrevView();
 				break loop;
 			default:
 				System.out.println("Please input a valid integer choice");
+			}
+		}
+	}
+
+	private void readMovieListing() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Please enter movie name to display: ");
+		String movieName = sc.nextLine();
+		MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
+		for(String listingName: movieListingStateManager.getListing()){
+			if(movieName.equals(listingName)){
+				movieListingStateManager.readListing(listingName).dumpDetails();
 			}
 		}
 	}
@@ -83,14 +99,14 @@ public class AdminMovieListing extends View {
 		String movieName = sc.nextLine();
 
 		System.out.println("Enter field to modify: ");
-		System.out.println("options include : ShowingStatus, Synopsis, Director, movieType");
+		System.out.println("Options include : ShowingStatus, Synopsis, Director, movieType");
 		String field = sc.nextLine();
 
 		System.out.println("Enter value to modify: ");
 		if (field.equals("ShowingStatus")) {
-			System.out.println("options include : Coming_Soon, Preview, Now_showing, End_Of_Showing");
+			System.out.println("Options include : Coming_Soon, Preview, Now_showing, End_Of_Showing");
 		} else if (field.equals("movieType")) {
-			System.out.println("options include : IMAX, ThreeD, Blockbuster");
+			System.out.println("Options include : IMAX, ThreeD, Blockbuster");
 		}
 		String value = sc.nextLine();
 		movieListingStateManager.updateListing(movieName, field, value);
@@ -107,7 +123,7 @@ public class AdminMovieListing extends View {
 		String movieName = sc.nextLine();
 
 		System.out.println("Enter Movie showing status: ");
-		System.out.println("options include : Coming_Soon, Preview, Now_showing, End_Of_Showing");
+		System.out.println("Options include : Coming_Soon, Preview, Now_showing, End_Of_Showing");
 
 		ShowingStatus movieStatus = ShowingStatus.valueOf(sc.nextLine());
 
@@ -126,7 +142,7 @@ public class AdminMovieListing extends View {
 		ArrayList<Review> newReviews = new ArrayList<Review>();
 
 		System.out.println("Enter Movie type: ");
-		System.out.println("options include : IMAX, ThreeD, Blockbuster");
+		System.out.println("Options include : IMAX, ThreeD, Blockbuster");
 		MovieType movieType = MovieType.valueOf(sc.nextLine());
 
 		System.out.println("Enter Sales: ");

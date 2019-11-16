@@ -110,6 +110,14 @@ public class Cinema implements java.io.Serializable {
 		System.out.println();
 	}
 
+	public void dumpDetails(){
+		System.out.println("Cinema details:");
+		System.out.println("Unique ID: " + this.getUniqueId());
+		System.out.println("Showtimes: " + this.getshowTime());
+		System.out.println("Age rating: " + this.getMovieRating());
+		System.out.println("Cinema type: " + this.getCinemaType());
+	}
+
 	public int updateSeating(int row, int col) {
 		if (checkAvailable(row, col) == 0) {
 			// seat not available, did not update seating

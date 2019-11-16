@@ -10,6 +10,7 @@ import java.util.Hashtable;
 import java.util.Set;
 
 import movie.Movie.MovieType;
+import movie.MovieListingStateManager;
 import movie.ShowingStatus;
 
 public class CineplexStateManager implements java.io.Serializable {
@@ -65,8 +66,10 @@ public class CineplexStateManager implements java.io.Serializable {
 						movieHash.put(showingStatus,movieHashStringArr);
 					}  else {
 						ArrayList<String> movieHashStringArr = movieHash.get(showingStatus);
-						movieHashStringArr.add(movieName);
-						movieHash.put(showingStatus,movieHashStringArr);
+						if (!movieHashStringArr.contains(movieName)){
+							movieHashStringArr.add(movieName);
+							movieHash.put(showingStatus,movieHashStringArr);
+						}
 					}
 				}
 			});
@@ -86,6 +89,8 @@ public class CineplexStateManager implements java.io.Serializable {
 	}
 
 	public boolean displayShowTime(String movieName, MovieType movieType, Cinema.CinemaType cinemaType) {
+		MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
+
 		Set<String> cineplexNames = this.cineplexStateMulti.keySet();
 
 		System.out.printf("Movie Selected: %s\n", movieName);
@@ -93,7 +98,11 @@ public class CineplexStateManager implements java.io.Serializable {
 		System.out.println("Location | cinema showtime");
 		System.out.println("--------------------------");
 		boolean haveShowTime = false;
-
+		if (movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.Coming_Soon ||
+				movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.End_Of_Showing){
+			System.out.println("No showtimes available for this movie type!");
+			return false;
+		}
 		for (String cineplexName : cineplexNames) {
 			CineplexState cineplexState = this.cineplexStateMulti.get(cineplexName);
 			ArrayList<Cinema> showtimeArr = cineplexState.findShowTime(movieName, movieType,cinemaType);
