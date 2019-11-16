@@ -10,45 +10,49 @@ public class ReviewManager implements IReviewManager {
 	private MovieListingStateManager MovieListingStateManager;
 	private MovieGoer movieGoer;
 
+	/**
+	 * constructor for reviewManager
+	 */
 	public ReviewManager() {
-		/**
-		 * constructor for reviewManager
-		 */
+
 	}
 
+	/**
+	 * constructor for reviewManager
+	 * @param reviewObj review
+	 * @param MovieListingStateManager movie listing state manager
+	 * @param movieGoer movie goer
+	 */
 	public ReviewManager(Review reviewObj, MovieListingStateManager MovieListingStateManager, MovieGoer movieGoer) {
-		/**
-		 * constructor for reviewManager
-		 * @param Review reviewObj
-		 * @param MovieListingStateManager MovieListingStateManager
-		 * @param MovieGoer movieGoer
-		 */
+
 		this.reviewObj = reviewObj;
 		this.MovieListingStateManager = MovieListingStateManager;
 		this.movieGoer = movieGoer;
 	}
 
+	/**
+	 * get review
+	 * @return Review reviewObj
+	 */
 	public Review getReview() {
-		/**
-		 * get review
-		 * @return Review reviewObj
-		 */
+
 		return reviewObj;
 	}
 
+	/**
+	 * set review
+	 * @param reviewObj review
+	 */
 	public void setReview(Review reviewObj) {
-		/**
-		 * set review
-		 * @param Review reviewObj
-		 */
+
 		this.reviewObj = reviewObj;
 	}
 
+	/**
+	 * submit review
+	 */
 	@Override
 	public void submitReview() {
-		/**
-		 * submit review
-		 */
 		// Function need to add review object into movielisting manager and the person
 		// class
 		Movie movie = this.MovieListingStateManager.readListing(this.reviewObj.getMovieName());
