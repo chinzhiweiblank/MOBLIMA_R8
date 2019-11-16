@@ -16,7 +16,7 @@ public class AdminMovieListing extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie listing");
 		System.out.println("2) Update movie Listing");
 		System.out.println("3) Delete movie Listing");

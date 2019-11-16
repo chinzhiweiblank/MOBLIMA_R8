@@ -11,7 +11,7 @@ public class TopFiveMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Top 5 movies by ticket sales");
 		System.out.println("2) Top 5 movies by overall rating");
 		System.out.println("3) previous menu");

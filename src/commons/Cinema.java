@@ -76,7 +76,7 @@ public class Cinema implements java.io.Serializable {
 			System.out.println("Seat is not in the available range. Please try again.");
 			return 0;
 		}
-		if (this.cinemaSeating[row][col] == 1) {
+		if (this.cinemaSeating[row-1][col-1] == 1) {
 			// not available
 			return 0;
 		} else {
@@ -86,7 +86,7 @@ public class Cinema implements java.io.Serializable {
 	}
 
 	public void printSeating() {
-		System.out.println("====Screen====");
+		System.out.println("===Screen===");
 		for (int i = 0; i < this.cinemaSeating.length; i++) {
 			for (int j = 0; j < this.cinemaSeating[i].length; j++) {
 				if (j == this.cinemaSeating[i].length / 2) {
@@ -96,8 +96,18 @@ public class Cinema implements java.io.Serializable {
 					System.out.print(this.cinemaSeating[i][j]);
 				}
 			}
+			System.out.print(" " + (i+1));
 			System.out.println();
 		}
+		for (int k = 0; k < this.cinemaSeating[1].length; k++){
+            if (k == this.cinemaSeating[1].length / 2) {
+                System.out.print(" ");
+                System.out.print(k+1);
+            } else {
+                System.out.print(k+1);
+            }
+        }
+		System.out.println();
 	}
 
 	public int updateSeating(int row, int col) {
@@ -105,7 +115,7 @@ public class Cinema implements java.io.Serializable {
 			// seat not available, did not update seating
 			return 0;
 		} else {
-			this.cinemaSeating[row][col] = 1;
+			this.cinemaSeating[row-1][col-1] = 1;
 			return 1;
 		}
 	}

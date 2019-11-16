@@ -41,7 +41,7 @@ public class SeatsMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Book!");
 		System.out.println("2) previous menu");
 		return 2;
@@ -191,7 +191,7 @@ public class SeatsMenu extends View {
 					return cinemaName;
 
 				} else {
-					System.out.println("There are no cinemas showing at this time");
+					System.out.println("No such cinema found.");
 				}
 			}
 		}

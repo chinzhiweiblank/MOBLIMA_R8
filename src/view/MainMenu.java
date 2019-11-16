@@ -51,9 +51,20 @@ public class MainMenu extends View {
 	}
 
 	private void printHeader() {
-		System.out.println("+-----------------------------+");
-		System.out.println("|     WELCOME TO MOBLIMA      |");
-		System.out.println("+-----------------------------+");
+//		System.out.println(" __      __   _                    _           ");
+//		System.out.println(" \\ \\    / /__| |__ ___ _ __  ___  | |_ ___     ");
+//		System.out.println("  \\ \\/\\/ / -_) / _/ _ \\ '  \\/ -_) |  _/ _ \\    ");
+//		System.out.println("   \\_/\\_/\\___|_\\__\\___/_|_|_\\___|  \\__\\___/");
+		System.out.println("+--------------------------------------------------------+");
+		System.out.println("|                       WELCOME TO                       |");
+		System.out.println("|    __  __  ____  ____  _      _____ __  __             |");
+		System.out.println("|	|  \\/  |/ __ \\|  _ \\| |    |_   _|  \\/  |   /\\       |");
+		System.out.println("|   | \\  / | |  | | |_) | |      | | | \\  / |  /  \\      |");
+		System.out.println("|   | |\\/| | |  | |  _ <| |      | | | |\\/| | / /\\ \\     |");
+		System.out.println("|   | |  | | |__| | |_) | |____ _| |_| |  | |/ ____ \\    |");
+		System.out.println("|   |_|  |_|\\____/|____/|______|_____|_|  |_/_/    \\_\\   |");
+		System.out.println("+--------------------------------------------------------+");
+
 
 	}
 

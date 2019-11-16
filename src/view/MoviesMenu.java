@@ -15,7 +15,7 @@ public class MoviesMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) View movie details");
 		System.out.println("2) Book and purchase ticket");
 		System.out.println("3) previous menu");

@@ -18,7 +18,7 @@ public class MovieBookingMenu extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Select Timing and Movietype");
 		System.out.println("2) previous menu");
 		return 2;
@@ -59,8 +59,6 @@ public class MovieBookingMenu extends View {
 						break;
 					case 2:
 						getPrevView();
-						break;
-					case -1:
 						break;
 					default:
 						System.out.println("Unknown error occurred");

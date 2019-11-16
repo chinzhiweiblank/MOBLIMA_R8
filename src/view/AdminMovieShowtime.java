@@ -11,9 +11,10 @@ import movie.Movie.MovieType;
 
 public class AdminMovieShowtime extends View {
 
+	Scanner sc = new Scanner(System.in);
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+        System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie Showtime");
 		System.out.println("2) Update movie Showtime");
 		System.out.println("3) Delete movie Showtime");
@@ -52,9 +53,7 @@ public class AdminMovieShowtime extends View {
 		System.out.println("Enter movie name: ");
 		String movieName = sc.nextLine();
 
-		System.out.println("Enter Movie type: ");
-		System.out.println("options include : IMAX, ThreeD, Blockbuster");
-		MovieType movieType = MovieType.valueOf(sc.nextLine());
+		MovieType movieType = inputMovieType();
 
 		System.out.println("Enter Cinema number cols: ");
 		int showTime = sc.nextInt();
@@ -79,6 +78,20 @@ public class AdminMovieShowtime extends View {
 
 		Cinema cinemaInsert = new Cinema(numRows, numCols, showTime, cinemaId, cinemaType, movieRating);
 		cineplexStateManager.insertCineplexShowtime(cineplexLocation, movieName, cinemaInsert, movieType,cinemaType);
+	}
+
+	private MovieType inputMovieType() {
+		while (true) {
+			System.out.println("Enter movie type(IMAX, ThreeD, Blockbuster): ");
+			String movieTypeString = sc.nextLine();
+			try {
+				MovieType movieType = MovieType.valueOf(movieTypeString);
+				return movieType;
+			} catch (IllegalArgumentException exception) {
+				System.out.println("movie type does not exist!");
+				return null;
+			}
+		}
 	}
 
 	private void updateMovieShowtime(CineplexStateManager cineplexStateManager) {

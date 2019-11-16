@@ -8,7 +8,7 @@ public class AdminSystemSettings extends View {
 
 	@Override
 	protected int options() {
-		System.out.println("----------------------------");
+		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Add holiday date");
 		System.out.println("2) Remove holiday date");
 		System.out.println("3) previous menu");
