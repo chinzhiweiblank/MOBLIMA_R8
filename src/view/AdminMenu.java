@@ -12,7 +12,8 @@ public class AdminMenu extends View {
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	/**
-	 * print the various options for admin to select
+	 * Options
+	 * @return Options
 	 */
 	@Override
 	protected int options() {
