@@ -5,9 +5,10 @@ import java.util.Scanner;
 
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
+import movie.MovieListingStateManager;
 
 public class MovieBookingMenu extends View {
-
+	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 	Scanner sc = new Scanner(System.in);
 
 	@Override
@@ -23,6 +24,9 @@ public class MovieBookingMenu extends View {
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 
 		String movieName = inputMovie(cineplexStateManager);
+		if(movieName==null){
+			getPrevView(); return ;
+		}
 		MovieType movieType = inputMovieType();
 		if(movieType==null){
 			getPrevView(); return ;
@@ -61,7 +65,7 @@ public class MovieBookingMenu extends View {
 		while (true) {
 			System.out.println("Please input a movie: ");
 			String movieInput = sc.nextLine();
-			ArrayList<String> movieNames = cineplexStateManager.listMoviesShowing();
+			ArrayList<String> movieNames = movieListingStateManager.getListing();
 
 			for (String movieName : movieNames) {
 				if (removeMovieType(movieName).equals(movieInput)) {
@@ -69,6 +73,7 @@ public class MovieBookingMenu extends View {
 				}
 			}
 			System.out.println("Movie does not exist!");
+			return null;
 		}
 	}
 

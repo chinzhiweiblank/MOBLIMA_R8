@@ -24,7 +24,8 @@ public class MoviesMenu extends View {
 	protected void runMenu() {
 		// get the state manager for cineplex and movies
 
-		ArrayList<String> movieList = cineplexStateManager.listMoviesShowing();
+		//ArrayList<String> movieList = cineplexStateManager.listMoviesShowing();
+		ArrayList<String> movieList = movieListingStateManager.getListing();
 		printMovieList(movieList);
 
 		loop: while (true) {
@@ -46,7 +47,6 @@ public class MoviesMenu extends View {
 				System.out.println("Unknown error occurred");
 			}
 		}
-
 	}
 
 	// helper functions

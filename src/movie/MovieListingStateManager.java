@@ -36,6 +36,14 @@ public class MovieListingStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
+	public ArrayList<String> getListing(){
+		ArrayList<String> listArray = new ArrayList<String>();
+		this.movieListingDict.forEach((key, value) -> {
+			listArray.add(key);
+		});
+		return listArray;
+	}
+
 	// CRUD operations
 	public int createListing(String listing, Movie movie, Double sales) {
 		try {
