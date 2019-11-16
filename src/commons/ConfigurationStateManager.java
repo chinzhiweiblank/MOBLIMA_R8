@@ -10,20 +10,41 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+/**
+ * Controller Class to manage system configuration settings
+ */
 public class ConfigurationStateManager implements java.io.Serializable {
 
+	/**
+	 * To ensure that the ConfigurationStateManager is a singleton
+	 */
 	private static ConfigurationStateManager singleton_instance = null;
+	/**
+	 * A list of holidays
+	 */
 	private ArrayList<String> holiday;
+	/**
+	 * The maximum age by which a person is considered a child
+	 */
 	private int maxChildAge;
+	/**
+	 * The maximum age by which a person is considered an adult
+	 */
 	private int maxAdultAge;
 
-	// singleton initialisation
+	/**
+	 * Initialization of the ConfigurationStateManager singleton
+	 */
 	private ConfigurationStateManager() {
 		this.holiday = new ArrayList<String>();
 		this.maxChildAge = 12;
 		this.maxAdultAge = 65;
 	}
 
+	/**
+	 * Obtains an instance of the ConfigurationStateManager
+	 * @return an instance of the ConfigurationStateManager
+	 */
 	public static ConfigurationStateManager getInstance() {
 		if (singleton_instance == null) {
 
@@ -35,7 +56,10 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
-	// helper methods
+	/**
+	 * Checks whether the day is a weekend
+	 * @return true if the day is a weekend and false otherwise
+	 */
 	private boolean getWeekend() {
 		// sunday, mon, tues, wed ... saturday
 		// 1,2,3,4,...7
@@ -48,15 +72,31 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Obtains the day in a YYYYMMDD format
+	 * @param Year year
+	 * @param Month month
+	 * @param day day
+	 * @return the day in a YYYYMMDD format
+	 */
 	public String formatDate(String Year, String Month, String day) {
 		// date in YYYYMMDD format
 		return Year + Month + day;
 	}
 
+	/**
+	 * Inserts a holiday into the list of holidays
+	 * @param holidayDate the holiday to be inserted
+	 */
 	public void insertHoliday(String holidayDate) {
 		this.holiday.add(holidayDate);
 	}
 
+	/**
+	 * Removes a holiday from the list of holidays
+	 * @param holidayDate the date of the holiday to be removed
+	 * @return 1 if removal is successful or 0 otherwise
+	 */
 	public int removeHoliday(String holidayDate) {
 		if (this.holiday.contains(holidayDate)){
 			this.holiday.remove(holidayDate);
@@ -84,6 +124,11 @@ public class ConfigurationStateManager implements java.io.Serializable {
 //		}
 //	}
 
+	/**
+	 * Checks a date is a holiday or a weekend or a weekday
+	 * @param date the date to be checked
+	 * @return 3 if it is a holiday, 2 if it is weekend, 1 if it is a weekday
+	 */
 	public int getTodayDateType(String date) {
 		// return either weekday, weekend or holiday (1,2,3)
 		if (holiday.contains(date)) {
@@ -100,7 +145,11 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		}
 	}
 
-
+	/**
+	 * Obtains the age bracket the user of a specified age belongs in
+	 * @param age age of the user
+	 * @return 1 if the user is a child, 2 for an adult, 3 for a senior
+	 */
 	public int getAgeType(int age) {
 		// return 1,2,3 for child,adult,senior
 		if (age < maxChildAge) {
@@ -113,6 +162,11 @@ public class ConfigurationStateManager implements java.io.Serializable {
 	}
 
 
+	/**
+	 * Verifies whether a date is in the correct format
+	 * @param date date to be verified
+	 * @return true if the date is in the correct format or false otherwise
+	 */
 	public boolean verifyDate(String date){
 		if (date.matches("[0-9]+") && date.length() == 8) {
 			return true;
@@ -120,19 +174,34 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		return false;
 	}
 
-	// getter setter
+	/**
+	 * Obtains the maximum age a person could be considered a child
+	 * @return the maximum age a person could be considered a child
+	 */
 	public int getMaxChildAge() {
 		return this.maxChildAge;
 	}
 
+	/**
+	 * Obtains the maximum age a person could be considered an adult
+	 * @return the maximum age a person could be considered an adult
+	 */
 	public int getMaxAdultAge() {
 		return this.maxAdultAge;
 	}
 
+	/**
+	 * Sets the maximum age a person could be considered a child
+	 * @param age the maximum age a person could be considered a child
+	 */
 	public void setMaxChildAge(int age) {
 		this.maxChildAge = age;
 	}
 
+	/**
+	 * Sets the maximum age a person could be considered an adult
+	 * @param age the maximum age a person could be considered an adult
+	 */
 	public void setMaxAdultAge(int age) {
 		this.maxAdultAge = age;
 	}
@@ -142,7 +211,9 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		return this.holiday;
 	}
 
-	// serializing and loading
+	/**
+	 * Creates a byte stream of data from the state of an object
+	 */
 	public void serialize() {
 
 		try {
@@ -163,6 +234,9 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		}
 	};
 
+	/**
+	 * Writes a byte stream of data into the state of an object
+	 */
 	public void deserialize() {
 		// Deserialization
 		try {
