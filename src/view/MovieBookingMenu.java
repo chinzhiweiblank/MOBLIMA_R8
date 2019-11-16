@@ -1,11 +1,13 @@
 package view;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
 import commons.Cinema;
 import commons.CineplexStateManager;
+import movie.Movie;
 import movie.Movie.MovieType;
 import movie.ShowingStatus;
 
@@ -26,11 +28,23 @@ public class MovieBookingMenu extends View {
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 
 		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
-		printMovieList(movieList);
+		Hashtable<Integer,String> userInputMapping = printMovieList(movieList);
 
-		String movieName = inputMovie(cineplexStateManager);
-		MovieType movieType = inputMovieType();
-		Cinema.CinemaType cinemaType = inputCinemaType();
+		int userInput = sc.nextInt();
+
+		String[] userInputString = userInputMapping.get(userInput).split("_");
+
+		System.out.println(userInputString);
+
+
+		String movieName = userInputString[0];
+		MovieType movieType = MovieType.valueOf(userInputString[1]);
+		Cinema.CinemaType cinemaType = Cinema.CinemaType.valueOf(userInputString[2]);
+
+
+//		String movieName = inputMovie(cineplexStateManager);
+//		MovieType movieType = inputMovieType();
+//		Cinema.CinemaType cinemaType = inputCinemaType();
 		if(movieType==null){
 			getPrevView(); return ;
 		}
@@ -114,19 +128,31 @@ public class MovieBookingMenu extends View {
 		return Cinema.CinemaType.valueOf(cinemaType);
 	}
 
-	private void printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
+
+
+	private Hashtable<Integer,String> printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {
+
+		Hashtable<Integer,String> userInputMapping = new Hashtable<Integer,String>();
+
 		System.out.println("Movies currently showing:");
 		System.out.println("");
 		if (movieHash.isEmpty()){
 			System.out.println("None");
-			return;
+			return null;
 		}
-		movieHash.forEach(((showingStatus, strings) -> {
-			System.out.println("Movies with showing status:" + showingStatus);
-			for (int i = 0; i < strings.size(); i++) {
-				System.out.printf("%d)\t%s\n", i, strings.get(i));
+		int counter = 1;
+		for (ShowingStatus showingStatus:movieHash.keySet()) {
+			ArrayList<String> strings = movieHash.get(showingStatus);
+			if (showingStatus != ShowingStatus.End_Of_Showing) {
+				System.out.println("Movies with showing status:" + showingStatus);
+				for (int i = 0; i < strings.size(); i++) {
+					System.out.printf("%d)\t%s\n", counter, strings.get(i));
+					userInputMapping.put(counter,strings.get(i));
+					counter++;
+				}
+				System.out.println("");
 			}
-			System.out.println("");
-		}));
+		}
+		return userInputMapping;
 	}
 }

@@ -29,12 +29,13 @@ public class MoviesMenu extends View {
 		ArrayList<String> movieList = movieListingStateManager.listMovies();
 		printMovieList(movieList);
 
+		Scanner sc = new Scanner(System.in);
 
 		loop: while (true) {
 			int choice = getInput(options());
 			switch (choice) {
 			case 1:
-				Movie movie = inputMovie(movieListingStateManager);
+				Movie movie = inputMovie(movieListingStateManager,movieList);
 				if (movie != null) {
 					movie.dumpDetails();
 				}
@@ -53,14 +54,17 @@ public class MoviesMenu extends View {
 	}
 
 	// helper functions
-	private Movie inputMovie(MovieListingStateManager movieListingStateManager) {
+	private Movie inputMovie(MovieListingStateManager movieListingStateManager,ArrayList<String> movieList) {
+
+		printMovieList(movieList);
+
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Please input a movie: ");
-		String movieinput = sc.nextLine();
-//		sc.close();
+		System.out.println("please input movie choice");
+		int choice = sc.nextInt();
+
 
 		// check whether movie is present
-		Movie movieSearched = movieListingStateManager.searchMovie(movieinput);
+		Movie movieSearched = movieListingStateManager.searchMovie(movieList.get(choice-1));
 		if (movieSearched == null) {
 			System.out.println("Error. No such movie available. Please try again.");
 			return null;
@@ -68,6 +72,8 @@ public class MoviesMenu extends View {
 			return movieSearched;
 		}
 	}
+
+
 
 	private void printMovieList(ArrayList<String> movieList){
 		System.out.println("Movies currently showing:");
@@ -77,7 +83,7 @@ public class MoviesMenu extends View {
 			return;
 		}
 		for(int i = 0 ;i<movieList.size() ;i++){
-			System.out.printf("%d)\t%s\n", i, movieList.get(i));
+			System.out.printf("%d)\t%s\n", i+1, movieList.get(i));
 		}
 		System.out.println("");
 	}

@@ -16,7 +16,7 @@ public class testApp {
 
 		// Serialize some cineplex data
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
-		Cinema hall1 = new Cinema(10, 8, 1700, "001", CinemaType.Goldclass, MovieRating.NC);
+		Cinema hall1 = new Cinema(10, 8, 1700, "001", CinemaType.Regular, MovieRating.NC);
 		cineplexStateManager.insertCineplexShowtime("GV tampines", "WALL-E", hall1, MovieType.Blockbuster,CinemaType.Regular);
 
 		Cinema hall2 = new Cinema(10, 8, 1500, "002", CinemaType.Goldclass, MovieRating.NC);
@@ -26,16 +26,16 @@ public class testApp {
 		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall3, MovieType.IMAX,CinemaType.Platinum);
 
 		Cinema hall4 = new Cinema(10, 8, 1500, "002", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall4, MovieType.ThreeD,CinemaType.Platinum);
+		cineplexStateManager.insertCineplexShowtime("GV tampines", "Spiderman", hall4, MovieType.ThreeD,CinemaType.Goldclass);
 
 		Cinema hall5 = new Cinema(10, 8, 1900, "001", CinemaType.Goldclass, MovieRating.NC);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall5, MovieType.Blockbuster,CinemaType.Platinum);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall5, MovieType.Blockbuster,CinemaType.Goldclass);
 
-		Cinema hall6 = new Cinema(10, 8, 2100, "002", CinemaType.Platinum, MovieRating.PG);
+		Cinema hall6 = new Cinema(10, 8, 2100, "002", CinemaType.Regular, MovieRating.PG);
 		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall6, MovieType.ThreeD,CinemaType.Regular);
 
 		Cinema hall7 = new Cinema(10, 8, 2300, "001", CinemaType.Platinum, MovieRating.PG);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall7, MovieType.IMAX,CinemaType.Regular);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall7, MovieType.IMAX,CinemaType.Platinum);
 
 		Cinema hall8 = new Cinema(10, 8, 0000, "002", CinemaType.Regular, MovieRating.PG);
 		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall8, MovieType.IMAX,CinemaType.Regular);
