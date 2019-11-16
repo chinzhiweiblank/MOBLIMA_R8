@@ -174,9 +174,6 @@ public class CineplexState implements java.io.Serializable {
 		return movieHash;
 	}
 
-
-
-
 	// CRUD operations for cinema showtimes
 	public void insertCinemaShowtime(String movieName, Cinema cinema, MovieType movieType, CinemaType cinemaType) {
 		String movieNameAndType = movieName + "_" + movieType.toString()+ "_" + cinemaType.toString();

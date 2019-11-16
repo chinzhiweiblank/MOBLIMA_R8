@@ -66,11 +66,17 @@ public class AdminMovieListing extends View {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter movie name to display: ");
 		String movieName = sc.nextLine();
+		boolean found = false;
 		MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 		for(String listingName: movieListingStateManager.getListing()){
 			if(movieName.equals(listingName)){
 				movieListingStateManager.readListing(listingName).dumpDetails();
+				found = true;
 			}
+		}
+
+		if (!found){
+			System.out.println("Movie cant be found");
 		}
 	}
 
@@ -82,14 +88,10 @@ public class AdminMovieListing extends View {
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();
 		movieListingStateManager.deleteListing(movieName);
-	}
-
-	private void showMovieListing() {
-		/**
-		 * show the various movie listings currently available
-		 */
+		System.out.printf("%s has been successfully deleted",movieName);
 
 	}
+
 	private void updateMovieListing() {
 		/**
 		 * update the movie listing
@@ -111,6 +113,7 @@ public class AdminMovieListing extends View {
 		String value = sc.nextLine();
 		movieListingStateManager.updateListing(movieName, field, value);
 
+		System.out.printf("%s has been successfully modified",value);
 	}
 
 	private Movie createMovieListing() {

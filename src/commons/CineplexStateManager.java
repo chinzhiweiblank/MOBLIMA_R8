@@ -77,8 +77,6 @@ public class CineplexStateManager implements java.io.Serializable {
 		return movieHash;
 	}
 
-
-
 	public ArrayList<String> listCineplex() {
 		ArrayList<String> cineplexNames = new ArrayList<String>();
 		Set<String> cineplexNamesSet = this.cineplexStateMulti.keySet();
