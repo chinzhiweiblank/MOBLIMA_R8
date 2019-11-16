@@ -21,6 +21,7 @@ public interface TicketManager {
 	 * @param movieClass Class of Movie booked
 	 * @param age Age of Person booking
 	 * @param day Day when Ticket was booked
+	 * @param price Price of Ticket booked
 	 * @return Ticket Price
 	 * @throws IOException if input is wrong
 	 */

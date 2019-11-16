@@ -3,10 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="81b31c77-c568-4ad4-9ee5-fd9b46ab005a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSVWriter/TicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/TicketManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/AdminUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AdminUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Booking.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movie/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/ReviewManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movie/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/loginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/loginMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

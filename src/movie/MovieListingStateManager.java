@@ -50,7 +50,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * get movie listing
-	 * @return ArrayList<String> listArray
+	 * @return listArray List of Movie Listings
 	 */
 	public ArrayList<String> getListing(){
 
@@ -251,7 +251,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * list the top 5 movies sorted by sales
-	 * @return ArrayList<Movie> sorted Movies
+	 * @return sortedMovie List of Movies in sorted order
 	 */
 	public ArrayList<Movie> listTopFiveSales() {
 
@@ -293,7 +293,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * list the top 5 movies sorted by ratings
-	 * @return ArrayList<Movie> sorted movies
+	 * @return sortedMovie List of movies in sorted order
 	 */
 	public ArrayList<Movie> listTopFiveRatings() {
 
@@ -331,7 +331,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * movie list
-	 * @return ArrayList<String> movieList
+	 * @return moviesList List of movies
 	 */
 	public ArrayList<String> listMovies() {
 

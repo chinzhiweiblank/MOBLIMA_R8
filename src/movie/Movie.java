@@ -99,7 +99,7 @@ public class Movie implements java.io.Serializable {
 
 	/**
 	 * get the cast
-	 * @return ArrayList<String> Cast
+	 * @return Cast A list of cast members
 	 */
 	public ArrayList<String> getCast() {
 
@@ -117,7 +117,7 @@ public class Movie implements java.io.Serializable {
 
 	/**
 	 * get review
-	 * @return ArrayList<Review> pastReviews
+	 * @return pastReviews A list of past reviews
 	 */
 	public ArrayList<Review> getReview() {
 

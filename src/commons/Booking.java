@@ -78,6 +78,7 @@ public class Booking implements java.io.Serializable {
 	 * @param price Price of the ticket
 	 * @param movieType Type of Movie booked
 	 * @param cinemaType Type of Cinema booked
+	 * @param date Date when Cinema was booked
 	 */
 	public Booking(String Movie, String CinemaId, String Cineplex, int Row, int Col, int showTime, String email,
 				   String name, String mobileNumber, double price, MovieType movieType, Cinema.CinemaType cinemaType, String date) {

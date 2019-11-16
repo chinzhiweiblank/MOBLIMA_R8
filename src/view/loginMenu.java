@@ -16,7 +16,7 @@ public class loginMenu extends View {
 
 	/**
 	 * Constructor to create login menu
-	 * @param accountType
+	 * @param accountType type of account
 	 */
 	public loginMenu(AccountType accountType) {
 

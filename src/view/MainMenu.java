@@ -19,6 +19,7 @@ public class MainMenu extends View {
 
 	/**
 	 * Main function to run Main Menu
+	 * @param args a list of strings as arguments
 	 */
 	public static void main(String[] args) {
 

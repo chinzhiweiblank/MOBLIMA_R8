@@ -40,6 +40,11 @@ public class CSVcontroller {
 			return database;
 		}
 
+		/**
+		 * Gets the file path based on the type of movie
+		 * @param movieType Type of movie
+		 * @return filepath The path of the file
+		 */
 		private static String getFilePath(int movieType) {
 			/**
 			 * get the file path
@@ -54,15 +59,16 @@ public class CSVcontroller {
 			return filePath;
 		}
 
+		/**
+		 * Reads the price
+		 * @param movieType Type of Movie booked
+		 * @param movieClass Class of Movie booked
+		 * @param age Age of Person booking
+		 * @param day Day when Ticket was booked
+		 * @return Ticket Price
+		 * @throws IOException Exception raised when input is wrong
+		 */
 		protected static double readPrice(int movieType, int movieClass, int age, int day) throws IOException {
-			/**
-			 * Reads the price
-			 * @param movieType Type of movie
-			 * @param movieClass Class of movie
-			 * @param age Age of Person
-			 * @param day Day booked
-			 * @return Price of Ticket
-			 */
 			List<List<String>> database = new ArrayList<List<String>>();
 
 			// Error checking for invalid input
@@ -85,6 +91,7 @@ public class CSVcontroller {
 		 * @param day Day of ticket booked
 		 * @param price Price of ticket
 		 * @return Updated price
+		 * @throws IOException Exception thrown when Input is wrong
 		 */
 		protected static int updatePrice(int movieType, int movieClass, int age, int day, int price)
 				throws IOException {

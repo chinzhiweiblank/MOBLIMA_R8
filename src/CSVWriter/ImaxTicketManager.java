@@ -3,7 +3,7 @@ package CSVWriter;
 import java.io.IOException;
 
 /**
- * Controllers CLass for IMAX movie tickets
+ * Controllers Class for IMAX movie tickets
  */
 public class ImaxTicketManager implements TicketManager {
 	/**

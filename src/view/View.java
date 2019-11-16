@@ -52,6 +52,7 @@ public abstract class View {
 
 	/**
 	 * Gets previous view
+	 * @return prevView The previous view
 	 */
 	protected View getPrevView() {
 		System.out.println("Returning to previous menu...");
