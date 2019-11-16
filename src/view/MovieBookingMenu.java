@@ -9,10 +9,11 @@ import commons.Cinema;
 import commons.CineplexStateManager;
 import movie.Movie;
 import movie.Movie.MovieType;
+import movie.MovieListingStateManager;
 import movie.ShowingStatus;
 
 public class MovieBookingMenu extends View {
-
+	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 	Scanner sc = new Scanner(System.in);
 
 	@Override
@@ -87,6 +88,7 @@ public class MovieBookingMenu extends View {
 		while (true) {
 			System.out.println("Please input a movie: ");
 			String movieInput = sc.nextLine();
+
 			Hashtable<ShowingStatus,ArrayList<String>> movieNames = cineplexStateManager.listMoviesShowing();
 
 			for (ShowingStatus showingStatus: movieNames.keySet()){
@@ -99,11 +101,13 @@ public class MovieBookingMenu extends View {
 					}
 				}
 			}
+			System.out.println("Movie does not exist!");
 			if (!Showing){
 				System.out.println("Movie is not showing!");
 			} else {
 				System.out.println("Movie does not exist!");
 			}
+			return null;
 		}
 	}
 
