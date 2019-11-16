@@ -2,20 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="45157b3d-a579-4743-b04f-6b8f27c55297" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieListing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieListing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieShowtime.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MainMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MainMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/loginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/loginMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MoviesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MoviesMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/SeatsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SeatsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/TopFiveMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/TopFiveMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/loginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/loginMenu.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

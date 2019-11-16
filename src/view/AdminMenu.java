@@ -11,10 +11,10 @@ public class AdminMenu extends View {
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
-	@Override
 	/**
 	 * print the various options for admin to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -25,10 +25,10 @@ public class AdminMenu extends View {
 		return 4;
 	}
 
-	@Override
 	/**
 	 * run the function which the admin selects
 	 */
+	@Override
 	protected void runMenu() {
 
 		if (!overallStateManager.getloginStatus(AccountType.ADMIN)) {
@@ -59,7 +59,6 @@ public class AdminMenu extends View {
 	 * function to authenticate admin user
 	 */
 	private void login() {
-
 		display(this, new loginMenu(AccountType.ADMIN));
 	}
 

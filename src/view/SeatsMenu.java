@@ -30,9 +30,9 @@ public class SeatsMenu extends View {
 
 	/**
 	 * constructor to create SeatsMenu
-	 * @param movieName
-	 * @param movieType
-	 * @param cinemaType
+	 * @param movieName name of the movie
+	 * @param movieType type of the movie
+	 * @param cinemaType type of the cinema
 	 */
 	protected SeatsMenu(String movieName, MovieType movieType, CinemaType cinemaType) {
 
@@ -48,10 +48,10 @@ public class SeatsMenu extends View {
 	private ConfigurationStateManager configurationStateManager = ConfigurationStateManager.getInstance();
 	private TicketManager ticketManager;
 
-	@Override
 	/**
 	 * print the various options for moviegoer to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -60,10 +60,10 @@ public class SeatsMenu extends View {
 		return 2;
 	}
 
-	@Override
 	/**
 	 * choices for moviegoer to select
 	 */
+	@Override
 	protected void runMenu() {
 
 
@@ -97,11 +97,11 @@ public class SeatsMenu extends View {
 
 	/**
 	 * allows user to input seat selection
-	 * @param movieName
-	 * @param showTime
-	 * @param cinemaId
-	 * @param cineplex
-	 * @param movieType
+	 * @param movieName name of the movie
+	 * @param showTime show time of the movie
+	 * @param cinemaId cinemaId of the movie
+	 * @param cineplex cineplex of the movie
+	 * @param movieType type of the movie
 	 */
 	private void inputSeatSelection(String movieName, int showTime, String cinemaId, String cineplex,
 			MovieType movieType) {
@@ -199,7 +199,7 @@ public class SeatsMenu extends View {
 
 	/**
 	 * allows user to input timing of movie
-	 * @param cineplexName
+	 * @param cineplexName name of the cineplex
 	 * @return int timing if successful
 	 */
 	private int inputTiming(String cineplexName) {
@@ -224,13 +224,12 @@ public class SeatsMenu extends View {
 
 	/**
 	 * allows user to input cinema
-	 * @param Cineplex
-	 * @param movieName
-	 * @param timing
-	 * @param movieType
+	 * @param Cineplex name of the cineplex
+	 * @param movieName name of the movie
+	 * @param timing timing of the cinema
+	 * @param movieType type of the movie
 	 * @return String cinemaName if successful
 	 */
-
 	private String inputCinema(String Cineplex, String movieName, int timing, MovieType movieType) {
 
 		while (true) {
@@ -254,7 +253,7 @@ public class SeatsMenu extends View {
 
 	/**
 	 * converts enum to int
-	 * @param cinemaType
+	 * @param cinemaType type of the cinema
 	 * @return int 1 if Regular, 2 if Platinum, 3 if Goldclass, -1 if unsuccessful
 	 */
 	private int enumToInt(CinemaType cinemaType) {

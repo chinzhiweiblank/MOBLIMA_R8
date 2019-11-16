@@ -23,10 +23,10 @@ public class MainMenu extends View {
 		new MainMenu().runMenu();
 	}
 
-	@Override
 	/**
 	 * print the various options for admin/moviegoer to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("1) Movies!");
@@ -35,10 +35,10 @@ public class MainMenu extends View {
 		return 3; // return no. of options
 	}
 
-	@Override
 	/**
 	 * choices for admin or moviegoer to select
 	 */
+	@Override
 	protected void runMenu() {
 
 		printHeader();
