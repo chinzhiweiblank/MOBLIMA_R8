@@ -38,26 +38,28 @@ public class MovieBookingMenu extends View {
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 
 		Hashtable<ShowingStatus,ArrayList<String>> movieList = cineplexStateManager.listMoviesShowing();
+
 		Hashtable<Integer,String> userInputMapping = printMovieList(movieList);
 
 		int userInput = sc.nextInt();
 
 		String[] userInputString = userInputMapping.get(userInput).split("_");
 
-		System.out.println(userInputString);
-
-
 		String movieName = userInputString[0];
 		MovieType movieType = MovieType.valueOf(userInputString[1]);
 		Cinema.CinemaType cinemaType = Cinema.CinemaType.valueOf(userInputString[2]);
 
+		if (movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.Coming_Soon ||
+				movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.End_Of_Showing){
+			System.out.println("No showtimes available for this movie type!");
+		}
 
 //		String movieName = inputMovie(cineplexStateManager);
 //		MovieType movieType = inputMovieType();
 //		Cinema.CinemaType cinemaType = inputCinemaType();
-		if(movieType==null){
-			getPrevView(); return ;
-		}
+//		if(movieType==null){
+//			getPrevView(); return ;
+//		}
 		if(cineplexStateManager.displayShowTime(movieName, movieType, cinemaType)){
 			int choice = 0;
 			while (choice != 2) {

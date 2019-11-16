@@ -62,8 +62,7 @@ public class loginMenu extends View {
 				System.out.println("Please input a valid integer choice");
 			}
 		}
-		// go back to previous page
-		//getPrevView();
+
 	}
 
 	private boolean login(Scanner sc) {

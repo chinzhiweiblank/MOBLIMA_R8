@@ -9,10 +9,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * class for csv controller
+ */
 public class CSVcontroller {
 
+	/**
+	 * static class for csv controller
+	 */
 	public static class CSVstatic {
 		private static List<List<String>> loadDatabase(int movieType) throws IOException {
+			/**
+			 * load database
+			 * @param int movieType
+			 * @return List<List<String>> database
+			 */
 			String row;
 			List<List<String>> database = new ArrayList<List<String>>();
 
@@ -30,6 +41,11 @@ public class CSVcontroller {
 		}
 
 		private static String getFilePath(int movieType) {
+			/**
+			 * get the file path
+			 * @param int movieType
+			 * @return String filepath
+			 */
 			String filePath = new File("").getAbsolutePath() + "/data/";
 
 			// Generate file path that links to correct CSV Database of Prices
@@ -39,6 +55,14 @@ public class CSVcontroller {
 		}
 
 		protected static double readPrice(int movieType, int movieClass, int age, int day) throws IOException {
+			/**
+			 * read the price
+			 * @param int movieType
+			 * @param int movieClass
+			 * @param int age
+			 * @param int day
+			 * @return double price
+			 */
 			List<List<String>> database = new ArrayList<List<String>>();
 
 			// Error checking for invalid input
@@ -55,6 +79,15 @@ public class CSVcontroller {
 
 		protected static int updatePrice(int movieType, int movieClass, int age, int day, int price)
 				throws IOException {
+			/**
+			 * update the price
+			 * @param int movieType
+			 * @param int movieClass
+			 * @param int age
+			 * @param int day
+			 * @param int price
+			 * @return int updated price
+			 */
 			List<List<String>> database = new ArrayList<List<String>>();
 
 			// Error checking for invalid input

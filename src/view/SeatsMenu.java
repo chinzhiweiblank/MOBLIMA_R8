@@ -77,7 +77,7 @@ public class SeatsMenu extends View {
 					display(this, new loginMenu(AccountType.USER));
 				}
 				inputSeatSelection(movieName, timing, cinema, cineplex, this.movieType);
-				System.out.printf("%s ticket has been booked\n", movieName);
+
 
 				// go back to home
 				new MainMenu().runMenu();
@@ -103,6 +103,7 @@ public class SeatsMenu extends View {
 		 * @param MovieType movieType
 		 */
 
+		ArrayList<Booking> bookinglist = new ArrayList<Booking>();
 		System.out.println("Enter number of seats: ");
 		int n = sc.nextInt();
 		cineplexStateManager.printSeatAvailability(cineplex, movieName, showTime, cinemaId, movieType,this.cinemaType);
@@ -153,17 +154,25 @@ public class SeatsMenu extends View {
 							configurationStateManager.getTodayDateType(date));
 					Booking newBooking = new Booking(movieName, cinemaId, cineplex, row, col, showTime,
 							movieGoer.getEmail(), movieGoer.getFullName(), movieGoer.getMobile(), ticketPrice,
-							this.movieType,this.cinemaType);
+							this.movieType,this.cinemaType, date);
 					BookingManager bookingManager = new BookingManager(newBooking, cineplexStateManager, movieGoer,
 							movieListingStateManager);
 					success = bookingManager.bookTickets();
 					if (success == 0) {
 						System.out.println("Seat is already taken");
+					} else {
+						bookinglist.add(newBooking);
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+
 			}
+
+		}
+		System.out.printf("%s ticket has been booked\n", movieName);
+		for (Booking booking: bookinglist){
+			booking.dumpInfo();
 		}
 	}
 

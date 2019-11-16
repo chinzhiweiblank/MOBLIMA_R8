@@ -34,21 +34,23 @@ public class AdminMenu extends View {
 		}
 		int choice = getInput(options());
 		switch (choice) {
-		case 1:
-			display(this, new AdminMovieListing());
-			break;
-		case 2:
-			display(this, new AdminMovieShowtime());
-			break;
-		case 3:
-			display(this, new AdminSystemSettings());
-			break;
-		case 4:
-			getPrevView();
-			break;
-		default:
-			System.out.println("Please input a valid integer choice");
+			case 1:
+				display(this, new AdminMovieListing());
+				break;
+			case 2:
+				display(this, new AdminMovieShowtime());
+				break;
+			case 3:
+				display(this, new AdminSystemSettings());
+				break;
+			case 4:
+				getPrevView();
+				break;
+			default:
+				System.out.println("Please input a valid integer choice");
+
 		}
+
 	}
 
 	private void login() {
