@@ -12,6 +12,10 @@ public class Movie3DTicketManager implements TicketManager {
 	private int movieType = 2;
 
 	/**
+	 * Constructor for Movie3DTicketManager
+	 */
+	public Movie3DTicketManager(){};
+	/**
 	 * Reads the price
 	 * @param movieClass Class of Movie booked
 	 * @param age Age of Person booking

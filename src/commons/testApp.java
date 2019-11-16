@@ -10,8 +10,15 @@ import movie.MovieListingStateManager;
 import movie.Review;
 import movie.ShowingStatus;
 
+/**
+ * Application for Testing
+ */
 public class testApp {
 
+	/**
+	 * Main function for Testing
+	 * @param args List of Arguments
+	 */
 	public static void main(String[] args) {
 
 		// Serialize some cineplex data

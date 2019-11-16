@@ -214,8 +214,8 @@ public class Cinema implements java.io.Serializable {
 
 	/**
 	 * Compares an object with another object to see if they are the same using their references
-	 * @param obj the object to be compared
-	 * @return true if the object is the same and false otherwise
+	 * @param obj The object to be compared
+	 * @return True if the object is the same and false otherwise
 	 */
 	@Override
 	public boolean equals(Object obj) {

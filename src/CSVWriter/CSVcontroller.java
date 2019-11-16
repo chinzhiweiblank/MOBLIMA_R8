@@ -15,6 +15,10 @@ import java.util.List;
 public class CSVcontroller {
 
 	/**
+	 * Constructor for CSVcontroller
+	 */
+	public CSVcontroller(){};
+	/**
 	 * Static class for Csv Controller
 	 */
 	public static class CSVstatic {

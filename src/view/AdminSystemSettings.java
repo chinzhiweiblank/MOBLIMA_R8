@@ -6,10 +6,14 @@ import java.util.Scanner;
 
 import commons.ConfigurationStateManager;
 /**
- * menu for admin to edit holiday dates
+ * View Class for admin to edit holiday dates
  */
 public class AdminSystemSettings extends View {
 
+	/**
+	 * Constructor for AdminSystemSettings
+	 */
+	public AdminSystemSettings(){}
 	/**
 	 * print the various options for admin to select
 	 */

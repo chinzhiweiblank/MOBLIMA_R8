@@ -12,6 +12,10 @@ public class BlockbusterTicketManager implements TicketManager {
 	private int movieType = 1;
 
 	/**
+	 * Constructor for BlockbusterTicketManager
+	 */
+	public BlockbusterTicketManager(){};
+	/**
 	 * Reads the price
 	 * @param movieClass Class of Movie booked
 	 * @param age Age of Person booking

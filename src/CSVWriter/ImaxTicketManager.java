@@ -11,6 +11,7 @@ public class ImaxTicketManager implements TicketManager {
 	 */
 	private int movieType = 3;
 
+	public ImaxTicketManager(){};
 	/**
 	 * Reads the price
 	 * @param movieClass Class of movie
