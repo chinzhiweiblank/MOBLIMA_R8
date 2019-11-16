@@ -26,9 +26,12 @@ public class MoviesMenu extends View {
 	protected void runMenu() {
 		// get the state manager for cineplex and movies
 
+<<<<<<< HEAD
 		//ArrayList<String> movieList = cineplexStateManager.listMoviesShowing();
+		ArrayList<String> movieList = movieListingStateManager.getListing();
+=======
 		ArrayList<String> movieList = movieListingStateManager.listMovies();
-
+>>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
 		printMovieList(movieList);
 
 

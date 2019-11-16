@@ -7,8 +7,11 @@ import java.util.Scanner;
 import commons.Cinema;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
+<<<<<<< HEAD
 import movie.MovieListingStateManager;
+=======
 import movie.ShowingStatus;
+>>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
 
 public class MovieBookingMenu extends View {
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
@@ -77,8 +80,11 @@ public class MovieBookingMenu extends View {
 		while (true) {
 			System.out.println("Please input a movie: ");
 			String movieInput = sc.nextLine();
-
+<<<<<<< HEAD
+			ArrayList<String> movieNames = movieListingStateManager.getListing();
+=======
 			Hashtable<ShowingStatus,ArrayList<String>> movieNames = cineplexStateManager.listMoviesShowing();
+>>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
 
 			for (ShowingStatus showingStatus: movieNames.keySet()){
 				ArrayList<String> movieNamesStringArr = movieNames.get(showingStatus);
@@ -90,13 +96,16 @@ public class MovieBookingMenu extends View {
 					}
 				}
 			}
+<<<<<<< HEAD
 			System.out.println("Movie does not exist!");
+			return null;
+=======
 			if (!Showing){
 				System.out.println("Movie is not showing!");
 			} else {
 				System.out.println("Movie does not exist!");
 			}
-			return null;
+>>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
 		}
 	}
 

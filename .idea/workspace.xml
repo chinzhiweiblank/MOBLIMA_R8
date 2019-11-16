@@ -1,71 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="4aa74077-81d8-4062-85a9-70bd6a0ac968" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="5b313f8a-9160-4aab-9cca-f6990e7ecb51" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml.orig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/AccountState.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/CineplexState.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/ConfigurationState.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/MovieListingState.ser" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/MovieListingStateManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/movie/MovieListingStateManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MoviesMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/MoviesMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/BlockbusterTicketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/CSVcontroller$CSVstatic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/CSVcontroller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/ImaxTicketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/Movie3DTicketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/CSVWriter/TicketManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/AccountStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/AccountType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/AdminUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Booking.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/BookingManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cinema$CinemaType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cinema$MovieRating.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cinema.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cineplex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/CineplexState.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/CineplexStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/ConfigurationStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/IBookingManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/MovieGoer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/OverallStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Person.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/testApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/IReviewManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/Movie$MovieType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/Movie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/MovieListingStateManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/MovieListingStateManager.class.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/Review.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/ReviewManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/movie/ShowingStatus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminMovieListing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminMovieShowtime.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminSystemSettings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieGoerMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MoviesMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MoviesMenu.class.orig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/TopFiveMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/View.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/loginMenu.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/MoviesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MoviesMenu.java" afterDir="false" />
     </list>
-=======
-<<<<<<< Updated upstream
-    <list default="true" id="4aa74077-81d8-4062-85a9-70bd6a0ac968" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/AccountState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/data/AccountState.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/CineplexState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/data/CineplexState.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/MovieListingState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/data/MovieListingState.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cinema.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/commons/Cinema.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/AdminMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/MovieBookingMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MOBLIMA/view/SeatsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/CineplexStateManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" afterDir="false" />
-    </list>
-=======
-    <list default="true" id="e72787f7-1f42-487f-be3f-47e9e852b1fa" name="Default Changelist" comment="" />
->>>>>>> Stashed changes
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-=======
-<<<<<<< Updated upstream
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-=======
-  <component name="CoverageViewManager">
-    <option name="myElementSize" value="241" />
->>>>>>> Stashed changes
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
   </component>
-  <component name="ProjectId" id="1TdV8FHXKVncTP2cNJD906XIdJD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1TgTshVor3E7b8u9hXPljGOJV1d" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -79,10 +83,10 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MainMenu">
+  <component name="RunManager">
     <configuration name="MainMenu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="view.MainMenu" />
-      <module name="MOBLIMA" />
+      <module name="MOBLIMA_R8" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="view.*" />
@@ -93,23 +97,9 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="commons.testApp" />
-      <module name="MOBLIMA" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="commons.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.MainMenu" />
-        <item itemvalue="Application.testApp" />
       </list>
     </recent_temporary>
   </component>
@@ -118,87 +108,27 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4aa74077-81d8-4062-85a9-70bd6a0ac968" name="Default Changelist" comment="" />
-      <created>1573789797251</created>
+      <changelist id="5b313f8a-9160-4aab-9cca-f6990e7ecb51" name="Default Changelist" comment="" />
+      <created>1573880947291</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1573789797251</updated>
-      <workItem from="1573789802950" duration="9229000" />
-<<<<<<< HEAD
-      <workItem from="1573818696386" duration="12406000" />
-      <workItem from="1573831593121" duration="67000" />
-=======
-      <workItem from="1573818696386" duration="8044000" />
-      <workItem from="1573830395384" duration="704000" />
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
+      <updated>1573880947291</updated>
+      <workItem from="1573880951746" duration="225000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-<<<<<<< HEAD
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
-=======
             <State />
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
           </value>
         </entry>
       </map>
     </option>
-<<<<<<< HEAD
-=======
-=======
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/MoviesMenu.java</url>
-          <line>73</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/MoviesMenu.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/MovieBookingMenu.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/SeatsMenu.java</url>
-          <line>128</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/commons/Cinema.java</url>
-          <line>73</line>
-          <properties class="commons.Cinema" method="checkAvailable">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MOBLIMA_R8$MainMenu.ic" NAME="MainMenu Coverage Results" MODIFIED="1573833000685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>view.*</FILTER>
-    </SUITE>
->>>>>>> Stashed changes
->>>>>>> e460f2229928e9c8edb885744f1e9c9388ab6da4
   </component>
 </project>
