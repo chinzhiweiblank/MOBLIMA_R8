@@ -15,10 +15,11 @@ import movie.Movie.MovieType;
 public class AdminMovieShowtime extends View {
 	Scanner sc = new Scanner(System.in);
 	@Override
+	/**
+	 * print the various options for admin to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for admin to select
-		 */
+
         System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Create movie Showtime");
 		System.out.println("2) Read movie Showtime");
@@ -29,10 +30,11 @@ public class AdminMovieShowtime extends View {
 	}
 
 	@Override
+	/**
+	 * choices for admin to select create, read or delete
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for admin to select create, read or delete
-		 */
+
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
 		int choice = getInput(options());
 		switch (choice) {
@@ -57,6 +59,10 @@ public class AdminMovieShowtime extends View {
 
 	}
 
+	/**
+	 * read movie listing show time
+	 * @param cineplexStateManager
+	 */
 	private void readMovieShowtime(CineplexStateManager cineplexStateManager) {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter which Cineplex: ");
@@ -76,10 +82,12 @@ public class AdminMovieShowtime extends View {
 		}
 	}
 
+
+	/**
+	 * create a showtime for the movie listing
+	 * @param cineplexStateManager
+	 */
 	private void createMovieShowtime(CineplexStateManager cineplexStateManager) {
-		/**
-		 * create a showtime for the movie listing
-		 */
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cineplex location: ");
 		String cineplexLocation = sc.nextLine();
@@ -118,11 +126,12 @@ public class AdminMovieShowtime extends View {
 		System.out.println("Movie showtime added!");
 	}
 
+	/**
+	 * enter the movie listing type
+	 * @return MovieType
+	 */
 	private MovieType inputMovieType() {
-		/**
-		 * enter the movie listing type
-		 * @return MovieType
-		 */
+
 		while (true) {
 			System.out.println("Enter movie type(IMAX, ThreeD, Blockbuster): ");
 			String movieTypeString = sc.nextLine();
@@ -136,11 +145,12 @@ public class AdminMovieShowtime extends View {
 		}
 	}
 
+	/**
+	 * update the movie listing showtime
+	 * @param cineplexStateManager
+	 */
 	private void updateMovieShowtime(CineplexStateManager cineplexStateManager) {
-		/**
-		 * update the movie listing showtime
-		 * @param CineplexStateManager cineplexStageManager
-		 */
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cineplex location: ");
 		ArrayList<String> cineplexNames = cineplexStateManager.listCineplex();
@@ -195,11 +205,12 @@ public class AdminMovieShowtime extends View {
 
 	}
 
+	/**
+	 * delete movie listing show time
+	 * @param cineplexStateManager
+	 */
 	private void deleteMovieShowtime(CineplexStateManager cineplexStateManager) {
-		/**
-		 * delete movie listing show time
-		 * @param CineplexStateManager cineplexStateManager
-		 */
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Cineplex location: ");
 

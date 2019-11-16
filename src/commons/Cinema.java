@@ -204,6 +204,12 @@ public class Cinema implements java.io.Serializable {
 		System.out.println("Cinema type: " + this.getCinemaType());
 	}
 
+	/**
+	 * Updates the status of the status in a specified row and column in the cinema
+	 * @param row row of the seat
+	 * @param col column of the seat
+	 * @return 1 if the update is successful and 0 otherwise
+	 */
 	public int updateSeating(int row, int col) {
 		if (checkAvailable(row, col) == 0) {
 			// seat not available, did not update seating

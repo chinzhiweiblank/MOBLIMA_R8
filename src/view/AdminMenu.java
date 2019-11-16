@@ -12,10 +12,11 @@ public class AdminMenu extends View {
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	@Override
+	/**
+	 * print the various options for admin to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for admin to select
-		 */
+
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) CRUD movie listing");
 		System.out.println("2) CRUD cinema showtimes and movies showing");
@@ -25,10 +26,11 @@ public class AdminMenu extends View {
 	}
 
 	@Override
+	/**
+	 * run the function which the admin selects
+	 */
 	protected void runMenu() {
-		/**
-		 * run the function which the admin selects
-		 */
+
 		if (!overallStateManager.getloginStatus(AccountType.ADMIN)) {
 			login();
 		}
@@ -53,10 +55,11 @@ public class AdminMenu extends View {
 
 	}
 
+	/**
+	 * function to authenticate admin user
+	 */
 	private void login() {
-		/**
-		 * function to authenticate admin user
-		 */
+
 		display(this, new loginMenu(AccountType.ADMIN));
 	}
 

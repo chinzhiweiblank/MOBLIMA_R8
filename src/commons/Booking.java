@@ -244,7 +244,9 @@ public class Booking implements java.io.Serializable {
 
 	public String getDate() {return this.date;}
 
-	// other useful functions
+	/**
+	 * Prints out the information about the Booking
+	 */
 	public void dumpInfo() {
 		System.out.println("--------------------Booking Info--------------------");
 		System.out.println("Name: " + this.getName());

@@ -12,7 +12,7 @@ import movie.ShowingStatus;
 import movie.Movie;
 
 /**
- * C
+ * Singleton Class representing the state of a Cineplex
  */
 public class CineplexState implements java.io.Serializable {
 
@@ -24,12 +24,19 @@ public class CineplexState implements java.io.Serializable {
 		this.cineplexState = new Hashtable<String, ArrayList<Cinema>>();
 	}
 
-	// helper function to find the cinema from cinema hashtable
-
+	/**
+	 * Obtains a list of movies from the cineplex
+	 * @return a list of movies from the cineplex
+	 */
 	public ArrayList<String> listMovies(){
 		return new ArrayList<>(this.cineplexState.keySet());
 	}
 
+	/**
+	 * Searches for a cinema using a booking
+	 * @param booking the booking for the movie
+	 * @return cinema available for the booking
+	 */
 	private Cinema findCinema(Booking booking) {
 		String movieNameAndType = booking.getMovie() + "_" + booking.getMovieType() + "_" + booking.getCinemaType() ;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
@@ -42,13 +49,27 @@ public class CineplexState implements java.io.Serializable {
 		return null;
 	}
 
+	/**
+	 * Obtains a list of cinemas using a movie title, type and cinema type
+	 * @param movieName title of the movie
+	 * @param movieType type of the movie
+	 * @param cinemaType type of the cinema
+	 * @return the list of cinemas available
+	 */
 	public ArrayList<Cinema> findCinema(String movieName, MovieType movieType,CinemaType cinemaType) {
 		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType.toString();
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
 		return cinemaList;
 	}
 
-	// functions used to assist in booking
+	/**
+	 * Searches for a cinema using a movie's showtime
+	 * @param movieName title of the movie
+	 * @param showTime the time when the movie is shown
+	 * @param movieType the type of the movie
+	 * @param cinemaType the type of the cinema
+	 * @return the list of cinemas available
+	 */
 	public ArrayList<Cinema> findCinemaUsingTime(String movieName, Integer showTime, MovieType movieType,CinemaType cinemaType) {
 		String movieNameAndType = movieName + "_" + movieType.toString() + "_" +cinemaType;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
@@ -65,6 +86,14 @@ public class CineplexState implements java.io.Serializable {
 		return cinemaListReturn;
 	}
 
+	/**
+	 * Searches for a cinema using its ID
+	 * @param movieName title of the movie
+	 * @param cinemaId the ID of a cinema
+	 * @param movieType the type of movie
+	 * @param cinemaType the type of cinema
+	 * @return cinema with the ID or null if not found
+	 */
 	public Cinema findCinemaUsingId(String movieName, String cinemaId, MovieType movieType,CinemaType cinemaType) {
 		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType;
 		ArrayList<Cinema> cinemaList = this.cineplexState.get(movieNameAndType);
@@ -78,6 +107,11 @@ public class CineplexState implements java.io.Serializable {
 		return null;
 	}
 
+	/**
+	 * Checks whether a seat in the booking is available
+	 * @param booking the booking made by the user
+	 * @return 1 if the seat is available and 0 if it is not
+	 */
 	public int checkSeatAvailability(Booking booking) {
 		Cinema cinema = findCinema(booking);
 		if (cinema.checkAvailable(booking.getRow(), booking.getCol()) == 1) {
@@ -89,11 +123,20 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Updates the seating in the cinema using a booking
+	 * @param booking the booking made by the user
+	 * @return 1 if the seating is available and 0 if it is not
+	 */
 	public int updateSeating(Booking booking) {
 		Cinema cinema = findCinema(booking);
 		return cinema.updateSeating(booking.getRow(), booking.getCol());
 	}
 
+	/**
+	 * Prints the seating arrangement in the cinema specified in the booking
+	 * @param booking the booking made by the user
+	 */
 	public void printSeatAvailability(Booking booking) {
 		Cinema cinema = findCinema(booking);
 		cinema.printSeating();
@@ -107,6 +150,14 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Prints the seating arrangement using movie and cinema details
+	 * @param movieName the title of a movie
+	 * @param showTime the time of a show
+	 * @param CinemaId the ID of the cinema
+	 * @param movieType the type of movie
+	 * @param cinemaType the type of cinema
+	 */
 	public void printSeatAvailability(String movieName, Integer showTime, String CinemaId, MovieType movieType,CinemaType cinemaType) {
 		ArrayList<Cinema> cinema = findCinemaUsingTime(movieName, showTime, movieType,cinemaType);
 		for (Cinema cinemaIter : cinema) {
@@ -117,6 +168,14 @@ public class CineplexState implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * Searches the time of a show using the title of a movie, the type of a movie and the type of cinema
+	 * and returns a list of cinemas
+	 * @param movieName the title of the movie
+	 * @param movieType the type of the movie
+	 * @param cinemaType the type of the cinema
+	 * @return the list of cinemas available
+	 */
 	public ArrayList<Cinema> findShowTime(String movieName, MovieType movieType, CinemaType cinemaType) {
 		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType;
 		if (this.cineplexState.containsKey(movieNameAndType)) {
@@ -146,6 +205,10 @@ public class CineplexState implements java.io.Serializable {
 //		return movieList;
 //	}
 
+	/**
+	 * Shows the list of movies that are showing and their status
+	 * @return a HashTable in which the keys are the showing status of the movie and the values are the title of the movie
+	 */
 	public Hashtable<ShowingStatus,ArrayList<String>> listMoviesShowing() {
 		this.movieListingManager = MovieListingStateManager.getInstance();
 		Hashtable<ShowingStatus,ArrayList<String>> movieHash = new Hashtable<ShowingStatus,ArrayList<String>>();

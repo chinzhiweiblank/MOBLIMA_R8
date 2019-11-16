@@ -14,12 +14,13 @@ public abstract class View {
 
 	protected abstract void runMenu();
 
+	/**
+	 * request input from user
+	 * @param Opts
+	 * @return int choice if successful, -1 if unsuccessful
+	 */
 	protected int getInput(int Opts) { // error checking for input
-		/**
-		 * request input from user
-		 * @param int Opts
-		 * @return int choice if successful, -1 if unsuccessful
-		 */
+
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter choice: ");
 		try {
@@ -37,21 +38,22 @@ public abstract class View {
 		}
 	}
 
+	/**
+	 * display the view
+	 * @param  v
+	 * @param  u
+	 */
 	protected void display(View v, View u) {
-		/**
-		 * display the view
-		 * @param View v
-		 * @param View u
-		 */
+
 		u.prevView = v;
 		u.runMenu();
 	}
 
+	/**
+	 * get previous view
+	 */
 	protected View getPrevView() {
-		/**
-		 * get previous view
-		 * @preturn View previous view
-		 */
+
 		System.out.println("Returning to previous menu...");
 		return prevView;
 	}

@@ -10,10 +10,11 @@ public class MainMenu extends View {
 	boolean exit;
 	private static OverallStateManager overallStateManager;
 
+	/**
+	 * main function to run menu
+	 */
 	public static void main(String[] args) {
-		/**
-		 * main function to run menu
-		 */
+
 
 		// load initial configurations
 		overallStateManager = OverallStateManager.getInstance();
@@ -23,10 +24,11 @@ public class MainMenu extends View {
 	}
 
 	@Override
+	/**
+	 * print the various options for admin/moviegoer to select
+	 */
 	protected int options() {
-		/**
-		 * print the various options for admin/moviegoer to select
-		 */
+
 		System.out.println("1) Movies!");
 		System.out.println("2) Admin Login");
 		System.out.println("3) Exit");
@@ -34,10 +36,11 @@ public class MainMenu extends View {
 	}
 
 	@Override
+	/**
+	 * choices for admin or moviegoer to select
+	 */
 	protected void runMenu() {
-		/**
-		 * choices for admin or moviegoer to select
-		 */
+
 		printHeader();
 		while (!exit) {
 			int choice = getInput(options());
@@ -62,10 +65,11 @@ public class MainMenu extends View {
 		//System.out.println("Exiting program");
 	}
 
+	/**
+	 * prints frontend header for moblima
+	 */
 	private void printHeader() {
-		/**
-		 * prints frontend header for moblima
-		 */
+
 //		System.out.println(" __      __   _                    _           ");
 //		System.out.println(" \\ \\    / /__| |__ ___ _ __  ___  | |_ ___     ");
 //		System.out.println("  \\ \\/\\/ / -_) / _/ _ \\ '  \\/ -_) |  _/ _ \\    ");
