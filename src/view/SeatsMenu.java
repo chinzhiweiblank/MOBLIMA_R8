@@ -19,7 +19,9 @@ import commons.MovieGoer;
 import commons.OverallStateManager;
 import movie.Movie.MovieType;
 import movie.MovieListingStateManager;
-
+/**
+ * menu for moviegoer to book their seat for the movie
+ */
 public class SeatsMenu extends View {
 
 	private String movieName;
@@ -27,6 +29,12 @@ public class SeatsMenu extends View {
 	private CinemaType cinemaType;
 
 	protected SeatsMenu(String movieName, MovieType movieType, CinemaType cinemaType) {
+		/**
+		 * constructor to create SeatsMenu
+		 * @param String movieName
+		 * @param MovieType movieType
+		 * @param CinemaType cinemaType
+		 */
 		this.movieName = movieName;
 		this.movieType = movieType;
 		this.cinemaType = cinemaType;
@@ -41,6 +49,9 @@ public class SeatsMenu extends View {
 
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for moviegoer to select
+		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) Book!");
 		System.out.println("2) Previous menu");
@@ -49,6 +60,9 @@ public class SeatsMenu extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * choices for moviegoer to select
+		 */
 
 		String cineplex = inputCineplex();
 		int timing = inputTiming(cineplex);
@@ -80,6 +94,14 @@ public class SeatsMenu extends View {
 
 	private void inputSeatSelection(String movieName, int showTime, String cinemaId, String cineplex,
 			MovieType movieType) {
+		/**
+		 * allows user to input seat selection
+		 * @param String movieName
+		 * @param int showTime
+		 * @param String cinemaId
+		 * @param String cineplex
+		 * @param MovieType movieType
+		 */
 
 		System.out.println("Enter number of seats: ");
 		int n = sc.nextInt();
@@ -146,6 +168,10 @@ public class SeatsMenu extends View {
 	}
 
 	private String inputCineplex() {
+		/**
+		 * allows user to input cineplex
+		 * @return String cineplexName
+		 */
 		while (true) {
 			System.out.println("Enter Cineplex: ");
 			String cineplexName = sc.nextLine();
@@ -158,6 +184,11 @@ public class SeatsMenu extends View {
 	}
 
 	private int inputTiming(String cineplexName) {
+		/**
+		 * allows user to input timing of movie
+		 * @param String cineplexName
+		 * @return int timing if successful
+		 */
 		while (true) {
 			System.out.println("Enter timing in 24 hour format ,eg. 2300: ");
 			int timing = sc.nextInt();
@@ -177,6 +208,14 @@ public class SeatsMenu extends View {
 	}
 
 	private String inputCinema(String Cineplex, String movieName, int timing, MovieType movieType) {
+		/**
+		 * allows user to input cinema
+		 * @param String Cineplex
+		 * @param String movieName
+		 * @param int timing
+		 * @param MovieType movieType
+		 * @return String cinemaName if successful
+		 */
 
 		while (true) {
 			cineplexStateManager.printSeatAvailability(Cineplex, movieName, movieType, timing,this.cinemaType);
@@ -198,6 +237,11 @@ public class SeatsMenu extends View {
 	}
 
 	private int enumToInt(CinemaType cinemaType) {
+		/**
+		 * converts enum to int
+		 * @param CinemaType cinemaType
+		 * @return int 1 if Regular, 2 if Platinum, 3 if Goldclass, -1 if unsuccessful
+		 */
 		switch (cinemaType) {
 		case Regular:
 			return 1;

@@ -3,15 +3,19 @@ package view;
 import commons.AccountStateManager;
 import commons.AccountType;
 import commons.OverallStateManager;
-
+/**
+ * main menu for admin
+ */
 public class AdminMenu extends View {
-
 	boolean authorised;
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	@Override
 	protected int options() {
+		/**
+		 * print the various options for admin to select
+		 */
 		System.out.println("+--------------------------------------------------------+");
 		System.out.println("1) CRUD movie listing");
 		System.out.println("2) CRUD cinema showtimes and movies showing");
@@ -22,6 +26,9 @@ public class AdminMenu extends View {
 
 	@Override
 	protected void runMenu() {
+		/**
+		 * run the function which the admin selects
+		 */
 		if (!overallStateManager.getloginStatus(AccountType.ADMIN)) {
 			login();
 		}
@@ -45,6 +52,9 @@ public class AdminMenu extends View {
 	}
 
 	private void login() {
+		/**
+		 * function to authenticate admin user
+		 */
 		display(this, new loginMenu(AccountType.ADMIN));
 	}
 
