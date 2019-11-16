@@ -23,10 +23,10 @@ public class loginMenu extends View {
 		this.accountType = accountType;
 	}
 
-	@Override
 	/**
 	 * print the various options for admin to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -35,10 +35,10 @@ public class loginMenu extends View {
 		return 2;
 	}
 
-	@Override
 	/**
 	 * choices for admin to login
 	 */
+	@Override
 	protected void runMenu() {
 
 		Scanner sc = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class loginMenu extends View {
 
 	/**
 	 * login to authenticate admin
-	 * @param sc
+	 * @param sc scanner to scan for input
 	 * @return true if successful, false if unsuccessful
 	 */
 	private boolean login(Scanner sc) {

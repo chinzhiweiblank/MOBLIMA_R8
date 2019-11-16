@@ -11,10 +11,10 @@ public class TopFiveMenu extends View {
 
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
-	@Override
 	/**
 	 * print the various options for moviegoer to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -24,10 +24,10 @@ public class TopFiveMenu extends View {
 		return 3;
 	}
 
-	@Override
 	/**
 	 * choices for moviegoer to select
 	 */
+	@Override
 	protected void runMenu() {
 
 		int choice = getInput(options());

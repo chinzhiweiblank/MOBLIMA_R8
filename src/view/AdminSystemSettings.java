@@ -10,10 +10,10 @@ import commons.ConfigurationStateManager;
  */
 public class AdminSystemSettings extends View {
 
-	@Override
 	/**
 	 * print the various options for admin to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -24,10 +24,10 @@ public class AdminSystemSettings extends View {
 		return 4;
 	}
 
-	@Override
 	/**
 	 * choices for admin to edit holiday dates
 	 */
+	@Override
 	protected void runMenu() {
 
 		boolean end = true;
@@ -62,7 +62,7 @@ public class AdminSystemSettings extends View {
 
 	/**
 	 * add holiday dates to the system
-	 * @param configurationStateManager
+	 * @param configurationStateManager configuration state manager
 	 */
 	private void addHolidayDates(ConfigurationStateManager configurationStateManager) {
 
@@ -82,7 +82,7 @@ public class AdminSystemSettings extends View {
 
 	/**
 	 * remove holiday dates to the system
-	 * @param configurationStateManager
+	 * @param configurationStateManager configuration state manager
 	 * @return 1 if successfully removed holiday, 0 if unsuccessful
 	 */
 	private int removeHolidayDates(ConfigurationStateManager configurationStateManager) {
@@ -105,7 +105,7 @@ public class AdminSystemSettings extends View {
 
 	/**
 	 * view holiday dates
-	 * @param configurationStateManager
+	 * @param configurationStateManager configuration state manager
 	 */
 	private void viewHolidayDates(ConfigurationStateManager configurationStateManager){
 

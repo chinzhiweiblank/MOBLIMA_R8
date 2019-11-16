@@ -16,10 +16,10 @@ public class AdminMovieListing extends View {
 
 	private MovieListingStateManager movieListingStateManager;
 
-	@Override
 	/**
 	 * print the various options for admin to select
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -31,10 +31,10 @@ public class AdminMovieListing extends View {
 		return 5;
 	}
 
-	@Override
 	/**
 	 * choices for admin to select create, read or delete
 	 */
+	@Override
 	protected void runMenu() {
 
 		loop: while (true) {
@@ -64,6 +64,9 @@ public class AdminMovieListing extends View {
 		}
 	}
 
+	/**
+	 * read movie listing
+	 */
 	private void readMovieListing() {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Please enter movie name to display: ");

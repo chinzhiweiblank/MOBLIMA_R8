@@ -16,7 +16,7 @@ public abstract class View {
 
 	/**
 	 * request input from user
-	 * @param Opts
+	 * @param Opts options
 	 * @return int choice if successful, -1 if unsuccessful
 	 */
 	protected int getInput(int Opts) { // error checking for input
@@ -40,9 +40,10 @@ public abstract class View {
 
 	/**
 	 * display the view
-	 * @param  v
-	 * @param  u
+	 * @param  v view v
+	 * @param  u view u
 	 */
+
 	protected void display(View v, View u) {
 
 		u.prevView = v;
@@ -53,7 +54,6 @@ public abstract class View {
 	 * get previous view
 	 */
 	protected View getPrevView() {
-
 		System.out.println("Returning to previous menu...");
 		return prevView;
 	}
