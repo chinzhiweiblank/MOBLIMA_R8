@@ -1,5 +1,5 @@
 package movie;
 
-interface IReviewManager {
+public interface IReviewManager {
 	public void submitReview();
 }
