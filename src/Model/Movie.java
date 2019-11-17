@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 /**
- * movie listing class
+ * Model Class for Movie
  */
 public class Movie implements java.io.Serializable {
 	private String MovieTitle;
@@ -21,7 +21,7 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * constructor for movie
+	 * Constructor for movie
 	 * @param MovieTitle title of the movie
 	 * @param showingStatus showing status of the movie
 	 */
@@ -37,7 +37,7 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * another constructor for movie
+	 * Constructor for movie
 	 * @param MovieTitle title of the movie
 	 * @param showingStatus showing status of the movie
 	 * @param Synopsis synopsis of the movie
@@ -62,8 +62,8 @@ public class Movie implements java.io.Serializable {
 
 	// getter methods
 	/**
-	 * get the movie title
-	 * @return String MovieTitle
+	 * Obtains the movie title
+	 * @return Title of movie
 	 */
 	public String getMovieTitle() {
 
@@ -71,8 +71,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get the showing status
-	 * @return ShowingStatus showing status
+	 * Obtains the showing status
+	 * @return Showing status
 	 */
 	public ShowingStatus getShowingStatus() {
 
@@ -80,8 +80,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get the synopsis
-	 * @return String Synopsis
+	 * Obtains the synopsis
+	 * @return Movie synopsis
 	 */
 	public String getSynopsis() {
 
@@ -89,8 +89,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get the director
-	 * @return String Director
+	 * Obtains the name of the director
+	 * @return Director's name
 	 */
 	public String getDirector() {
 
@@ -98,8 +98,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get the cast
-	 * @return Cast A list of cast members
+	 * Obtains the cast
+	 * @return A list of cast members
 	 */
 	public ArrayList<String> getCast() {
 
@@ -107,8 +107,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get the overall rating
-	 * @return double OverallRating
+	 * Obtains the overall rating
+	 * @return Overall Rating of the movie
 	 */
 	public double getOverallRating() {
 
@@ -116,8 +116,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get review
-	 * @return pastReviews A list of past reviews
+	 * Obtians review
+	 * @return A list of past reviews
 	 */
 	public ArrayList<Review> getReview() {
 
@@ -125,18 +125,17 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * get type of movie
-	 * @return MovieType Movie type
+	 * Obtains type of movie
+	 * @return Type of movie
 	 */
 	public MovieType getMovieType() {
 
 		return this.MovieType;
 	}
 
-	// setter methods
 	/**
-	 * set the movie title
-	 * @param MovieTitle title of the movie
+	 * Sets the movie title
+	 * @param MovieTitle Title of movie
 	 */
 	public void setMovieTitle(String MovieTitle) {
 
@@ -144,8 +143,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * set the showing status
-	 * @param showingStatus showing status of the movie
+	 * Sets the showing status
+	 * @param showingStatus Showing Status of Movie
 	 */
 	public void setShowingStatus(String showingStatus) {
 
@@ -153,8 +152,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * set the movie type
-	 * @param movieType type of the movie
+	 * Sets the movie type
+	 * @param movieType Type of the movie
 	 */
 	public void setMovieType(String movieType) {
 
@@ -162,8 +161,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * set the synopsis
-	 * @param Synopsis synopsis of the movie
+	 * Sets the synopsis
+	 * @param Synopsis Synopsis of the movie
 	 */
 	public void setSynopsis(String Synopsis) {
 
@@ -171,8 +170,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * set the director
-	 * @param Director director of the movie
+	 * Sets the director's name
+	 * @param Director Name of movie director
 	 */
 	public void setDirector(String Director) {
 
@@ -180,8 +179,8 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * set the cast
-	 * @param Cast cast of the movie
+	 * Sets the cast
+	 * @param Cast Cast of the movie
 	 */
 	public void setCast(ArrayList<String> Cast) {
 
@@ -189,7 +188,7 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * calculate the overall rating of the movie
+	 * Calculates the overall rating of the movie
 	 */
 	public void calculateOverallRating() {
 
@@ -208,8 +207,8 @@ public class Movie implements java.io.Serializable {
 		this.OverallRating = Rating;
 	}
 	/**
-	 * set the array list of review
-	 * @param pastReviews past reviews of the movie
+	 * Sets the list of reviews
+	 * @param pastReviews Past reviews of the movie
 	 */
 	public void setReview(ArrayList<Review> pastReviews) {
 
@@ -217,17 +216,16 @@ public class Movie implements java.io.Serializable {
 	}
 
 	/**
-	 * insert the individual review
-	 * @param review of the movie
+	 * Inserts the individual review
+	 * @param review New review of the movie
 	 */
 	public void insertReview(Review review) {
 
 		this.pastReviews.add(review);
 	}
 
-	// other methods
 	/**
-	 * dumps the movie details into the console log
+	 * Prints Movie Details
 	 */
 	public void dumpDetails() {
 

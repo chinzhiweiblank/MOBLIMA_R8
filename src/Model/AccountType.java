@@ -1,8 +1,8 @@
 package Model;
 
+/**
+ * The type of accounts available
+ */
 public enum AccountType {
-	/**
-	 * The type of accounts available
-	 */
 	USER, ADMIN
 }

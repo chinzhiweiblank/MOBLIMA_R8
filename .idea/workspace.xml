@@ -4,14 +4,21 @@
     <list default="true" id="81b31c77-c568-4ad4-9ee5-fd9b46ab005a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSVWriter/BlockbusterTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/BlockbusterTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/CSVcontroller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/ImaxTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSVWriter/Movie3DTicketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSVWriter/Movie3DTicketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/Cinema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/Cinema.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/IBookingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/IBookingManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/MovieGoer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/MovieGoer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/commons/testApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/testApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminSystemSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commons/AccountType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commons/AccountType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/IReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/IReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/Movie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/MovieListingStateManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/Review.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/Review.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/ReviewManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/ReviewManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/movie/ShowingStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/movie/ShowingStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/AdminMovieListing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/AdminMovieListing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieBookingMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MovieGoerMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/MoviesMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/MoviesMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/SeatsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/SeatsMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/loginMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/loginMenu.java" afterDir="false" />
     </list>
 =======
     <list default="true" id="e72787f7-1f42-487f-be3f-47e9e852b1fa" name="Default Changelist" comment="" />
@@ -104,6 +111,7 @@
       <workItem from="1573915202656" duration="2087000" />
       <workItem from="1573917313454" duration="76000" />
       <workItem from="1573917406847" duration="1115000" />
+      <workItem from="1573971950098" duration="600000" />
     </task>
     <servers />
   </component>

@@ -35,7 +35,7 @@ public class Review implements java.io.Serializable {
 	}
 
 	/**
-	 * get name
+	 * Obtains Reviewer's name
 	 * @return String name
 	 */
 	public String getName() {
@@ -43,7 +43,7 @@ public class Review implements java.io.Serializable {
 	}
 
 	/**
-	 * get movie name
+	 * Obtains title of movie reviewed
 	 * @return String movie name
 	 */
 	public String getMovieName() {
@@ -51,23 +51,23 @@ public class Review implements java.io.Serializable {
 	}
 
 	/**
-	 * get movie rating
-	 * @return double rating
+	 * Obtains rating of movie reviewed
+	 * @return Rating of movie reviewed
 	 */
 	public double getRating() {
 		return this.rating;
 	}
 	/**
-	 * get time
-	 * @return String time
+	 * Obtains time of creation
+	 * @return Time of creation
 	 */
 	public String getTime() {
 		return this.time;
 	}
 
 	/**
-	 * get review
-	 * @return String review
+	 * Obtains Review Description
+	 * @return Review Description
 	 */
 	public String getReview() {
 
@@ -75,8 +75,8 @@ public class Review implements java.io.Serializable {
 	}
 
 	/**
-	 * set the name
-	 * @param name name of moviegoer
+	 * Sets the name of moviegoer
+	 * @param name Name of moviegoer
 	 */
 	public void setName(String name) {
 
@@ -84,8 +84,8 @@ public class Review implements java.io.Serializable {
 	}
 
 	/**
-	 * set the rating
-	 * @param rating rating of the movie
+	 * Sets the rating
+	 * @param rating Rating of the movie
 	 */
 	public void setRating(double rating) {
 
@@ -94,16 +94,16 @@ public class Review implements java.io.Serializable {
 
 
 	/**
-	 * set the time
-	 * @param time time of the movie
+	 * Sets the time of creation
+	 * @param time Time of creation
 	 */
 	public void setTime(String time) {
 		this.time = time;
 	}
 
 	/**
-	 * set the review
-	 * @param review review of the movie
+	 * Sets review description
+	 * @param review Review description
 	 */
 	public void setReview(String review) {
 

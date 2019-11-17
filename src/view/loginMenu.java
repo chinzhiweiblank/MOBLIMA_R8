@@ -10,8 +10,17 @@ import Model.Person;
  * View Class for admin to select login
  */
 public class loginMenu extends View {
+	/**
+	 * AccountStateManager to manage accounts
+	 */
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
+	/**
+	 * OverallStateManager to access the other Controller classes
+	 */
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
+	/**
+	 * Type of account
+	 */
 	private AccountType accountType;
 
 	/**

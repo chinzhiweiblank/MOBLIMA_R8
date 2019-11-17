@@ -7,8 +7,17 @@ import Controller.OverallStateManager;
  * View class for admin
  */
 public class AdminMenu extends View {
+	/**
+	 * Condition to check authorization
+	 */
 	boolean authorised;
+	/**
+	 * AccountStateManager to manage accounts
+	 */
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
+	/**
+	 * OverallStateManager to access the other Controller Classes
+	 */
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	/**

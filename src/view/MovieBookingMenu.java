@@ -14,7 +14,13 @@ import Model.ShowingStatus;
  * View Class for moviegoer to book tickets for movies
  */
 public class MovieBookingMenu extends View {
+	/**
+	 * MovieListingStateManager to manage movie listings
+	 */
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
+	/**
+	 * Scanner to process inputs
+	 */
 	Scanner sc = new Scanner(System.in);
 
 	/**

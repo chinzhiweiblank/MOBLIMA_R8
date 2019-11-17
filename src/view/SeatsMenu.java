@@ -24,8 +24,17 @@ import Controller.MovieListingStateManager;
  */
 public class SeatsMenu extends View {
 
+	/**
+	 * Title of movie
+	 */
 	private String movieName;
+	/**
+	 * Type of movie
+	 */
 	private MovieType movieType;
+	/**
+	 * Type of cinema
+	 */
 	private CinemaType cinemaType;
 
 	/**

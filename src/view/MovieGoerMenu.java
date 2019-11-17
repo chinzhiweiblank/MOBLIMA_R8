@@ -12,6 +12,9 @@ import Controller.OverallStateManager;
  */
 public class MovieGoerMenu extends View {
 
+	/**
+	 * OverallStateManager to access other Controller classes
+	 */
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
 	/**

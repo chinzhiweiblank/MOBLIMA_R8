@@ -8,10 +8,20 @@ import java.util.Scanner;
  */
 public abstract class View {
 
+	/**
+	 * Previous Menu
+	 */
 	public View prevView;
 
+	/**
+	 * Displays options available
+	 * @return Number of options available
+	 */
 	protected abstract int options(); // options in each menu
 
+	/**
+	 * Executes the user interface for the menu
+	 */
 	protected abstract void runMenu();
 
 	/**
@@ -43,7 +53,6 @@ public abstract class View {
 	 * @param  v view v
 	 * @param  u view u
 	 */
-
 	protected void display(View v, View u) {
 
 		u.prevView = v;

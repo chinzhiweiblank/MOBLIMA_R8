@@ -11,7 +11,13 @@ import Controller.MovieListingStateManager;
  * View Class for moviegoer to view movie details or to book and purchase tickets
  */
 public class MoviesMenu extends View {
+	/**
+	 * CineplexStateManager to manage cineplexes
+	 */
 	private CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
+	/**
+	 * MovieListingStateManager to manage movie listings
+	 */
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 
 	/**

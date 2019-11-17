@@ -12,21 +12,26 @@ import java.util.Hashtable;
 import java.util.Set;
 
 /**
- * movie listing state manager class, singleton class used for state management of all movie information
+ * Controller singleton class used for state management of all movie information
  */
 public class MovieListingStateManager implements java.io.Serializable {
 
-	/*
+	/**
 	 * Singleton class used for state management of all movie information
 	 */
-
 	private static MovieListingStateManager singleton_instance;
+	/**
+	 * Hashtable containing the name of the movie listing and the movie itself
+	 */
 	private Hashtable<String, Movie> movieListingDict;
 
+	/**
+	 * Hashtable containing the name of the movie and the sales for the movie
+	 */
 	private Hashtable<String, Double> movieSalesDict;
 
 	/**
-	 * constructor for MovieListingStateManager
+	 * Constructor for MovieListingStateManager
 	 */
 	private MovieListingStateManager() {
 
@@ -35,7 +40,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * gets and check instance of singleton class
+	 * Gets and check instance of singleton class
 	 * @return MovieListingStateManager singleton_instance
 	 */
 	public static MovieListingStateManager getInstance() {
@@ -51,7 +56,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * get movie listing
+	 * Obtains movie listing
 	 * @return listArray List of Movie Listings
 	 */
 	public ArrayList<String> getListing(){
@@ -65,7 +70,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	// CRUD operations
 	/**
-	 * create the movie listing
+	 * Creates the movie listing
 	 * @param listing listing of the movie
 	 * @param movie movie
 	 * @param sales sales
@@ -84,7 +89,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * read the move listing
+	 * Reads the move listing
 	 * @param listing movie listing
 	 * @return Movie movieListingDict.get(listing) if successful, null if unsuccessful
 	 */
@@ -98,7 +103,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * print listing
+	 * Prints listing
 	 */
 	public void printListing(){
 
@@ -109,10 +114,10 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * update the movie listings
-	 * @param listing listing of the movie
-	 * @param movie movie
-	 * @return int 1 if successful, 0 if unsuccessful
+	 * Updates the movie listings
+	 * @param listing Listing of the movie
+	 * @param movie Movie
+	 * @return 1 if successful, 0 if unsuccessful
 	 */
 	public int updateListing(String listing, Movie movie) {
 
@@ -131,11 +136,11 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * update the movie listings
-	 * @param listing listing of the movie
-	 * @param field field of the movie
-	 * @param value value to set
-	 * @return int 1 if successful, 0 if unsuccessful
+	 * Update the movie listings
+	 * @param listing Listing of the movie
+	 * @param field Field of the movie
+	 * @param value Value to set
+	 * @return 1 if successful, 0 if unsuccessful
 	 */
 	public int updateListing(String listing, String field, String value) {
 
@@ -166,9 +171,9 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * deletes the movie listing
-	 * @param listing listing of the movie
-	 * @return int 1 if successful, 0 if unsuccessful
+	 * Deletes the movie listing
+	 * @param listing Listing of the movie
+	 * @return 1 if successful, 0 if unsuccessful
 	 */
 	public int deleteListing(String listing) {
 
@@ -186,9 +191,9 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * create the sales dictionary
-	 * @param listing listing of the movie
-	 * @param sales sales of the movie
+	 * Creates the sales dictionary
+	 * @param listing Listing of the movie
+	 * @param sales Sales of the movie
 	 */
 	public void CreateSalesDictionary(String listing, Double sales) {
 
@@ -201,9 +206,9 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * read the sales dictionary
+	 * Reads the sales dictionary
 	 * @param listing listing of the movie
-	 * @return double movieSalesDict.get(listing) if successful, -1 if not successful
+	 * @return Movie sales if successful, -1 if not successful
 	 */
 	public double readSalesDictionary(String listing) {
 
@@ -217,9 +222,9 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * update sales dictionary
-	 * @param listing listing of the movie
-	 * @param sales sales of the movie
+	 * Updates sales dictionary
+	 * @param listing Listing of the movie
+	 * @param sales Sales of the movie
 	 */
 	public void UpdateSalesDictionary(String listing, double sales) {
 
@@ -232,8 +237,8 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	// other operations
 	/**
-	 * search for the movie in listing
-	 * @param listing listing of the movie
+	 * Searches for the movie in listing
+	 * @param listing Listing of the movie
 	 * @return Movie movieListingDict.get(listing) if successful, null if not successful
 	 */
 	public Movie searchMovie(String listing) {
@@ -252,8 +257,8 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	/**
-	 * list the top 5 movies sorted by sales
-	 * @return sortedMovie List of Movies in sorted order
+	 * Lists the top 5 movies sorted by sales
+	 * @return List of Movies in sorted order
 	 */
 	public ArrayList<Movie> listTopFiveSales() {
 
@@ -295,7 +300,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * list the top 5 movies sorted by ratings
-	 * @return sortedMovie List of movies in sorted order
+	 * @return List of movies in sorted order
 	 */
 	public ArrayList<Movie> listTopFiveRatings() {
 
@@ -333,7 +338,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	/**
 	 * movie list
-	 * @return moviesList List of movies
+	 * @return List of movies
 	 */
 	public ArrayList<String> listMovies() {
 
@@ -347,7 +352,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 
 	/**
-	 * Serialize of object
+	 * Serialization of object
 	 */
 		public void serialize() {
 

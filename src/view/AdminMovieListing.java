@@ -143,7 +143,7 @@ public class AdminMovieListing extends View {
 
 	/**
 	 * Create a new movie listing
-	 * @return Movie
+	 * @return Movie of the movie listing
 	 */
 	private Movie createMovieListing() {
 

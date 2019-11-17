@@ -27,7 +27,7 @@ public class BlockbusterTicketManager implements TicketManager {
 	}
 
 	/**
-	 * Update the price
+	 * Updates the price
 	 * @param movieClass Class of movie booked
 	 * @param age Age of person booking
 	 * @param day Day when ticket was booked
