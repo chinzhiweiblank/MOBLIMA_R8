@@ -1,8 +1,6 @@
-package commons;
+package Model;
 
 import java.util.ArrayList;
-
-import movie.Review;
 
 /**
  * Model class representing a moviegoer

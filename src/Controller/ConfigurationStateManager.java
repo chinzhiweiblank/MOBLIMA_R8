@@ -1,12 +1,10 @@
-package commons;
+package Controller;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -244,6 +242,7 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		}
 
 		catch (ClassNotFoundException exceptionMessage) {
+			System.out.println("configuration state manager");
 			System.out.println("ClassNotFoundException is caught");
 		}
 	}

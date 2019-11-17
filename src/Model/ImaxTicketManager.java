@@ -1,28 +1,26 @@
-package CSVWriter;
+package Model;
 
 import java.io.IOException;
 
 /**
- * Controller for BlockBuster Movie Tickets
+ * Controllers Class for IMAX movie tickets
  */
-public class BlockbusterTicketManager implements TicketManager {
+public class ImaxTicketManager implements TicketManager {
 	/**
-	 * Type of movie for Blockbuster is 1
+	 * Type of Movie for IMAX is 3
 	 */
-	private int movieType = 1;
+	private int movieType = 3;
 
-	/**
-	 * Constructor for BlockbusterTicketManager
-	 */
-	public BlockbusterTicketManager(){};
+	public ImaxTicketManager(){};
 	/**
 	 * Reads the price
-	 * @param movieClass Class of Movie booked
-	 * @param age Age of Person booking
-	 * @param day Day when Ticket was booked
+	 * @param movieClass Class of movie
+	 * @param age Age of person
+	 * @param day Day when ticket was booked
 	 * @return Ticket Price
 	 */
 	public double readPrice(int movieClass, int age, int day) throws IOException {
+
 		return CSVcontroller.CSVstatic.readPrice(movieType, movieClass, age, day);
 	}
 

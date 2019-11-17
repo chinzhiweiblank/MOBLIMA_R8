@@ -1,6 +1,7 @@
-package commons;
+package Controller;
 
-import movie.MovieListingStateManager;
+import Model.AccountType;
+import Model.Person;
 
 /**
  * Main Controller Class managing the other controller classes

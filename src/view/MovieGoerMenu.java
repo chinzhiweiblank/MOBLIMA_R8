@@ -2,10 +2,10 @@ package view;
 
 import java.util.ArrayList;
 
-import commons.AccountType;
-import commons.Booking;
-import commons.MovieGoer;
-import commons.OverallStateManager;
+import Model.AccountType;
+import Model.Booking;
+import Model.MovieGoer;
+import Controller.OverallStateManager;
 
 /**
  * View Class for moviegoer to search movies, view booking history or list top 5 movies

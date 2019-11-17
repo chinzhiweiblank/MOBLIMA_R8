@@ -1,4 +1,4 @@
-package CSVWriter;
+package Model;
 
 import java.io.IOException;
 

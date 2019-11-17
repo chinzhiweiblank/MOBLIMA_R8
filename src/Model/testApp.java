@@ -1,14 +1,14 @@
-package commons;
+package Model;
 
 import java.util.ArrayList;
 
-import commons.Cinema.CinemaType;
-import commons.Cinema.MovieRating;
-import movie.Movie;
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
-import movie.Review;
-import movie.ShowingStatus;
+import Model.Cinema.CinemaType;
+import Model.Cinema.MovieRating;
+import Controller.AccountStateManager;
+import Controller.CineplexStateManager;
+import Controller.ConfigurationStateManager;
+import Model.Movie.MovieType;
+import Controller.MovieListingStateManager;
 
 /**
  * Application for Testing

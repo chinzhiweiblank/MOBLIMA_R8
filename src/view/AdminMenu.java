@@ -1,8 +1,8 @@
 package view;
 
-import commons.AccountStateManager;
-import commons.AccountType;
-import commons.OverallStateManager;
+import Controller.AccountStateManager;
+import Model.AccountType;
+import Controller.OverallStateManager;
 /**
  * View class for admin
  */

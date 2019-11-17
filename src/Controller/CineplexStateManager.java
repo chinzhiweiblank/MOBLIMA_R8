@@ -1,4 +1,4 @@
-package commons;
+package Controller;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -9,9 +9,10 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
-import movie.ShowingStatus;
+import Model.Cinema;
+import Model.CineplexState;
+import Model.Movie.MovieType;
+import Model.ShowingStatus;
 
 /**
  * Controller class managing the cineplex and its state
@@ -304,6 +305,7 @@ public class CineplexStateManager implements java.io.Serializable {
 		}
 
 		catch (ClassNotFoundException exceptionMessage) {
+			System.out.println("cineplex state manager");
 			System.out.println("ClassNotFoundException is caught");
 		}
 

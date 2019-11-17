@@ -1,16 +1,14 @@
 package view;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Scanner;
 
-import commons.Cinema;
-import commons.CineplexStateManager;
-import movie.Movie;
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
-import movie.ShowingStatus;
+import Model.Cinema;
+import Controller.CineplexStateManager;
+import Model.Movie.MovieType;
+import Controller.MovieListingStateManager;
+import Model.ShowingStatus;
 
 /**
  * View Class for moviegoer to book tickets for movies

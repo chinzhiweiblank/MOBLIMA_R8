@@ -1,4 +1,4 @@
-package movie;
+package Model;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;

@@ -1,20 +1,20 @@
-package CSVWriter;
+package Model;
 
 import java.io.IOException;
 
 /**
- * 3D Movie Ticket Manager class
+ * Controller for BlockBuster Movie Tickets
  */
-public class Movie3DTicketManager implements TicketManager {
+public class BlockbusterTicketManager implements TicketManager {
 	/**
-	 * Type of movie for 3D is 2
+	 * Type of movie for Blockbuster is 1
 	 */
-	private int movieType = 2;
+	private int movieType = 1;
 
 	/**
-	 * Constructor for Movie3DTicketManager
+	 * Constructor for BlockbusterTicketManager
 	 */
-	public Movie3DTicketManager(){};
+	public BlockbusterTicketManager(){};
 	/**
 	 * Reads the price
 	 * @param movieClass Class of Movie booked
@@ -27,12 +27,12 @@ public class Movie3DTicketManager implements TicketManager {
 	}
 
 	/**
-	 * Updates the price
-	 * @param movieClass Class of Movie booked
-	 * @param age Age of Person booking
-	 * @param day Day when Ticket was Booked
+	 * Update the price
+	 * @param movieClass Class of movie booked
+	 * @param age Age of person booking
+	 * @param day Day when ticket was booked
 	 * @param price Price of Ticket
-	 * @return 1 if Successful and 0 otherwise
+	 * @return 1 if successful and 0 otherwise
 	 */
 	public int updatePrice(int movieClass, int age, int day, int price) throws IOException {
 		return CSVcontroller.CSVstatic.updatePrice(movieType, movieClass, age, day, price);

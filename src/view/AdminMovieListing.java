@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-import commons.Cinema;
-import commons.CineplexState;
-import commons.CineplexStateManager;
-import movie.Movie;
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
-import movie.Review;
-import movie.ShowingStatus;
+import Model.Cinema;
+import Model.CineplexState;
+import Controller.CineplexStateManager;
+import Model.Movie;
+import Model.Movie.MovieType;
+import Controller.MovieListingStateManager;
+import Model.Review;
+import Model.ShowingStatus;
 /**
  * Controller class to manage admin menu movie listing
  */

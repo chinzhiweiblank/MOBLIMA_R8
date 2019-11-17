@@ -1,4 +1,4 @@
-package commons;
+package Model;
 
 /**
  * Interface for Booking Managers

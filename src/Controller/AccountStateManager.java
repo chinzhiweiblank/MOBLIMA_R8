@@ -1,4 +1,9 @@
-package commons;
+package Controller;
+
+import Model.AccountType;
+import Model.AdminUser;
+import Model.MovieGoer;
+import Model.Person;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -127,9 +132,12 @@ public class AccountStateManager implements java.io.Serializable {
 		}
 
 		catch (IOException exceptionMessage) {
+			System.out.println("Account state manager");
+			System.out.println("IOexception is caught");
 		}
 
 		catch (ClassNotFoundException exceptionMessage) {
+			System.out.println("Account state manager");
 			System.out.println("ClassNotFoundException is caught");
 		}
 

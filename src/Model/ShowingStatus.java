@@ -1,4 +1,4 @@
-package movie;
+package Model;
 
 /**
  * stores the various types of showing status

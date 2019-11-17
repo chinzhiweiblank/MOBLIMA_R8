@@ -1,13 +1,11 @@
 package view;
 
 import java.util.ArrayList;
-import java.util.Hashtable;
 import java.util.Scanner;
 
-import commons.CineplexStateManager;
-import movie.Movie;
-import movie.MovieListingStateManager;
-import movie.ShowingStatus;
+import Controller.CineplexStateManager;
+import Model.Movie;
+import Controller.MovieListingStateManager;
 
 /**
  * View Class for moviegoer to view movie details or to book and purchase tickets

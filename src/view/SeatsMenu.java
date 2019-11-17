@@ -4,21 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import CSVWriter.BlockbusterTicketManager;
-import CSVWriter.ImaxTicketManager;
-import CSVWriter.Movie3DTicketManager;
-import CSVWriter.TicketManager;
-import commons.AccountType;
-import commons.Booking;
-import commons.BookingManager;
-import commons.Cinema;
-import commons.Cinema.CinemaType;
-import commons.CineplexStateManager;
-import commons.ConfigurationStateManager;
-import commons.MovieGoer;
-import commons.OverallStateManager;
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
+import Model.BlockbusterTicketManager;
+import Model.ImaxTicketManager;
+import Model.Movie3DTicketManager;
+import Model.TicketManager;
+import Model.AccountType;
+import Model.Booking;
+import Model.BookingManager;
+import Model.Cinema;
+import Model.Cinema.CinemaType;
+import Controller.CineplexStateManager;
+import Controller.ConfigurationStateManager;
+import Model.MovieGoer;
+import Controller.OverallStateManager;
+import Model.Movie.MovieType;
+import Controller.MovieListingStateManager;
 /**
  * View Class for moviegoer to book their seat for the movie
  */

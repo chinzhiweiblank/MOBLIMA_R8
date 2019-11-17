@@ -1,15 +1,13 @@
-package commons;
+package Model;
 
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Set;
 
-import commons.Cinema.CinemaType;
-import commons.Cinema.MovieRating;
-import movie.Movie.MovieType;
-import movie.MovieListingStateManager;
-import movie.ShowingStatus;
-import movie.Movie;
+import Model.Cinema.CinemaType;
+import Model.Cinema.MovieRating;
+import Model.Movie.MovieType;
+import Controller.MovieListingStateManager;
 
 /**
  * Singleton Class representing the state of a Cineplex

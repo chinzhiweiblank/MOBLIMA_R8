@@ -2,10 +2,10 @@ package view;
 
 import java.util.Scanner;
 
-import commons.AccountStateManager;
-import commons.AccountType;
-import commons.OverallStateManager;
-import commons.Person;
+import Controller.AccountStateManager;
+import Model.AccountType;
+import Controller.OverallStateManager;
+import Model.Person;
 /**
  * View Class for admin to select login
  */

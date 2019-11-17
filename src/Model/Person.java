@@ -1,4 +1,4 @@
-package commons;
+package Model;
 
 /**
  * Model class representing a person

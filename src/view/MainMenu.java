@@ -1,6 +1,6 @@
 package view;
 
-import commons.OverallStateManager;
+import Controller.OverallStateManager;
 
 /**
  * Overall View Object

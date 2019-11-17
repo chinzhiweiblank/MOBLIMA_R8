@@ -1,4 +1,4 @@
-package commons;
+package Model;
 
 /**
  * Model Class representing a cinema

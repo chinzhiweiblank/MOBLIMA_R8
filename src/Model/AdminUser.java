@@ -1,4 +1,4 @@
-package commons;
+package Model;
 
 /**
  * Represents a user with administrative privileges

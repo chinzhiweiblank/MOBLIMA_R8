@@ -1,4 +1,6 @@
-package movie;
+package Controller;
+
+import Model.Movie;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -394,6 +396,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 
 		catch (ClassNotFoundException exceptionMessage) {
+			System.out.println("movie listing state manager");
 			System.out.println("ClassNotFoundException is caught");
 		}
 

@@ -3,12 +3,12 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import commons.Cinema;
-import commons.Cinema.CinemaType;
-import commons.Cinema.MovieRating;
-import commons.CineplexState;
-import commons.CineplexStateManager;
-import movie.Movie.MovieType;
+import Model.Cinema;
+import Model.Cinema.CinemaType;
+import Model.Cinema.MovieRating;
+import Model.CineplexState;
+import Controller.CineplexStateManager;
+import Model.Movie.MovieType;
 /**
  * View Class for admin, CRUD selections for movie showtime
  */

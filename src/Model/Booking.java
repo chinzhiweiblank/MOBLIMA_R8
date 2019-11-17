@@ -1,10 +1,10 @@
-package commons;
+package Model;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import movie.Movie.MovieType;
+import Model.Movie.MovieType;
 
 /**
  * Represents a booking the moviegoer is making or has made

@@ -1,13 +1,13 @@
-package movie;
+package Model;
 
-import commons.MovieGoer;
+import Controller.MovieListingStateManager;
 
 /**
  * review manager class
  */
 public class ReviewManager implements IReviewManager {
 	private Review reviewObj;
-	private MovieListingStateManager MovieListingStateManager;
+	private Controller.MovieListingStateManager MovieListingStateManager;
 	private MovieGoer movieGoer;
 
 	/**

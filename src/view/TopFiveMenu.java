@@ -2,8 +2,8 @@ package view;
 
 import java.util.ArrayList;
 
-import movie.Movie;
-import movie.MovieListingStateManager;
+import Model.Movie;
+import Controller.MovieListingStateManager;
 /**
  * Menu for moviegoer to see top 5 movies by sales and rating
  */

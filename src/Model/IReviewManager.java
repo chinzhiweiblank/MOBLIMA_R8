@@ -1,4 +1,4 @@
-package movie;
+package Model;
 
 /**
  * interface that requires a submission of review

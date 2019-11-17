@@ -1,7 +1,7 @@
-package commons;
+package Model;
 
-import movie.MovieListingStateManager;
-import movie.ShowingStatus;
+import Controller.CineplexStateManager;
+import Controller.MovieListingStateManager;
 
 /**
  * Represents the controller class managing the Bookings
