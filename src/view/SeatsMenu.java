@@ -69,6 +69,17 @@ public class SeatsMenu extends View {
 
 		String cineplex = inputCineplex();
 		int timing = inputTiming(cineplex);
+
+		String date;
+		loop: while(true){
+			System.out.println("Enter date (YYYYMMDD):");
+			sc.nextLine();
+			date = sc.nextLine();
+			if (configurationStateManager.verifyDate(date)){
+				break loop;
+			}
+		}
+
 		String cinema = inputCinema(cineplex, this.movieName, timing, this.movieType);
 
 		while (true) {
@@ -79,7 +90,7 @@ public class SeatsMenu extends View {
 					// if user has not logged in yet
 					display(this, new loginMenu(AccountType.USER));
 				}
-				inputSeatSelection(movieName, timing, cinema, cineplex, this.movieType);
+				inputSeatSelection(movieName, timing, cinema, cineplex, this.movieType,date);
 
 
 				// go back to home
@@ -104,23 +115,13 @@ public class SeatsMenu extends View {
 	 * @param movieType
 	 */
 	private void inputSeatSelection(String movieName, int showTime, String cinemaId, String cineplex,
-			MovieType movieType) {
+			MovieType movieType, String date) {
 
 
 		ArrayList<Booking> bookinglist = new ArrayList<Booking>();
 		System.out.println("Enter number of seats: ");
 		int n = sc.nextInt();
 		cineplexStateManager.printSeatAvailability(cineplex, movieName, showTime, cinemaId, movieType,this.cinemaType);
-
-		String date;
-		loop: while(true){
-			System.out.println("Enter date (YYYYMMDD):");
-			sc.nextLine();
-			date = sc.nextLine();
-			if (configurationStateManager.verifyDate(date)){
-				break loop;
-			}
-		}
 
 		for (int i = 1; i <= n; i++) {
 			int success = 0;

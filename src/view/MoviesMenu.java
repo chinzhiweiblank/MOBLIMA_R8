@@ -97,7 +97,7 @@ public class MoviesMenu extends View {
 	 */
 	private void printMovieList(ArrayList<String> movieList){
 
-		System.out.println("Movies currently showing:");
+		System.out.println("Movies listed:");
 		System.out.println("");
 		if (movieList.isEmpty()){
 			System.out.println("None");

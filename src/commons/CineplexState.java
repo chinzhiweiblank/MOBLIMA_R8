@@ -293,6 +293,13 @@ public class CineplexState implements java.io.Serializable {
 
 	}
 
+	public void deleteCinemaShowtime(String movieName,MovieType movieType,CinemaType cinemaType){
+		String movieNameAndType = movieName + "_" + movieType.toString() + "_" + cinemaType.toString();
+		if (this.cineplexState.containsKey(movieNameAndType)){
+			this.cineplexState.remove(movieNameAndType);
+		}
+	}
+
 	// other helper functions
 	public String removeMovieType(String movieNameAndType) {
 		int spaceIndex = movieNameAndType.indexOf("_");

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import commons.Cinema;
+import commons.CineplexState;
+import commons.CineplexStateManager;
 import movie.Movie;
 import movie.Movie.MovieType;
 import movie.MovieListingStateManager;
@@ -15,6 +18,7 @@ import movie.ShowingStatus;
 public class AdminMovieListing extends View {
 
 	private MovieListingStateManager movieListingStateManager;
+	private CineplexStateManager cineplexStateManager;
 
 	@Override
 	/**
@@ -40,6 +44,7 @@ public class AdminMovieListing extends View {
 		loop: while (true) {
 			int choice = getInput(options());
 			movieListingStateManager = MovieListingStateManager.getInstance();
+			cineplexStateManager = CineplexStateManager.getInstance();
 			switch (choice) {
 			case 1:
 				Movie movieAdd = createMovieListing();
@@ -91,8 +96,17 @@ public class AdminMovieListing extends View {
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();
 		movieListingStateManager.deleteListing(movieName);
-		System.out.printf("%s has been successfully deleted",movieName);
+		System.out.printf("%s has been successfully deleted\n",movieName);
 
+		//loop through all cinplex location
+		for (String cineplexLocation : cineplexStateManager.listCineplex()){
+			CineplexState cineplexState = cineplexStateManager.readCineplexState(cineplexLocation);
+			for (Cinema.CinemaType cinemaType : Cinema.CinemaType.values()){
+				for (MovieType movieType:MovieType.values()){
+					cineplexState.deleteCinemaShowtime(movieName,movieType,cinemaType);
+				}
+			}
+		}
 	}
 
 	private void updateMovieListing() {
@@ -114,7 +128,7 @@ public class AdminMovieListing extends View {
 		String value = sc.nextLine();
 		movieListingStateManager.updateListing(movieName, field, value);
 
-		System.out.printf("%s has been successfully modified",value);
+		System.out.printf("%s has been successfully modified\n",value);
 	}
 
 	/**

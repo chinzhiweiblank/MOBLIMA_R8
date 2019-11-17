@@ -31,8 +31,8 @@ public class testApp {
 		Cinema hall5 = new Cinema(10, 8, 1900, "001", CinemaType.Goldclass, MovieRating.NC);
 		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall5, MovieType.Blockbuster,CinemaType.Goldclass);
 
-		Cinema hall6 = new Cinema(10, 8, 2100, "002", CinemaType.Regular, MovieRating.PG);
-		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall6, MovieType.ThreeD,CinemaType.Regular);
+		Cinema hall6 = new Cinema(10, 8, 2100, "002", CinemaType.Goldclass, MovieRating.PG);
+		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "WALL-E", hall6, MovieType.ThreeD,CinemaType.Goldclass);
 
 		Cinema hall7 = new Cinema(10, 8, 2300, "001", CinemaType.Platinum, MovieRating.PG);
 		cineplexStateManager.insertCineplexShowtime("Shaw bedok", "Infinity wars", hall7, MovieType.IMAX,CinemaType.Platinum);
@@ -148,9 +148,9 @@ public class testApp {
 		// serialize some accounts
 		AccountStateManager accountStateManager = AccountStateManager.getInstance();
 
-		Booking newBooking1 = new Booking("WALL-E", "1", "GV tampines", 1, 3, 1234, "anthony@ntu.sg", "anthony",
+		Booking newBooking1 = new Booking("WALL-E", "1", "GV tampines", 1, 3, 1234, "anthony@ntu.sg", "Anthony Fong",
 				"98209339", 12, MovieType.Blockbuster,CinemaType.Platinum, "20191110");
-		Booking newBooking2 = new Booking("Spiderman", "1", "Shaw bedok", 1, 3, 1234, "anthony@ntu.sg", "anthony",
+		Booking newBooking2 = new Booking("Spiderman", "1", "Shaw bedok", 1, 3, 1234, "anthony@ntu.sg", "Anthony Fong",
 				"98209339", 15, MovieType.Blockbuster,CinemaType.Platinum, "20191009");
 		Booking newBooking3 = new Booking("WALL-E", "2", "GV tampines", 2, 4, 1330, "zhiwei@ntu.sg", "Zhiwei",
 				"99999999", 10, MovieType.Blockbuster,CinemaType.Goldclass, "20191009");

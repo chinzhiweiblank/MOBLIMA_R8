@@ -51,21 +51,6 @@ public class CineplexStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
-//	// functions used for booking
-//	public ArrayList<String> listMoviesShowing() {
-//		ArrayList<String> movieList = new ArrayList<String>();
-//		// loop through every cineplex and aggregrate the results
-//		this.cineplexStateMulti.forEach((k, v) -> {
-//			ArrayList<String> tempList = v.listMoviesShowing();
-//			for (String movieName : tempList) {
-//				if (!movieList.contains(movieName)) {
-//					movieList.add(movieName);
-//				}
-//			}
-//		});
-//		return movieList;
-//	}
-
 	/**
 	 * Iterates through each state of the cineplexes and updates the status of the movies shown at the cineplexes
 	 * @return a HashTable representing the status of the movies shown at the cineplexes
@@ -143,6 +128,7 @@ public class CineplexStateManager implements java.io.Serializable {
 			}
 			System.out.println("");
 		}
+
 		if (!haveShowTime){
 			System.out.println("No showtimes available for this movie type!");
 		}

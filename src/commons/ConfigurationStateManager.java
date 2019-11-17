@@ -105,24 +105,6 @@ public class ConfigurationStateManager implements java.io.Serializable {
 		return 0;
 	}
 
-//	public int getTodayDateType() {
-//		// return either weekday, weekend or holiday (1,2,3)
-//		Calendar calendar = Calendar.getInstance();
-//		DateFormat dateFormat = new SimpleDateFormat("YYYYMMdd");
-//		String dateToday = dateFormat.format(calendar.getTime());
-//		if (holiday.contains(dateToday)) {
-//			// holiday
-//			return 3;
-//		} else {
-//			if (getWeekend()) {
-//				// weekend
-//				return 2;
-//			} else {
-//				// weekday
-//				return 1;
-//			}
-//		}
-//	}
 
 	/**
 	 * Checks a date is a holiday or a weekend or a weekday

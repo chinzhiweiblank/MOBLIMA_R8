@@ -51,17 +51,6 @@ public class MovieBookingMenu extends View {
 		MovieType movieType = MovieType.valueOf(userInputString[1]);
 		Cinema.CinemaType cinemaType = Cinema.CinemaType.valueOf(userInputString[2]);
 
-		if (movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.Coming_Soon ||
-				movieListingStateManager.readListing(movieName).getShowingStatus() == ShowingStatus.End_Of_Showing){
-			System.out.println("No showtimes available for this movie type!");
-		}
-
-//		String movieName = inputMovie(cineplexStateManager);
-//		MovieType movieType = inputMovieType();
-//		Cinema.CinemaType cinemaType = inputCinemaType();
-//		if(movieType==null){
-//			getPrevView(); return ;
-//		}
 		if(cineplexStateManager.displayShowTime(movieName, movieType, cinemaType)){
 			int choice = 0;
 			while (choice != 2) {
@@ -177,7 +166,7 @@ public class MovieBookingMenu extends View {
 
 		Hashtable<Integer,String> userInputMapping = new Hashtable<Integer,String>();
 
-		System.out.println("Movies currently showing:");
+		System.out.println("Movies: ");
 		System.out.println("");
 		if (movieHash.isEmpty()){
 			System.out.println("None");
