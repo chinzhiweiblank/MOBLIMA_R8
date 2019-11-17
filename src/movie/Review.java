@@ -10,21 +10,23 @@ public class Review implements java.io.Serializable {
 	private String review;
 	private double rating;
 
+	/**
+	 * constructor for review class
+	 */
 	public Review() {
-		/**
-		 * constructor for review class
-		 */
+
 	};
 
+	/**
+	 * constructor for review class
+	 * @param name name of moviegoer
+	 * @param movieName name of movie
+	 * @param rating rating of movie
+	 * @param time time of movie
+	 * @param review review of movie
+	 */
 	public Review(String name, String movieName, double rating, String time, String review) {
-		/**
-		 * constructor for review class
-		 * @param String name
-		 * @param String movieName
-		 * @param double rating
-		 * @param String time
-		 * @param review
-		 */
+
 		this.name = name;
 		this.movieName = movieName;
 		this.rating = rating;
@@ -32,75 +34,79 @@ public class Review implements java.io.Serializable {
 		this.review = review;
 	}
 
+	/**
+	 * get name
+	 * @return String name
+	 */
 	public String getName() {
-		/**
-		 * get name
-		 * @return String name
-		 */
 		return this.name;
 	}
 
+	/**
+	 * get movie name
+	 * @return String movie name
+	 */
 	public String getMovieName() {
-		/**
-		 * get movie name
-		 * @return String movie name
-		 */
 		return this.movieName;
 	}
 
+	/**
+	 * get movie rating
+	 * @return double rating
+	 */
 	public double getRating() {
-		/**
-		 * get movie rating
-		 * @return double rating
-		 */
 		return this.rating;
 	}
-
+	/**
+	 * get time
+	 * @return String time
+	 */
 	public String getTime() {
-		/**
-		 * get time
-		 * @return String time
-		 */
 		return this.time;
 	}
 
+	/**
+	 * get review
+	 * @return String review
+	 */
 	public String getReview() {
-		/**
-		 * get review
-		 * @return String review
-		 */
+
 		return this.review;
 	}
 
+	/**
+	 * set the name
+	 * @param name name of moviegoer
+	 */
 	public void setName(String name) {
-		/**
-		 * set the name
-		 * @param String name
-		 */
+
 		this.name = name;
 	}
 
+	/**
+	 * set the rating
+	 * @param rating rating of the movie
+	 */
 	public void setRating(double rating) {
-		/**
-		 * set the rating
-		 * @param double rating
-		 */
+
 		this.rating = rating;
 	}
 
+
+	/**
+	 * set the time
+	 * @param time time of the movie
+	 */
 	public void setTime(String time) {
-		/**
-		 * set the time
-		 * @param String time
-		 */
 		this.time = time;
 	}
 
+	/**
+	 * set the review
+	 * @param review review of the movie
+	 */
 	public void setReview(String review) {
-		/**
-		 * set the review
-		 * @param String review
-		 */
+
 		this.review = review;
 	}
 }

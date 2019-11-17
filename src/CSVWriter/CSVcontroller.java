@@ -10,20 +10,24 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * class for csv controller
+ * Controller class for CSV Files
  */
 public class CSVcontroller {
 
 	/**
-	 * static class for csv controller
+	 * Constructor for CSVcontroller
+	 */
+	public CSVcontroller(){};
+	/**
+	 * Static class for Csv Controller
 	 */
 	public static class CSVstatic {
+		/**
+		 * load database
+		 * @param movieType type of movie
+		 * @return a list of list of strings representing the database
+		 */
 		private static List<List<String>> loadDatabase(int movieType) throws IOException {
-			/**
-			 * load database
-			 * @param int movieType
-			 * @return List<List<String>> database
-			 */
 			String row;
 			List<List<String>> database = new ArrayList<List<String>>();
 
@@ -40,6 +44,11 @@ public class CSVcontroller {
 			return database;
 		}
 
+		/**
+		 * Gets the file path based on the type of movie
+		 * @param movieType Type of movie
+		 * @return filepath The path of the file
+		 */
 		private static String getFilePath(int movieType) {
 			/**
 			 * get the file path
@@ -54,15 +63,16 @@ public class CSVcontroller {
 			return filePath;
 		}
 
+		/**
+		 * Reads the price
+		 * @param movieType Type of Movie booked
+		 * @param movieClass Class of Movie booked
+		 * @param age Age of Person booking
+		 * @param day Day when Ticket was booked
+		 * @return Ticket Price
+		 * @throws IOException Exception raised when input is wrong
+		 */
 		protected static double readPrice(int movieType, int movieClass, int age, int day) throws IOException {
-			/**
-			 * read the price
-			 * @param int movieType
-			 * @param int movieClass
-			 * @param int age
-			 * @param int day
-			 * @return double price
-			 */
 			List<List<String>> database = new ArrayList<List<String>>();
 
 			// Error checking for invalid input
@@ -77,17 +87,18 @@ public class CSVcontroller {
 			return Double.parseDouble(database.get(age + 4 * (movieClass - 1)).get(day));
 		}
 
+		/**
+		 * Updates the price
+		 * @param movieType Type of Movie booked
+		 * @param movieClass Class of Movie booked
+		 * @param age Age of user booking
+		 * @param day Day of ticket booked
+		 * @param price Price of ticket
+		 * @return Updated price
+		 * @throws IOException Exception thrown when Input is wrong
+		 */
 		protected static int updatePrice(int movieType, int movieClass, int age, int day, int price)
 				throws IOException {
-			/**
-			 * update the price
-			 * @param int movieType
-			 * @param int movieClass
-			 * @param int age
-			 * @param int day
-			 * @param int price
-			 * @return int updated price
-			 */
 			List<List<String>> database = new ArrayList<List<String>>();
 
 			// Error checking for invalid input

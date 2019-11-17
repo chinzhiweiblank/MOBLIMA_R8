@@ -8,16 +8,17 @@ import commons.MovieGoer;
 import commons.OverallStateManager;
 
 /**
- * menu for moviegoer to search movies, view booking history or list top 5 movies
+ * View Class for moviegoer to search movies, view booking history or list top 5 movies
  */
 public class MovieGoerMenu extends View {
 
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
-	@Override
 	/**
-	 * print the various options for moviegoer to select
+	 * Prints out available options for Moviegoer
+	 * @return Number of options available
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -28,10 +29,10 @@ public class MovieGoerMenu extends View {
 		return 4;
 	}
 
-	@Override
 	/**
-	 * choices for moviegoer to select
+	 * Shows choices for moviegoer to select
 	 */
+	@Override
 	protected void runMenu() {
 
 		int choice = 0;

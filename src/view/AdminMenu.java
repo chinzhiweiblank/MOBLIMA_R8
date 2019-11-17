@@ -4,17 +4,18 @@ import commons.AccountStateManager;
 import commons.AccountType;
 import commons.OverallStateManager;
 /**
- * main menu for admin
+ * View class for admin
  */
 public class AdminMenu extends View {
 	boolean authorised;
 	private AccountStateManager accountStateManager = AccountStateManager.getInstance();
 	private OverallStateManager overallStateManager = OverallStateManager.getInstance();
 
-	@Override
 	/**
-	 * print the various options for admin to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -25,10 +26,10 @@ public class AdminMenu extends View {
 		return 4;
 	}
 
-	@Override
 	/**
-	 * run the function which the admin selects
+	 * Runs the function which the admin selects
 	 */
+	@Override
 	protected void runMenu() {
 
 		if (!overallStateManager.getloginStatus(AccountType.ADMIN)) {
@@ -56,10 +57,9 @@ public class AdminMenu extends View {
 	}
 
 	/**
-	 * function to authenticate admin user
+	 * Function to authenticate admin user
 	 */
 	private void login() {
-
 		display(this, new loginMenu(AccountType.ADMIN));
 	}
 

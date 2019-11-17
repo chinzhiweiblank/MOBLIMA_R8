@@ -10,14 +10,19 @@ import commons.CineplexState;
 import commons.CineplexStateManager;
 import movie.Movie.MovieType;
 /**
- * menu for admin, CRUD selections for movie showtime
+ * View Class for admin, CRUD selections for movie showtime
  */
 public class AdminMovieShowtime extends View {
-	Scanner sc = new Scanner(System.in);
-	@Override
 	/**
-	 * print the various options for admin to select
+	 * Scanner to process inputs
 	 */
+	Scanner sc = new Scanner(System.in);
+
+	/**
+	 * Prints out available options
+	 * @return Number of options available
+	 */
+	@Override
 	protected int options() {
 
         System.out.println("+--------------------------------------------------------+");
@@ -29,10 +34,10 @@ public class AdminMovieShowtime extends View {
 		return 5;
 	}
 
-	@Override
 	/**
 	 * choices for admin to select create, read or delete
 	 */
+	@Override
 	protected void runMenu() {
 
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
@@ -60,8 +65,8 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * read movie listing show time
-	 * @param cineplexStateManager
+	 * Reads movie listing show time
+	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void readMovieShowtime(CineplexStateManager cineplexStateManager) {
 		Scanner sc = new Scanner(System.in);
@@ -85,7 +90,7 @@ public class AdminMovieShowtime extends View {
 
 	/**
 	 * create a showtime for the movie listing
-	 * @param cineplexStateManager
+	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void createMovieShowtime(CineplexStateManager cineplexStateManager) {
 		Scanner sc = new Scanner(System.in);
@@ -127,7 +132,7 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * enter the movie listing type
+	 * Enters the movie listing type
 	 * @return MovieType
 	 */
 	private MovieType inputMovieType() {
@@ -147,7 +152,7 @@ public class AdminMovieShowtime extends View {
 
 	/**
 	 * update the movie listing showtime
-	 * @param cineplexStateManager
+	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void updateMovieShowtime(CineplexStateManager cineplexStateManager) {
 
@@ -206,8 +211,8 @@ public class AdminMovieShowtime extends View {
 	}
 
 	/**
-	 * delete movie listing show time
-	 * @param cineplexStateManager
+	 * Delete movie listing show time
+	 * @param cineplexStateManager cineplex state manager
 	 */
 	private void deleteMovieShowtime(CineplexStateManager cineplexStateManager) {
 

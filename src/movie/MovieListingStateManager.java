@@ -23,19 +23,21 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	private Hashtable<String, Double> movieSalesDict;
 
+	/**
+	 * constructor for MovieListingStateManager
+	 */
 	private MovieListingStateManager() {
-		/**
-		 * constructor for MovieListingStateManager
-		 */
+
 		this.movieListingDict = new Hashtable<String, Movie>();
 		this.movieSalesDict = new Hashtable<String, Double>();
 	}
 
+	/**
+	 * gets and check instance of singleton class
+	 * @return MovieListingStateManager singleton_instance
+	 */
 	public static MovieListingStateManager getInstance() {
-		/**
-		 * gets and check instance of singleton class
-		 * @return MovieListingStateManager singleton_instance
-		 */
+
 		if (singleton_instance == null) {
 			// Synchronised ensures that only one thread is able to create the singleton
 			synchronized (MovieListingStateManager.class) {
@@ -46,11 +48,12 @@ public class MovieListingStateManager implements java.io.Serializable {
 		return singleton_instance;
 	}
 
+	/**
+	 * get movie listing
+	 * @return listArray List of Movie Listings
+	 */
 	public ArrayList<String> getListing(){
-		/**
-		 * get movie listing
-		 * @return ArrayList<String> listArray
-		 */
+
 		ArrayList<String> listArray = new ArrayList<String>();
 		this.movieListingDict.forEach((key, value) -> {
 			listArray.add(key);
@@ -59,14 +62,15 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	// CRUD operations
+	/**
+	 * create the movie listing
+	 * @param listing listing of the movie
+	 * @param movie movie
+	 * @param sales sales
+	 * @return int 1 if successful, 0 if unsuccessful
+	 */
 	public int createListing(String listing, Movie movie, Double sales) {
-		/**
-		 * create the movie listing
-		 * @param String listing
-		 * @param Movie movie
-		 * @param Double sales
-		 * @return int 1 if successful, 0 if unsuccessful
-		 */
+
 		try {
 			this.movieListingDict.put(listing, movie);
 			this.movieSalesDict.put(listing, sales);
@@ -77,12 +81,12 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * read the move listing
+	 * @param listing movie listing
+	 * @return Movie movieListingDict.get(listing) if successful, null if unsuccessful
+	 */
 	public Movie readListing(String listing) {
-		/**
-		 * read the move listing
-		 * @param String Listing
-		 * @return Movie movieListingDict.get(listing) if successful, null if unsuccessful
-		 */
 		if (this.movieListingDict.containsKey(listing)) {
 			return this.movieListingDict.get(listing);
 		} else {
@@ -91,23 +95,25 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * print listing
+	 */
 	public void printListing(){
-		/**
-		 * print listing
-		 */
+
 		this.movieListingDict.forEach((key, value) -> {
 			System.out.println(key);
 			value.dumpDetails();
 		});
 	}
 
+	/**
+	 * update the movie listings
+	 * @param listing listing of the movie
+	 * @param movie movie
+	 * @return int 1 if successful, 0 if unsuccessful
+	 */
 	public int updateListing(String listing, Movie movie) {
-		/**
-		 * update the movie listings
-		 * @param String listing
-		 * @param Movie movie
-		 * @return int 1 if successful, 0 if unsuccessful
-		 */
+
 		try {
 			if (this.movieListingDict.containsKey(listing)) {
 				System.out.println("Listing already exists.");
@@ -122,14 +128,15 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * update the movie listings
+	 * @param listing listing of the movie
+	 * @param field field of the movie
+	 * @param value value to set
+	 * @return int 1 if successful, 0 if unsuccessful
+	 */
 	public int updateListing(String listing, String field, String value) {
-		/**
-		 * update the movie listings
-		 * @param String listing
-		 * @param String field
-		 * @param String value
-		 * @return int 1 if successful, 0 if unsuccessful
-		 */
+
 		try {
 			if (this.movieListingDict.containsKey(listing)) {
 				Movie movie = this.movieListingDict.get(listing);
@@ -156,12 +163,13 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * deletes the movie listing
+	 * @param listing listing of the movie
+	 * @return int 1 if successful, 0 if unsuccessful
+	 */
 	public int deleteListing(String listing) {
-		/**
-		 * deletes the movie listing
-		 * @param String listing
-		 * @return int 1 if successful, 0 if unsuccessful
-		 */
+
 		try {
 			if (this.movieListingDict.containsKey(listing)) {
 				this.movieListingDict.remove(listing);
@@ -175,12 +183,13 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * create the sales dictionary
+	 * @param listing listing of the movie
+	 * @param sales sales of the movie
+	 */
 	public void CreateSalesDictionary(String listing, Double sales) {
-		/**
-		 * create the sales dictionary
-		 * @param String listing
-		 * @param Double sales
-		 */
+
 		if (movieSalesDict.containsKey(listing)) {
 			System.out.println("Listing already exist.");
 			return;
@@ -189,12 +198,13 @@ public class MovieListingStateManager implements java.io.Serializable {
 		System.out.printf("Created Listing: %s, Sales: %d.\n", listing, sales);
 	}
 
+	/**
+	 * read the sales dictionary
+	 * @param listing listing of the movie
+	 * @return double movieSalesDict.get(listing) if successful, -1 if not successful
+	 */
 	public double readSalesDictionary(String listing) {
-		/**
-		 * read the sales dictionary
-		 * @param String listing
-		 * @return double movieSalesDict.get(listing) if successful, -1 if not successful
-		 */
+
 		if (!movieSalesDict.containsKey(listing)) {
 			System.out.println("Listing does not exist.");
 			return -1;
@@ -204,12 +214,13 @@ public class MovieListingStateManager implements java.io.Serializable {
 
 	}
 
+	/**
+	 * update sales dictionary
+	 * @param listing listing of the movie
+	 * @param sales sales of the movie
+	 */
 	public void UpdateSalesDictionary(String listing, double sales) {
-		/**
-		 * update sales dictionary
-		 * @param String listing
-		 * @param double sales
-		 */
+
 		if (!movieSalesDict.containsKey(listing)) {
 			System.out.println("Listing does not exist.");
 			return;
@@ -218,12 +229,13 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 	// other operations
+	/**
+	 * search for the movie in listing
+	 * @param listing listing of the movie
+	 * @return Movie movieListingDict.get(listing) if successful, null if not successful
+	 */
 	public Movie searchMovie(String listing) {
-		/**
-		 * search for the movie in listing
-		 * @param String listing
-		 * @return Movie movieListingDict.get(listing) if successful, null if not successful
-		 */
+
 		try {
 			if (movieListingDict.containsKey(listing)) {
 				return this.movieListingDict.get(listing);
@@ -237,11 +249,12 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	}
 
+	/**
+	 * list the top 5 movies sorted by sales
+	 * @return sortedMovie List of Movies in sorted order
+	 */
 	public ArrayList<Movie> listTopFiveSales() {
-		/**
-		 * list the top 5 movies sorted by sales
-		 * @return ArrayList<Movie> sorted Movies
-		 */
+
 		ArrayList<String> sortedString = new ArrayList<String>();
 		Set<String> keys = this.movieSalesDict.keySet();
 		for (String movieName : keys) {
@@ -278,11 +291,12 @@ public class MovieListingStateManager implements java.io.Serializable {
 		return sortedMovie;
 	}
 
+	/**
+	 * list the top 5 movies sorted by ratings
+	 * @return sortedMovie List of movies in sorted order
+	 */
 	public ArrayList<Movie> listTopFiveRatings() {
-		/**
-		 * list the top 5 movies sorted by ratings
-		 * @return ArrayList<Movie> sorted movies
-		 */
+
 		ArrayList<Movie> sortedMovie = new ArrayList<Movie>();
 		Set<String> keys = this.movieListingDict.keySet();
 		for (String movieName : keys) {
@@ -315,11 +329,12 @@ public class MovieListingStateManager implements java.io.Serializable {
 		return sortedMovie;
 	}
 
+	/**
+	 * movie list
+	 * @return moviesList List of movies
+	 */
 	public ArrayList<String> listMovies() {
-		/**
-		 * movie list
-		 * @return ArrayList<String> movieList
-		 */
+
 		ArrayList<String> moviesList = new ArrayList<String>();
 		Set<String> keys = this.movieListingDict.keySet();
 		for (String movieName : keys) {
@@ -329,10 +344,11 @@ public class MovieListingStateManager implements java.io.Serializable {
 	}
 
 
+	/**
+	 * Serialize of object
+	 */
 		public void serialize() {
-			/**
-			 * Serialize of object
-			 */
+
 
 		try {
 			String filename = "data/MovieListingState.ser";
@@ -352,10 +368,11 @@ public class MovieListingStateManager implements java.io.Serializable {
 		}
 	};
 
+	/**
+	 * Deserialization of object
+	 */
 	public void deserialize() {
-		/**
-		 * Deserialization of object
-		 */
+
 		// Deserialization
 		try {
 			// Reading the object from a file

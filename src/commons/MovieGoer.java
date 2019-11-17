@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import movie.Review;
 
 /**
- * Model class representing a moviegover
+ * Model class representing a moviegoer
  */
 public class MovieGoer extends Person {
 	/**

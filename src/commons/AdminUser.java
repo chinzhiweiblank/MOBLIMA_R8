@@ -61,8 +61,8 @@ public class AdminUser extends Person {
 
 	/**
 	 * Verifies the username and password for a successful login
-	 * @param inputUsername
-	 * @param inputPassword
+	 * @param inputUsername Username of user
+	 * @param inputPassword Password of user
 	 * @return True if the username and password matches an account in the database and False otherwise
 	 */
 	public boolean verifyLogin(String inputUsername, String inputPassword) {

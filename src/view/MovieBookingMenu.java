@@ -13,16 +13,17 @@ import movie.MovieListingStateManager;
 import movie.ShowingStatus;
 
 /**
- * menu for moviegoer to book tickets for movies
+ * View Class for moviegoer to book tickets for movies
  */
 public class MovieBookingMenu extends View {
 	private MovieListingStateManager movieListingStateManager = MovieListingStateManager.getInstance();
 	Scanner sc = new Scanner(System.in);
 
-	@Override
 	/**
-	 * print the various options for moviegoer to select
+	 * Prints out available options
+	 * @return Number of options available
 	 */
+	@Override
 	protected int options() {
 
 		System.out.println("+--------------------------------------------------------+");
@@ -31,10 +32,10 @@ public class MovieBookingMenu extends View {
 		return 2;
 	}
 
-	@Override
 	/**
-	 * choices for moviegoer to select
+	 * Prints out choices for moviegoer to select
 	 */
+	@Override
 	protected void runMenu() {
 
 		CineplexStateManager cineplexStateManager = CineplexStateManager.getInstance();
@@ -75,8 +76,8 @@ public class MovieBookingMenu extends View {
 
 	// other helper functions
 	/**
-	 * remove the movie listing type attribute
-	 * @param movieNameAndType
+	 * Removes the movie listing type attribute
+	 * @param movieNameAndType name and type of movie
 	 * @return String movieName
 	 */
 	public String removeMovieType(String movieNameAndType) {
@@ -90,8 +91,8 @@ public class MovieBookingMenu extends View {
 	}
 
 	/**
-	 * user to enter movie listing
-	 * @param cineplexStateManager
+	 * User to enter movie listing
+	 * @param cineplexStateManager cineplex state manager
 	 * @return String movieInput if successful, null if unsuccessful
 	 */
 	private String inputMovie(CineplexStateManager cineplexStateManager) {
@@ -124,7 +125,7 @@ public class MovieBookingMenu extends View {
 	}
 
 	/**
-	 * user to enter movie listing type
+	 * User to enter movie listing type
 	 * @return MovieType movieType
 	 */
 	private MovieType inputMovieType() {
@@ -144,7 +145,7 @@ public class MovieBookingMenu extends View {
 
 
 	/**
-	 * user to input cinema type
+	 * User to input cinema type
 	 * @return Cinema.CinemaType cinemaType
 	 */
 	private Cinema.CinemaType inputCinemaType(){
@@ -157,8 +158,8 @@ public class MovieBookingMenu extends View {
 
 
 	/**
-	 * print out the list of movie listings
-	 * @param movieHash
+	 * Prints out the list of movie listings
+	 * @param movieHash hashtable of movies
 	 * @return Hashtable<Integer, String> userInputMapping if there are movie listings, null if none
 	 */
 	private Hashtable<Integer,String> printMovieList(Hashtable<ShowingStatus,ArrayList<String>> movieHash) {

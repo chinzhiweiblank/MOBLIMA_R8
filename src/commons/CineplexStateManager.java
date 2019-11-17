@@ -225,8 +225,8 @@ public class CineplexStateManager implements java.io.Serializable {
 	 * @param cinemaId the ID of the cinema
 	 * @param key the key of the cineplex location desired
 	 * @param value the value of the cineplex location desired
-	 * @param movieType
-	 * @param cinemaType
+	 * @param movieType type of movie
+	 * @param cinemaType type of cinema
 	 */
 	public void updateCineplexShowtime(String cineplexLocation, String movieName, String cinemaId, String key,
 									   String value, MovieType movieType, Cinema.CinemaType cinemaType) {

@@ -20,12 +20,13 @@ public class Movie implements java.io.Serializable {
 		IMAX, ThreeD, Blockbuster
 	}
 
+	/**
+	 * constructor for movie
+	 * @param MovieTitle title of the movie
+	 * @param showingStatus showing status of the movie
+	 */
 	public Movie(String MovieTitle, ShowingStatus showingStatus) {
-		/**
-		 * constructor for movie
-		 * @param String MovieTitle
-		 * @param ShowingStatus showingStatus
-		 */
+
 		this.MovieTitle = MovieTitle;
 		this.ShowingStatus = showingStatus;
 		this.Synopsis = "";
@@ -35,19 +36,20 @@ public class Movie implements java.io.Serializable {
 		this.pastReviews = new ArrayList<Review>();
 	}
 
+	/**
+	 * another constructor for movie
+	 * @param MovieTitle title of the movie
+	 * @param showingStatus showing status of the movie
+	 * @param Synopsis synopsis of the movie
+	 * @param Director director of the movie
+	 * @param Cast cast of the movie
+	 * @param OverallRating overall rating of the movie
+	 * @param pastReviews past reviews of the movie
+	 * @param movieType type of the movie
+	 */
 	public Movie(String MovieTitle, ShowingStatus showingStatus, String Synopsis, String Director,
 			ArrayList<String> Cast, double OverallRating, ArrayList<Review> pastReviews, MovieType movieType) {
-		/**
-		 * another constructor for movie
-		 * @param String MovieTitle
-		 * @param ShowingStatus showingStatus
-		 * @param String Synopsis
-		 * @param String Director
-		 * @param ArrayList<String> Cast
-		 * @param double OverallRating
-		 * @param ArrayList<Review> pastReviews
-		 * @param MovieType movieType
-		 */
+
 		this.MovieTitle = MovieTitle;
 		this.ShowingStatus = showingStatus;
 		this.Synopsis = Synopsis;
@@ -59,123 +61,138 @@ public class Movie implements java.io.Serializable {
 	}
 
 	// getter methods
+	/**
+	 * get the movie title
+	 * @return String MovieTitle
+	 */
 	public String getMovieTitle() {
-		/**
-		 * get the movie title
-		 * @return String MovieTitle
-		 */
+
 		return MovieTitle;
 	}
 
+	/**
+	 * get the showing status
+	 * @return ShowingStatus showing status
+	 */
 	public ShowingStatus getShowingStatus() {
-		/**
-		 * get the showing status
-		 * @return ShowingStatus showing status
-		 */
+
 		return this.ShowingStatus;
 	}
 
+	/**
+	 * get the synopsis
+	 * @return String Synopsis
+	 */
 	public String getSynopsis() {
-		/**
-		 * get the synopsis
-		 * @return String Synopsis
-		 */
+
 		return Synopsis;
 	}
 
+	/**
+	 * get the director
+	 * @return String Director
+	 */
 	public String getDirector() {
-		/**
-		 * get the director
-		 * @return String Director
-		 */
+
 		return Director;
 	}
 
+	/**
+	 * get the cast
+	 * @return Cast A list of cast members
+	 */
 	public ArrayList<String> getCast() {
-		/**
-		 * get the cast
-		 * @return ArrayList<String> Cast
-		 */
+
 		return Cast;
 	}
 
+	/**
+	 * get the overall rating
+	 * @return double OverallRating
+	 */
 	public double getOverallRating() {
-		/**
-		 * get the overall rating
-		 * @return double OverallRating
-		 */
+
 		return OverallRating;
 	}
 
+	/**
+	 * get review
+	 * @return pastReviews A list of past reviews
+	 */
 	public ArrayList<Review> getReview() {
-		/**
-		 * get review
-		 * @return ArrayList<Review> pastReviews
-		 */
+
 		return pastReviews;
 	}
 
+	/**
+	 * get type of movie
+	 * @return MovieType Movie type
+	 */
 	public MovieType getMovieType() {
-		/**
-		 * get type of movie
-		 * @return MovieType Movie type
-		 */
+
 		return this.MovieType;
 	}
 
 	// setter methods
+	/**
+	 * set the movie title
+	 * @param MovieTitle title of the movie
+	 */
 	public void setMovieTitle(String MovieTitle) {
-		/**
-		 * set the movie title
-		 * @param String MovieTitle
-		 */
+
 		this.MovieTitle = MovieTitle;
 	}
 
+	/**
+	 * set the showing status
+	 * @param showingStatus showing status of the movie
+	 */
 	public void setShowingStatus(String showingStatus) {
-		/**
-		 * set the showing status
-		 * @param String showingStatus
-		 */
+
 		this.ShowingStatus = ShowingStatus.valueOf(showingStatus);
 	}
 
+	/**
+	 * set the movie type
+	 * @param movieType type of the movie
+	 */
 	public void setMovieType(String movieType) {
-		/**
-		 * set the movie type
-		 * @param String movieType
-		 */
+
 		this.MovieType = MovieType.valueOf(movieType);
 	}
 
+	/**
+	 * set the synopsis
+	 * @param Synopsis synopsis of the movie
+	 */
 	public void setSynopsis(String Synopsis) {
-		/**
-		 * set the synopsis
-		 * @param String Synopsis
-		 */
+
 		this.Synopsis = Synopsis;
 	}
 
+	/**
+	 * set the director
+	 * @param Director director of the movie
+	 */
 	public void setDirector(String Director) {
-		/**
-		 * set the director
-		 * @param String Director
-		 */
+
 		this.Director = Director;
 	}
 
+	/**
+	 * set the cast
+	 * @param Cast cast of the movie
+	 */
 	public void setCast(ArrayList<String> Cast) {
-		/**
-		 * set the cast
-		 * @param ArrayList<String> Cast
-		 */
+
 		this.Cast = Cast;
 	}
 
+	/**
+	 * calculate the overall rating of the movie
+	 */
 	public void calculateOverallRating() {
-		/**
-		 * calculate the overall rating of the movie
-		 */
+
 		if (this.pastReviews.size() < 2) {
 			this.OverallRating = -1;
 			return;
@@ -190,28 +207,30 @@ public class Movie implements java.io.Serializable {
 		double Rating = total / this.pastReviews.size();
 		this.OverallRating = Rating;
 	}
-
+	/**
+	 * set the array list of review
+	 * @param pastReviews past reviews of the movie
+	 */
 	public void setReview(ArrayList<Review> pastReviews) {
-		/**
-		 * set the array list of review
-		 * @param ArrayList<Review> pastReviews
-		 */
+
 		this.pastReviews = pastReviews;
 	}
 
+	/**
+	 * insert the individual review
+	 * @param review of the movie
+	 */
 	public void insertReview(Review review) {
-		/**
-		 * insert the individual review
-		 * @param Review review
-		 */
+
 		this.pastReviews.add(review);
 	}
 
 	// other methods
+	/**
+	 * dumps the movie details into the console log
+	 */
 	public void dumpDetails() {
-		/**
-		 * dumps the movie details into the console log
-		 */
+
 		// dumps the movie details into the console log
 		System.out.printf("Movie title:%s\n", this.getMovieTitle());
 		System.out.printf("Showing status:%s\n", this.getShowingStatus());
