@@ -126,6 +126,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 				System.out.println("Listing already exists.");
 			} else {
 				System.out.println("Listing does not exist.");
+				return 0;
 			}
 			this.movieListingDict.put(listing, movie);
 			return 1;
@@ -182,6 +183,7 @@ public class MovieListingStateManager implements java.io.Serializable {
 				this.movieListingDict.remove(listing);
 			} else {
 				System.out.println("Listing does not exist.");
+				return 0;
 			}
 			return 1;
 		} catch (Exception e) {

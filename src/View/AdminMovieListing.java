@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -52,6 +52,10 @@ public class AdminMovieListing extends View {
 			switch (choice) {
 			case 1:
 				Movie movieAdd = createMovieListing();
+				if(movieAdd==null){
+					System.out.println("Movie Listing could not be created. Please try again.");
+					break;
+				}
 				movieListingStateManager.createListing(movieAdd.getMovieTitle(), movieAdd, 0.0);
 				System.out.println("Movie listing created!");
 				break;
@@ -102,8 +106,10 @@ public class AdminMovieListing extends View {
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Movie name: ");
 		String movieName = sc.nextLine();
-		movieListingStateManager.deleteListing(movieName);
-		System.out.printf("%s has been successfully deleted\n",movieName);
+		int deleteStatus = movieListingStateManager.deleteListing(movieName);
+		if(deleteStatus==1){
+			System.out.printf("%s has been successfully deleted\n",movieName);
+		}
 
 		//loop through all cinplex location
 		for (String cineplexLocation : cineplexStateManager.listCineplex()){
@@ -136,9 +142,10 @@ public class AdminMovieListing extends View {
 			System.out.println("Options include : IMAX, ThreeD, Blockbuster");
 		}
 		String value = sc.nextLine();
-		movieListingStateManager.updateListing(movieName, field, value);
-
-		System.out.printf("%s has been successfully modified\n",value);
+		int listingStatus = movieListingStateManager.updateListing(movieName, field, value);
+		if(listingStatus==1) {
+			System.out.printf("%s has been successfully modified\n", value);
+		}
 	}
 
 	/**
@@ -153,8 +160,14 @@ public class AdminMovieListing extends View {
 
 		System.out.println("Enter Movie showing status: ");
 		System.out.println("Options include : Coming_Soon, Preview, Now_showing, End_Of_Showing");
-
-		ShowingStatus movieStatus = ShowingStatus.valueOf(sc.nextLine());
+		ShowingStatus movieStatus = null;
+		try{
+			movieStatus = ShowingStatus.valueOf(sc.nextLine());
+		}
+		catch (IllegalArgumentException exception){
+			System.out.println("Incorrect Input for Showing Status.");
+			return null;
+		}
 
 		System.out.println("Enter Movie synopsis: ");
 		String movieSynopsis = sc.nextLine();
@@ -172,7 +185,14 @@ public class AdminMovieListing extends View {
 
 		System.out.println("Enter Movie type: ");
 		System.out.println("Options include : IMAX, ThreeD, Blockbuster");
-		MovieType movieType = MovieType.valueOf(sc.nextLine());
+		MovieType movieType = null;
+		try{
+			movieStatus = ShowingStatus.valueOf(sc.nextLine());
+		}
+		catch (IllegalArgumentException exception){
+			System.out.println("Incorrect Input for Movie Type.");
+			return null;
+		}
 
 		System.out.println("Enter Sales: ");
 		double sales = sc.nextDouble();

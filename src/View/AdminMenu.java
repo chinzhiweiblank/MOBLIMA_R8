@@ -1,4 +1,4 @@
-package view;
+package View;
 
 import Controller.AccountStateManager;
 import Model.AccountType;
